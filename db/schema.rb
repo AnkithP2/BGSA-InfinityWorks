@@ -24,12 +24,13 @@ ActiveRecord::Schema.define(version: 2022_09_13_194041) do
   end
 
   create_table "attendances", force: :cascade do |t|
-    t.integer "eventid"
+    t.bigint "event_id"
     t.integer "userid"
     t.boolean "signup"
     t.boolean "attended"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_attendances_on_event_id"
   end
 
   create_table "events", force: :cascade do |t|
