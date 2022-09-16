@@ -35,6 +35,7 @@ class EventsController < ApplicationController
 
   def update
     respond_to do |format|
+        @event = Event.find(params[:id])
         if @event.update(event_params)
           format.html { redirect_to event_url(@event), notice: "Event was successfully updated." }
           format.json { render :show, status: :ok, location: @event }
@@ -45,7 +46,15 @@ class EventsController < ApplicationController
       end
   end
 
+  def delete
+    @event=Event.find(params[:id])
+  end
+
   def destroy
+    @event=Event.find(params[:id])
+    @event.destroy
+    flash[:notice]="Event '#{@event.title}' deleted successfully."
+    redirect_to(events_path)
   end
 
   public
