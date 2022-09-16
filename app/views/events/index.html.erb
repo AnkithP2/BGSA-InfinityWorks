@@ -13,7 +13,6 @@
       <th>Login Code</th>
       <th>Location</th>
       <th>Event Points</th>
-      <th>Those Attending</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,7 +27,6 @@
         <td><%= event.logincode %></td>
         <td><%= event.location %></td>
         <td><%= event.eventpoints %></td>
-        <td><%= event.attendances %></td>
         <td><%= link_to 'Show', event_path(event) %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
