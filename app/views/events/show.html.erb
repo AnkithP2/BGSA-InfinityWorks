@@ -1,2 +1,21 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+    <br>
+  <strong>Start Time:</strong>
+  <%= @event.starttime %>
+    <br>
+  <strong>End Time:</strong>
+  <%= @event.endtime %>
+    <br>
+  <strong>Login Code</strong>
+  <%= @event.logincode %>
+    <br>
+  <strong>Event Points:</strong>
+  <%= @event.eventpoints %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
