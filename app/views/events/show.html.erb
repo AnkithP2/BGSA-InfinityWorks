@@ -18,8 +18,9 @@
     <br>
   <strong>Event Points:</strong>
   <%= @event.eventpoints %>
-
-  <strong>Those attending:</strong>
+    <br>
+  <strong>User ID's Attending:</strong>
+  <%= display_attending %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
