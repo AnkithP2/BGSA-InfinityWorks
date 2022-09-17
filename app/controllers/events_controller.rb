@@ -57,7 +57,7 @@ class EventsController < ApplicationController
     redirect_to(events_path)
   end
 
-  public
+  private
       # Only allow a list of trusted parameters through.
       def event_params
         params.require(:event).permit(:title, :date, :starttime, :endtime, :logincode, :location, :eventpoints)

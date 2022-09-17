@@ -25,7 +25,7 @@
     <%= form.label :location %>
     <%= form.text_field :location %>
     <%= form.label :eventpoints %>
-    <%= form.range_field :eventpoints, in: 1..100 %>
+    <%= form.number_field :eventpoints, in: 1..100, step: 1.0 %>
   </div>
 
   <div class="actions">
