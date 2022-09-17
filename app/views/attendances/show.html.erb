@@ -3,9 +3,9 @@
 <p>
   <strong>Attendance ID:</strong>
   <%= @attendance.id %>
-
+    <br>
   <strong>Event Associated With:</strong>
-  <%= Event.find(event_id).title %>
+  <%= Event.find(@attendance.event_id).title %>
     <br>
   <strong>User ID:</strong>
   <%= @attendance.userid %>
@@ -18,5 +18,5 @@
     <br>
 </p>
 
-<%= link_to 'Edit', edit_Attendance_path(@attendance) %> |
-<%= link_to 'Back', Attendances_path %>
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>

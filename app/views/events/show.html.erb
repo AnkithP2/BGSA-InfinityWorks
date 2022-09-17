@@ -3,7 +3,7 @@
 <p>
   <strong>Event ID:</strong>
   <%= @event.id %>
-
+    <br>
   <strong>Title:</strong>
   <%= @event.title %>
     <br>
@@ -18,6 +18,8 @@
     <br>
   <strong>Event Points:</strong>
   <%= @event.eventpoints %>
+
+  <strong>Those attending:</strong>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

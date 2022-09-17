@@ -53,13 +53,13 @@ class AttendancesController < ApplicationController
   def destroy
     @attendance=Attendance.find(params[:id])
     @attendance.destroy
-    flash[:notice]="attendance '#{@attendance.title}' deleted successfully."
+    flash[:notice]="attendance '#{@attendance.id}' deleted successfully."
     redirect_to(attendances_path)
   end
 
   private
       # Only allow a list of trusted parameters through.
       def attendance_params
-        params.require(:attendance).permit(:title, :date, :starttime, :endtime, :logincode, :location, :attendancepoints)
+        params.require(:attendance).permit(:event_id, :userid, :signup, :attended)
       end
 end
