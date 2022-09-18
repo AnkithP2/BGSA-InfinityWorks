@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Attendance ID:</strong>
+  <%= @attendance.id %>
+    <br>
+  <strong>Event Associated With:</strong>
+  <%= Event.find(@attendance.event_id).title %>
+    <br>
+  <strong>User ID:</strong>
+  <%= @attendance.userid %>
+    <br>
+  <strong>Signed up?:</strong>
+  <%= @attendance.signup %>
+    <br>
+  <strong>Attended?:</strong>
+  <%= @attendance.attended %>
+    <br>
+</p>
+
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>
