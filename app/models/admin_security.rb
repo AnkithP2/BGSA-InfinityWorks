@@ -1,0 +1,2 @@
+class AdminSecurity < ApplicationRecord
+end
