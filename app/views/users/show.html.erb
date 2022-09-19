@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name</strong>
+  <%= @user.firstname %>
+  <%= @user.lastname %>
+    <br>
+  <strong>Semester Points</strong>
+  <%= @user.userpoints %>
+    <br>
+  <strong>Total Points</strong>
+  <%= @user.usertotal %>
+    <br>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
