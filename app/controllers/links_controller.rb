@@ -49,12 +49,11 @@ class LinksController < ApplicationController
   def destroy
     @link=Link.find(params[:id])
     @link.destroy
-    flash[:notice]="link '#{@link.title}' deleted successfully."
+    flash[:notice]="Link '#{@link.title}' deleted successfully."
     redirect_to(links_path)
   end
 
   private
-      # Only allow a list of trusted parameters through.
       def link_params
         params.require(:link).permit(:title, :author, :link)
       end

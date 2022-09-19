@@ -18,7 +18,7 @@
       <tr>
         <td><%= link.author %></td>
         <td><%= link.title %></td>
-        <td><%= link.link %></td>
+        <td><%= link_to link.link, link.link %></td>
 
         <td><%= link_to 'Show', link_path(link) %></td>
         <td><%= link_to 'Edit', edit_link_path(link) %></td>
@@ -31,5 +31,3 @@
 <br>
 
 <%= link_to 'New Link', new_link_path %>
-<br>
-<%= link_to 'New Attendance', new_attendance_path %>
