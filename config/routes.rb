@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
 
+
   resources :admin_securities
   root 'events#index'
 
   resources :rsvps
   resources :attendances
   resources :events
+
+  resources :links
+
 
   resources :admins, only: [:new, :create, :edit, :update, :show, :destroy]
   resources :admin
