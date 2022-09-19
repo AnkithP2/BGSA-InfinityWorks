@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'events#index'
 
+  resources :rsvps
   resources :attendances
   resources :events
   resources :users

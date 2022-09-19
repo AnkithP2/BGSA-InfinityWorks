@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<strong>RSVP ID:</strong>
+<%= @rsvp.id %>
+  <br>
+<strong>Event Associated With:</strong>
+<%= Event.find(@rsvp.event_id).title %>
+  <br>
+<strong>User ID:</strong>
+<%= @rsvp.userid %>
+  <br>
+
+
+<%= link_to 'Edit', edit_rsvp_path(@rsvp) %> |
+<%= link_to 'Back', rsvps_path %>

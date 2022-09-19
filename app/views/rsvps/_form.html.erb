@@ -1,0 +1,25 @@
+<%= form_with(model: rsvp) do |form| %>
+  <% if rsvp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rsvp.errors.count, "error") %> prohibited this rsvp from being saved:</h2>
+
+      <ul>
+        <% rsvp.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.label :event_id %>
+  <%= form.select :event_id, Event.order(:id).map { |event| [event.title, event.id] }, include_blank: true, id: "id_of_the_event_id_select_box" %>
+  <p> USERS STILL NEED TO BE IMPLEMENTED, will be 'select' eventually </p>
+  <%= form.label :userid %>
+  <%= form.number_field :userid %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
