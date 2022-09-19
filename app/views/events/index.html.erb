@@ -36,10 +36,23 @@
 </table>
 
 <br>
+<br>
+<br>
 
 <%= link_to 'New Event', new_event_path %>
 <br>
 <%= link_to 'New Attendance', new_attendance_path %>
+
+<br>
+<%= link_to 'New Admin', new_admin_path %>
+<br>
+<%= link_to 'Login', login_path %>
+<br>
+<%= link_to 'Logout', loginout_path %>
+<br>
+<%= link_to 'All Admin', admins_path(@admins) %>
+<br>
+
 
 
 <br>
@@ -47,4 +60,5 @@
 
 <br>
 <%= link_to 'Point Tracker', users_path %> 
+
 
