@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'events#index'
 
   resources :attendances
-
   resources :events
   resources :admins, only: [:new, :create, :edit, :update, :show, :destroy]
+  resources :admin
   
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
