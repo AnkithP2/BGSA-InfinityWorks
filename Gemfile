@@ -61,4 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'brakeman'
 gem 'rubocop'
+gem 'bcrypt'
+gem 'bcrypt-ruby'
+
 

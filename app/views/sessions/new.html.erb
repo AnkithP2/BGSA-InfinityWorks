@@ -1,0 +1,10 @@
+<h2>New Admin Page</h2>
+<%= form_for @admin  do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %><br>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %><br>
+    <%= submit_tag "Create Admin" %>
+<% end %>
