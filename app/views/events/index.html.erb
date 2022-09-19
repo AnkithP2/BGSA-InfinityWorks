@@ -30,7 +30,7 @@
         <td><%= link_to 'Show', event_path(event) %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
     <% end %>
   </tbody>
 </table>
@@ -42,6 +42,7 @@
 <%= link_to 'New Event', new_event_path %>
 <br>
 <%= link_to 'New Attendance', new_attendance_path %>
+
 <br>
 <%= link_to 'New Admin', new_admin_path %>
 <br>
@@ -51,4 +52,13 @@
 <br>
 <%= link_to 'All Admin', admins_path(@admins) %>
 <br>
+
+
+
+<br>
+<%= link_to 'New RSVP', new_rsvp_path %>
+
+<br>
+<%= link_to 'Point Tracker', users_path %> 
+
 

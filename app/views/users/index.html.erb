@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Point Tracker</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Semester Points</th>
+      <th>Total Points</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.userpoints %></td>
+        <td><%= user.usertotal %></td>
+        <td><%= link_to 'Show', user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'Back', events_path %>

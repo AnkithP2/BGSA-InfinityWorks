@@ -19,8 +19,6 @@
       <tr>
         <td>0</td>
         <td><%= attendance.userid %></td>
-        <td><%= attendance.signup %></td>
-        <td><%= attendance.attended %></td>
         <td><%= link_to 'Show', attendance_path(attendance) %></td>
         <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
         <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,4 +31,8 @@
 
 <%= link_to 'New attendance', new_attendance_path %>
 <br>
-<%= link_to 'Events', events_path %>
+
+<%= link_to 'Home', events_path %>
+<br> 
+<%= link_to 'Point Tracker', users_path %>
+
