@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/spec/feature/integration_spec.rb": {
+      "/csce431/spec/feature/integration_links_spec.rb": {
         "lines": [
           null,
           1,
@@ -9,13 +9,11 @@
           1,
           1,
           1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -354,6 +352,25 @@
       "/csce431/config/routes.rb": {
         "lines": [
           1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
           1,
           1,
           1,
@@ -361,7 +378,34 @@
           null
         ]
       },
+      "/csce431/app/helpers/admin_securities_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/app/helpers/admins_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/csce431/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/app/helpers/attendances_helper.rb": {
         "lines": [
           1,
           null
@@ -373,17 +417,111 @@
           null
         ]
       },
-      "/csce431/spec/models/admin_spec.rb": {
+      "/csce431/app/helpers/events_helper.rb": {
         "lines": [
           1,
-          null,
           1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/app/helpers/links_helper.rb": {
+        "lines": [
           1,
           null
         ]
       },
-      "/csce431/app/models/admin.rb": {
+      "/csce431/app/helpers/rsvps_helper.rb": {
         "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/app/controllers/links_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/csce431/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/app/models/link.rb": {
+        "lines": [
+          1,
           1,
           null
         ]
@@ -394,173 +532,8 @@
           1,
           null
         ]
-      },
-      "/csce431/spec/models/attendance_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/app/models/attendance.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/csce431/spec/models/event_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/app/models/event.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          null
-        ]
-      },
-      "/csce431/spec/models/link_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/app/models/link.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/spec/models/user_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/app/models/user.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/csce431/spec/unit/unit_spec.rb": {
-        "lines": [
-          null,
-          1,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/csce431/app/models/book.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/csce431/app/controllers/books_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/csce431/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1663261746
+    "timestamp": 1663647001
   }
 }
