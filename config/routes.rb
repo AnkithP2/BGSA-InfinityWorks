@@ -3,10 +3,15 @@ Rails.application.routes.draw do
   resources :admin_securities
   root 'events#index'
 
+  resources :rsvps
   resources :attendances
   resources :events
+
   resources :admins, only: [:new, :create, :edit, :update, :show, :destroy]
   resources :admin
+
+  resources :users
+
   
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'

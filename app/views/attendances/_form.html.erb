@@ -17,12 +17,11 @@
     <p> USERS STILL NEED TO BE IMPLEMENTED, will be 'select' eventually </p>
     <%= form.label :userid %>
     <%= form.number_field :userid %>
-    <%= form.label :signup %>
-    <%= form.check_box :signup %>
-    <%= form.label :attended %>
-    <%= form.check_box :attended %>
+    <p id="notice"><%= notice %></p>
+    <%= form.label :password%>
+    <%= form.password_field :password%>
   </div>
-
+  
   <div class="actions">
     <%= form.submit %>
   </div>

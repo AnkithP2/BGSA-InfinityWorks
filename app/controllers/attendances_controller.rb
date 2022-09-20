@@ -17,15 +17,29 @@ class AttendancesController < ApplicationController
   # instantiate the form contents
   def create
     @attendance = Attendance.new(attendance_params)
-
+    if check_password
     respond_to do |format|
       if @attendance.save
         format.html { redirect_to attendance_url(@attendance), notice: "attendance was successfully created." }
         format.json { render :show, status: :created, location: @attendance }
+        begin
+          user = User.find(@attendance.userid)
+        rescue ActiveRecord::RecordNotFound
+          user = User.new(firstname: "John", lastname: "Smith", userpoints: 0, usertotal: 0)
+          user.save
+        ensure
+          event = Event.find(@attendance.event_id)
+          user.userpoints = user.userpoints + event.eventpoints
+          user.usertotal = user.usertotal + event.eventpoints
+          user.save
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       end
+    else
+      flash[:notice] = 'Incorrect Password'
+      redirect_to new_attendance_path
     end
   end
 
@@ -57,9 +71,13 @@ class AttendancesController < ApplicationController
     redirect_to(attendances_path)
   end
 
+  def check_password
+    return @attendance.password == Event.find(@attendance.event_id).logincode
+  end
+
   private
       # Only allow a list of trusted parameters through.
       def attendance_params
-        params.require(:attendance).permit(:event_id, :userid, :signup, :attended)
+        params.require(:attendance).permit(:event_id, :userid, :password)
       end
 end
