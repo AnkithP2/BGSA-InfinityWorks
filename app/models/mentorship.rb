@@ -1,4 +1,6 @@
 class Mentorship < ApplicationRecord
-  belongs_to :mentor_id
-  belongs_to :mentee_id
+  has_many :goals
+
+  belongs_to :mentor_id, class_name: 'User'
+  belongs_to :mentee_id, class_name: 'User'
 end
