@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mentor:</strong>
+  <%= @mentorship.mentor_id_id %>
+</p>
+
+<p>
+  <strong>Mentee:</strong>
+  <%= @mentorship.mentee_id_id %>
+</p>
+
+<%= link_to 'Edit', edit_mentorship_path(@mentorship) %> |
+<%= link_to 'Back', mentorships_path %>

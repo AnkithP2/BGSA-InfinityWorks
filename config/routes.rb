@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :goals
+  resources :mentorships
   resources :admin_securities
   root 'events#index'
 
