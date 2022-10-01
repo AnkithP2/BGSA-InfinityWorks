@@ -1,16 +1,49 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/spec/feature/integration_links_spec.rb": {
+      "/csce431/spec/unit/unit_event_spec.rb": {
         "lines": [
           null,
           1,
           null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
           1,
           1,
           1,
+          null,
+          null,
           1,
           1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
           1,
           1,
           1,
@@ -448,79 +481,10 @@
           null
         ]
       },
-      "/csce431/app/controllers/links_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/csce431/app/controllers/application_controller.rb": {
+      "/csce431/app/models/event.rb": {
         "lines": [
           1,
           null,
-          null
-        ]
-      },
-      "/csce431/app/models/link.rb": {
-        "lines": [
           1,
           1,
           null
@@ -534,6 +498,6 @@
         ]
       }
     },
-    "timestamp": 1663647001
+    "timestamp": 1663640346
   }
 }

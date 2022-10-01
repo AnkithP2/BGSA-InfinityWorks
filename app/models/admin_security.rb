@@ -1,2 +1,0 @@
-class AdminSecurity < ApplicationRecord
-end
