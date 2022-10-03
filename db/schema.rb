@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_19_024651) do
+ActiveRecord::Schema.define(version: 2022_10_03_013449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "admin_securities", force: :cascade do |t|
-    t.date "last_login"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -42,13 +36,13 @@ ActiveRecord::Schema.define(version: 2022_09_19_024651) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.date "date"
-    t.time "starttime"
-    t.time "endtime"
     t.string "logincode"
     t.string "location"
     t.integer "eventpoints"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "starttime"
+    t.datetime "endtime"
   end
 
   create_table "links", force: :cascade do |t|

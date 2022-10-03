@@ -35,6 +35,19 @@
   </tbody>
 </table>
 
+<%= month_calendar(attribute: :starttime, end_attribute: :endtime, events: @meetings) do |date,meetings| %>
+  <div class = "day">
+    <%= date%>
+  </div>
+  <%meetings.each do |meeting|%>
+    <div class= "card-header">
+      <div class= "card-title">
+        <%= meeting.title%>
+      </div>
+    </div>
+  <%end%>
+<% end %>
+
 <br>
 <br>
 <br>
