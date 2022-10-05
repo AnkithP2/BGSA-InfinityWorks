@@ -1,3 +1,3 @@
 class Link < ApplicationRecord
-    validates :author, :title, :link, presence: true
+    validates :section, :title, :link, presence: true
 end

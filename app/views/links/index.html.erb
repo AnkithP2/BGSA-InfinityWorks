@@ -6,7 +6,7 @@
 <table>
   <thead>
     <tr>
-      <th>Author</th>
+      <th>Section</th>
       <th>Title</th>
       <th>Link</th>
       <th colspan="3"></th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link.author %></td>
+        <td><%= link.section %></td>
         <td><%= link.title %></td>
         <td><%= link_to link.link, link.link %></td>
 
