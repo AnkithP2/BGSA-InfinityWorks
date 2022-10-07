@@ -17,7 +17,7 @@ This code has been run and tested on:
 
 * Docker - Download latest version at https://www.docker.com/products/docker-desktop
 * Heroku CLI - Download latest version at https://devcenter.heroku.com/articles/heroku-cli
-* Git - Downloat latest version at https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+* Git - Download latest version at https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
 ## Installation ##
 
