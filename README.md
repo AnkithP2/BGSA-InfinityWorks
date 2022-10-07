@@ -23,7 +23,7 @@ This code has been run and tested on:
 
 Download this code repository by using git:
 
- `git clone https://github.com/your_github_here.git`
+ `git clone https://github.com/AnkithP2/BGSA-InfinityWorks.git`
 
 
 ## Tests ##
@@ -36,11 +36,9 @@ An RSpec test suite is available and can be ran using:
 
 Run the following code in Powershell if using windows or the terminal using Linux/Mac
 
-  `cd your_github_here`
+  `cd BGSA-InfinityWorks`
 
   `docker run --rm -it --volume "$(pwd):/rails_app" -e DATABASE_USER=test_app -e DATABASE_PASSWORD=test_password -p 3000:3000 dmartinez05/ruby_rails_postgresql:latest`
-
-  `cd rails_app`
 
 Install the app
 
@@ -51,11 +49,11 @@ Run the app
 
 The application can be seen using a browser and navigating to http://localhost:3000/
 
-## Environmental Variables/Files ##
+<!-- ## Environmental Variables/Files ##
 
-** Add instructions/description if your application requires it.
+** Add instructions/description if your application requires it. -->
 
-## Deployment ##
+## Deployment ## 
 
 ** Add instructions about how to deploy to Heroku
 
