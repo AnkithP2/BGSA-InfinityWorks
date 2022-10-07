@@ -63,5 +63,6 @@ gem 'brakeman'
 gem 'rubocop'
 gem 'bcrypt'
 gem 'bcrypt-ruby'
+gem 'seed_dump'
 
 
