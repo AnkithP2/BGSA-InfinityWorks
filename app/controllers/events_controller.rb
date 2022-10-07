@@ -14,26 +14,45 @@ class EventsController < ApplicationController
   # to fill in
   # create the form
   def new
-    @event = Event.new
+    if(session[:admin_id]){
+      @event = Event.new
+    }
+    else{
+      message = "You need admin permissions"
+      redirect_to login_path, notice: message
+    }
   end
 
   # instantiate the form contents
   def create
-    @event = Event.new(event_params)
+    if(session[:admin_id]){
+      @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @event.save
+          format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
+          format.json { render :show, status: :created, location: @event }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    }
+    else{
+      message = "You need admin permissions"
+      redirect_to login_path, notice: message
+    } 
   end
 
   def edit
-    @event = Event.find(params[:id])
+    if(session[:admin_id]){
+      @event = Event.find(params[:id])
+    }
+    else{
+      message = "You need admin permissions"
+      redirect_to login_path, notice: message
+    }
+    
   end
 
   def update
