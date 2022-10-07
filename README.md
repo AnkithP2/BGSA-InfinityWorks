@@ -2,7 +2,7 @@
 
 ## Introduction ##
 
-Application Description
+InfinityWorks is a multiform application that holds an events calendar with event details, point tracker, and link page.
 
 ## Requirements ##
 
@@ -55,12 +55,25 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 ## Deployment ## 
 
-** Add instructions about how to deploy to Heroku
+For a new app run the following commands:
+- heroku create -a example-app
+- git remote -v
 
+For an existing app run the following commands:
+- heroku git:remote -a example-app
+
+Rename the remote:
+- git remote rename heroku heroku-staging
+
+Deploy the code:
+- git push heroku main
+
+Deploy the code from a branch other than main:
+- git push heroku testbranch:main
 
 ## CI/CD ##
 
-TBD
+GitHub automatically will conduct the continuous integration, upon a push. Heroku will automatically deploy when the commands are run above.
 
 ## Support ##
 
