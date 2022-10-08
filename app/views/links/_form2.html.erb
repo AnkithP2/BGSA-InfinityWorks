@@ -1,10 +1,10 @@
-<%= form_with model: link do |form| %>
-  <% if link.errors.any? %>
+<%= form_with model: link2 do |form| %>
+  <% if link2.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(link.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2><%= pluralize(link2.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
-        <% link.errors.each do |error| %>
+        <% link2.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :section %>
-    <%= form.collection_select :section, Link.order(:section).distinct, :section, :section, include_blank: true %>
+    <%= form.collection_select :section, Link.order(:section), :section, :section, include_blank: true %>
     <%= form.label :title %>
     <%= form.text_field :title %>
     <%= form.label :link %>
@@ -24,6 +24,7 @@
     <%= form.submit %>
   </div>
 
+
   <div class="field_section">
     <%= form.label :section %>
     <%= form.text_field :section %>
@@ -32,7 +33,6 @@
   <div class="actions_section">
     <%= form.submit %>
   </div>
-
 
 
 <% end %>

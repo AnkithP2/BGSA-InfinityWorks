@@ -28,8 +28,35 @@
   </tbody>
 </table>
 
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <th><%= section.section %></th>
+          <% @specificsection = Link.specsections.each do |link2| %>
+            <tr>
+              <td><%= link2.title %></td>
+              <td><%= link_to link2.link, link2.link %></td>
+            </tr>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <br>
 
 <%= link_to 'New Link', new_link_path %>
+
+
 
 <%= link_to 'Home', events_path %>
