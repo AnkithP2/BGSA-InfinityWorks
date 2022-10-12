@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :admins, only: [:new, :create, :edit, :update, :show, :destroy]
   resources :admin
+  resources :registrations
 
   resources :users
 

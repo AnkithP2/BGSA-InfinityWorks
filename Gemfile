@@ -66,3 +66,5 @@ gem 'bcrypt-ruby'
 gem "simple_calendar", "~> 2.4"
 
 
+
+gem "devise", "~> 4.8"

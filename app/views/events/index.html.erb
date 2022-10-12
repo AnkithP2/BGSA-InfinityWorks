@@ -2,6 +2,11 @@
 
 <h1>Events</h1>
 <h2>Shows all events</h2>
+<% if @admin %>
+  Admin email: <%= @admin.name %>
+<% else %>
+  No admin persmissions
+<%end%>
 #can uncomment if we want to see events database for debugging
 # <table>
 #   <thead>
@@ -75,7 +80,7 @@
 <%= link_to 'New Attendance', new_attendance_path %>
 
 <br>
-<%= link_to 'New Admin', new_admin_path %>
+<%= link_to 'New Admin', new_registration_path %>
 <br>
 <%= link_to 'Login', login_path %>
 <br>
