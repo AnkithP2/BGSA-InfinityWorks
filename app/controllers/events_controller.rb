@@ -19,7 +19,7 @@ class EventsController < ApplicationController
   # to fill in
   # create the form
   def new
-    if(session[:admin_id])
+    if(session[:admin_email])
       @event = Event.new
     else
       message = "You need admin permissions new"
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
   # instantiate the form contents
   def create
-    if(session[:admin_id])
+    if(session[:admin_email])
       @event = Event.new(event_params)
 
       respond_to do |format|
@@ -48,7 +48,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    if(session[:admin_id])
+    if(session[:admin_email])
       @event = Event.find(params[:id])
     else
       message = "You need admin permissions edit"
@@ -70,7 +70,7 @@ class EventsController < ApplicationController
   end
 
   def delete
-    if(session[:admin_id])
+    if(session[:admin_email])
       @event=Event.find(params[:id])
     else
       message = "You need admin permissions delete"
@@ -79,7 +79,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    if(session{:admin_id})
+    if(session[:admin_email])
       @event=Event.find(params[:id])
       @event.destroy
       flash[:notice]="Event '#{@event.title}' deleted successfully."
