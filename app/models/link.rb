@@ -1,4 +1,4 @@
 class Link < ApplicationRecord
-    validates :title, :link, presence: true
+    validates :section_id, :title, :link, presence: true
     belongs_to :section
 end
