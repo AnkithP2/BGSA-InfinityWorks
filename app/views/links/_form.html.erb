@@ -12,8 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :section %>
-    <%= form.collection_select :section, Link.order(:section).distinct, :section, :section, include_blank: true %>
     <%= form.label :title %>
     <%= form.text_field :title %>
     <%= form.label :link %>
@@ -23,16 +21,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-
-  <div class="field_section">
-    <%= form.label :section %>
-    <%= form.text_field :section %>
-  </div>
-
-  <div class="actions_section">
-    <%= form.submit %>
-  </div>
-
 
 
 <% end %>
