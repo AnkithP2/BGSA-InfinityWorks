@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :links
   resources :sections
 
-
   resources :admins, only: [:new, :create, :edit, :update, :show, :destroy]
   resources :admin
 
