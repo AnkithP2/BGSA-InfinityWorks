@@ -6,17 +6,21 @@
       <ul>
         <% rsvp.errors.each do |error| %>
           <li><%= error.full_message %></li>
-        <% end %>
+        <% end %> 
       </ul>
     </div>
   <% end %>
 
+
   <div class="field">
-  <%= form.label :event_id %>
-  <%= form.select :event_id, Event.order(:id).map { |event| [event.title, event.id] }, include_blank: true, id: "id_of_the_event_id_select_box" %>
-  <p> USERS STILL NEED TO BE IMPLEMENTED, will be 'select' eventually </p>
-  <%= form.label :userid %>
-  <%= form.number_field :userid %>
+    <p id="notice"><%=notice%></p>
+    <%= form.label :event_id %>
+    <br> 
+    <%= form.select :event_id, Event.order(:id).map { |event| [event.title, event.id] }, include_blank: true, id: "id_of_the_event_id_select_box" %>
+    <br> 
+    <%= form.label :Name %>
+    <br> 
+    <%= form.select :userid, User.order(:id).map { |user| [user.firstname + " " + user.lastname, user.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %>
   </div>
 
   <div class="actions">

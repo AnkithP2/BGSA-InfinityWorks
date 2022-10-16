@@ -23,14 +23,19 @@ class RsvpsController < ApplicationController
   # POST /rsvps or /rsvps.json
   def create
     @rsvp = Rsvp.new(rsvp_params)
-
-    respond_to do |format|
-      if @rsvp.save
-        format.html { redirect_to rsvp_url(@rsvp), notice: "Rsvp was successfully created." }
-        format.json { render :show, status: :created, location: @rsvp }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+    errors = Rsvp.error_checks(@rsvp)
+    if !errors.empty?
+      flash[:notice] = errors.join(' |  ').html_safe()
+      redirect_to new_rsvp_path
+    else
+      respond_to do |format|
+        if @rsvp.save
+          format.html { redirect_to rsvp_url(@rsvp), notice: "Rsvp was successfully created." }
+          format.json { render :show, status: :created, location: @rsvp }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
