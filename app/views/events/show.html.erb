@@ -19,9 +19,13 @@
   <strong>Event Points:</strong>
   <%= @event.eventpoints %>
     <br>
-  <strong>User ID's Attending:</strong>
-  <%= display_attending %>
+  <strong># of Users RSVP'd:</strong>
+  <%= display_rsvpd %>  
+    <br>
+  <strong># of Users Attended:</strong>
+  <%= display_attended %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back', events_path %>
