@@ -6,19 +6,19 @@
 <table>
   <thead>
     <tr>
-      <th>Event</th>
-      <th>User ID</th>
-      <th>Signed up?</th>
-      <th>Attended?</th>
-      <th colspan="3"></th>
+      <th colspan="25">Event</th>
+      <th colspan ="15">First Name</th>
+      <th colspan ="10">Last Name</th>
+      <th colspan="10"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @attendances.each do |attendance| %>
       <tr>
-        <td>0</td>
-        <td><%= attendance.userid %></td>
+        <td colspan="25"><%= Event.find(attendance.event_id).title%></td>
+        <td colspan ="15"><%= User.find(attendance.userid).firstname %></td>
+        <td colspan ="10"><%= User.find(attendance.userid).lastname %></td>
         <td><%= link_to 'Show', attendance_path(attendance) %></td>
         <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
         <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,5 +34,4 @@
 
 <%= link_to 'Home', events_path %>
 <br> 
-<%= link_to 'Point Tracker', users_path %>
 
