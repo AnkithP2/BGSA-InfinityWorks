@@ -3,7 +3,7 @@
 <h1>Events</h1>
 <h2>Shows all events</h2>
 <% if @admin %>
-  Admin email: <%= @admin.name %>
+  Admin: <%= @admin.name %>
 <% else %>
   No admin persmissions
 <%end%>
@@ -43,7 +43,9 @@
 <br>
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<% if @admin %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>
 <br>
 <%= link_to 'New Attendance', new_attendance_path %>
 
@@ -53,8 +55,6 @@
 <%= link_to 'Login', login_path %>
 <br>
 <%= link_to 'Logout', loginout_path %>
-<br>
-<%= link_to 'All Admin', admins_path %>
 <br>
 
 

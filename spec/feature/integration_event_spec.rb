@@ -7,8 +7,8 @@ RSpec.describe 'creating an event: ', type: :feature do
     visit new_event_path
     fill_in 'Title', with: 'test'
     fill_in 'Date', with: '2022-09-12'
-    fill_in 'Starttime', with: '18:45'
-    fill_in 'Endtime', with: '19:45'
+    fill_in 'Starttime', with: '2022-09-12 18:45'
+    fill_in 'Endtime', with: '2022-09-12 19:45'
     fill_in 'Logincode', with: 'abcd'
     fill_in 'Location', with: 'At my house'
     fill_in 'Eventpoints', with: '2'

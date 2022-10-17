@@ -12,7 +12,27 @@ class EventsController < ApplicationController
   end
 
   def show
+    if session[:admin_email]
+      @admin = Admin.find_by_email(session[:admin_email])
+    else  
+      @admin = nil
+    end
+
     @event = Event.find(params[:id])
+    @rsvp = Rsvp.where(event_id: @event.id)
+    @attendance = Attendance.where(event_id: @event.id)
+
+    @usersRSVP = []
+    @rsvp.each do |rsvp|
+      # @temp = User.where(id: rsvp.userid).first
+      @usersRSVP.push(rsvp.userid)
+    end 
+
+    @usersAttend = []
+    @attendance.each do |rsvp|
+      @usersAttend.push(rsvp.userid)
+    end
+    #show rsvps for this specific event 
   end
 
   # To cover if value on the database have defaults for forms
