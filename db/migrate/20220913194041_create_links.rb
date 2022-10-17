@@ -1,7 +1,7 @@
 class CreateLinks < ActiveRecord::Migration[6.1]
   def change
     create_table :links do |t|
-      t.string :author
+      t.belongs_to :section
       t.string :title
       t.string :link
 

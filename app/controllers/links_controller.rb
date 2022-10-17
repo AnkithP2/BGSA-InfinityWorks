@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   def index
     @links = Link.all
+    @sections = Section.includes(:links).all
   end
 
   def show
@@ -55,6 +56,6 @@ class LinksController < ApplicationController
 
   private
       def link_params
-        params.require(:link).permit(:title, :author, :link)
+        params.require(:link).permit(:section_id, :title, :link)
       end
 end
