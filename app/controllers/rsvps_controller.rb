@@ -23,6 +23,8 @@ class RsvpsController < ApplicationController
   # POST /rsvps or /rsvps.json
   def create
     @rsvp = Rsvp.new(rsvp_params)
+    
+    #check for errors if none register user
     errors = Rsvp.error_checks(@rsvp)
     if !errors.empty?
       flash[:notice] = errors.join(' |  ').html_safe()

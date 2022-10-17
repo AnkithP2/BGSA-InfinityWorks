@@ -18,6 +18,7 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
 
+    #check for errors if none register user
     errors = Attendance.error_checks(@attendance)
     if !errors.empty?
       flash[:notice] = errors.join(' |  ').html_safe()
@@ -41,25 +42,6 @@ class AttendancesController < ApplicationController
         end
       end
     end
-  end
-
-  def self.check_password
-    return @attendance.password == Event.find(@attendance.event_id).logincode
-  end
-
-  def self.check_user_exists
-    return Attendance.where(:userid => @attendance.userid, :event_id => @attendance.event_id).empty?
-  end
-
-  def self.check_attendance_time
-    start_time = Event.find(@attendance.event_id).starttime
-    end_time = Event.find(@attendance.event_id).endtime
-    current_time = DateTime.now.in_time_zone('US/Central')
-#    date = Event.find(@attendance.event_id).date
-#    current_date = Date.today
-#    flash[:notice] = start_time
-
-    return ((current_time > start_time) && (current_time < end_time))
   end
 
   def edit
