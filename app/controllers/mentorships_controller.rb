@@ -8,6 +8,7 @@ class MentorshipsController < ApplicationController
 
   # GET /mentorships/1 or /mentorships/1.json
   def show
+    @mentorship = Mentorship.find(params[:id])
   end
 
   # GET /mentorships/new
@@ -17,6 +18,7 @@ class MentorshipsController < ApplicationController
 
   # GET /mentorships/1/edit
   def edit
+    @mentorship = Mentorship.find(params[:id])
   end
 
   # POST /mentorships or /mentorships.json
@@ -65,6 +67,6 @@ class MentorshipsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mentorship_params
-      params.require(:mentorship).permit(:mentor_id_id, :mentee_id_id)
+      params.require(:mentorship).permit(:mentor_id, :mentee_id)
     end
 end

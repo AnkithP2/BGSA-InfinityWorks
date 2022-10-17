@@ -8,6 +8,7 @@ class GoalsController < ApplicationController
 
   # GET /goals/1 or /goals/1.json
   def show
+    @goal = Goal.find(params[:id])
   end
 
   # GET /goals/new
@@ -17,6 +18,7 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/edit
   def edit
+    @goal = Goal.find(params[:id])
   end
 
   # POST /goals or /goals.json
@@ -65,6 +67,6 @@ class GoalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def goal_params
-      params.require(:goal).permit(:belongs_to, :goal, :status)
+      params.require(:goal).permit(:mentorship_id, :goal, :status)
     end
 end
