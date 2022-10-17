@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class RegistrationsController < ApplicationController
 
     def new
         @admin = Admin.new
@@ -7,8 +7,8 @@ class AdminController < ApplicationController
     def create
         @admin = Admin.new(admin_params)
         if @admin.save
-            session[:admin_id] = @admin.id
-            redirect_to root_path
+            session[:admin_email] = @admin.email
+            redirect_to events_path, notice: "Successfully created admin registration"
         else
             render :new
         end
@@ -21,6 +21,6 @@ class AdminController < ApplicationController
     private
 
     def admin_params
-        params.require(:admin).permit(:email, :password)
+        params.require(:admin).permit(:name, :email, :password)
     end
 end
