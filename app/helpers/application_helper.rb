@@ -1,11 +1,11 @@
 module ApplicationHelper
 
     def logged_in?
-        !!session[:admin_id]
+        !!session[:admin_email]
     end
 
     def current_admin
-        @current_admin ||= admin.find_by_id(session[:admin_id]) if !!session[:admin_id]
+        @current_admin ||= admin.find_by_email(session[:admin_email]) if !!session[:admin_email]
     end
     
 end
