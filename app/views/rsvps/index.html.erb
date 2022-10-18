@@ -5,17 +5,20 @@
 <table>
   <thead>
     <tr>
-      <th>Userid</th>
-      <th>Rsvped</th>
-      <th colspan="3"></th>
+      <th colspan="25">Event</th>
+      <th colspan ="15">First Name</th>
+      <th colspan ="10">Last Name</th>
+      <th colspan="10"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @rsvps.each do |rsvp| %>
       <tr>
-        <td><%= rsvp.userid %></td>
-        <td><%= link_to 'Show', rsvp %></td>
+        <td colspan="25"><%= Event.find(rsvp.event_id).title%></td>
+        <td colspan ="15"><%= User.find(rsvp.userid).firstname %></td>
+        <td colspan ="10"><%= User.find(rsvp.userid).lastname %></td>
+        <td><%= link_to 'Show', rsvp_path(rsvp) %></td>
         <td><%= link_to 'Edit', edit_rsvp_path(rsvp) %></td>
         <td><%= link_to 'Destroy', rsvp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
