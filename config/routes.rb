@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   resources :events
 
   resources :links
-
+  resources :sections
 
   resources :admins, only: [:new, :create, :edit, :update, :show, :destroy]
   resources :admin
+  resources :registrations
 
   resources :users
 

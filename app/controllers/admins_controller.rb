@@ -25,6 +25,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
+        session[:admin_email] = @admin.email
         format.html { redirect_to admin_url(@admin), notice: "Admin was successfully created." }
         format.json { render :show, status: :created, location: @admin }
       else

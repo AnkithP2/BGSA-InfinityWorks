@@ -1,32 +1,58 @@
 class LinksController < ApplicationController
   def index
     @links = Link.all
+    @sections = Section.includes(:links).all
+    if session[:admin_email]
+      @admin = Admin.find_by_email(session[:admin_email])
+    else  
+      @admin = nil
+    end
   end
 
   def show
+    if session[:admin_email]
+      @admin = Admin.find_by_email(session[:admin_email])
+    else  
+      @admin = nil
+    end
     @link = Link.find(params[:id])
   end
 
   def new
-    @link = Link.new
+    if(session[:admin_email])
+      @link = Link.new
+    else
+      message = "You need admin permissions new"
+      redirect_to login_path, notice: message
+    end
   end
 
   def create
-    @link = Link.new(link_params)
+    if(session[:admin_email])
+      @link = Link.new(link_params)
 
-    respond_to do |format|
-      if @link.save
-        format.html { redirect_to link_url(@link), notice: "Link was successfully created." }
-        format.json { render :show, status: :created, location: @link }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @link.save
+          format.html { redirect_to link_url(@link), notice: "Link was successfully created." }
+          format.json { render :show, status: :created, location: @link }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      message = "You need admin permissions create"
+      redirect_to login_path, notice: message
     end
   end
 
   def edit
-    @link = Link.find(params[:id])
+    if(session[:admin_email])
+      @link = Link.find(params[:id])
+    else
+      message = "You need admin permissions edit"
+      redirect_to login_path, notice: message
+    end
   end
 
   def update
@@ -43,18 +69,28 @@ class LinksController < ApplicationController
   end
 
   def delete
-    @link=Link.find(params[:id])
+    if(session[:admin_email])
+      @link=Link.find(params[:id])
+    else
+      message = "You need admin permissions delete"
+      redirect_to login_path, notice: message
+    end
   end
 
   def destroy
-    @link=Link.find(params[:id])
-    @link.destroy
-    flash[:notice]="Link '#{@link.title}' deleted successfully."
-    redirect_to(links_path)
+    if(session[:admin_email])
+      @link=Link.find(params[:id])
+      @link.destroy
+      flash[:notice]="Link '#{@link.title}' deleted successfully."
+      redirect_to(links_path)
+    else
+      message = "You need admin permissions destroy"
+      redirect_to login_path, notice: message
+    end
   end
 
   private
       def link_params
-        params.require(:link).permit(:title, :author, :link)
+        params.require(:link).permit(:section_id, :title, :link)
       end
 end
