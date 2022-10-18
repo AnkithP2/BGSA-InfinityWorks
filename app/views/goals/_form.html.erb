@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :belongs_to %>
-    <%= form.text_field :belongs_to %>
+    <%= form.label :mentorship_id %>
+    <%= form.select :mentorship_id, Mentorship.order(:id).map { |mentorship| [mentorship.id] }, include_blank: true, id: "id_of_the_mentorship_id_select_box" %>
   </div>
 
   <div class="field">
