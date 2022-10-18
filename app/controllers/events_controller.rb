@@ -1,36 +1,79 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+    @meetings = Event.where(
+      starttime: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+    )
+    if session[:admin_email]
+      @admin = Admin.find_by_email(session[:admin_email])
+    else  
+      @admin = nil
+    end
   end
 
   def show
+    if session[:admin_email]
+      @admin = Admin.find_by_email(session[:admin_email])
+    else  
+      @admin = nil
+    end
+
     @event = Event.find(params[:id])
+    @rsvp = Rsvp.where(event_id: @event.id)
+    @attendance = Attendance.where(event_id: @event.id)
+
+    @usersRSVP = []
+    @rsvp.each do |rsvp|
+      # @temp = User.where(id: rsvp.userid).first
+      @usersRSVP.push(rsvp.userid)
+    end 
+
+    @usersAttend = []
+    @attendance.each do |rsvp|
+      @usersAttend.push(rsvp.userid)
+    end
+    #show rsvps for this specific event 
   end
 
   # To cover if value on the database have defaults for forms
   # to fill in
   # create the form
   def new
-    @event = Event.new
+    if(session[:admin_email])
+      @event = Event.new
+    else
+      message = "You need admin permissions new"
+      redirect_to login_path, notice: message
+    end
   end
 
   # instantiate the form contents
   def create
-    @event = Event.new(event_params)
+    if(session[:admin_email])
+      @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @event.save
+          format.html { redirect_to event_url(@event), notice: "Event was successfully created." }
+          format.json { render :show, status: :created, location: @event }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      message = "You need admin permissions create"
+      redirect_to login_path, notice: message
     end
   end
 
   def edit
-    @event = Event.find(params[:id])
+    if(session[:admin_email])
+      @event = Event.find(params[:id])
+    else
+      message = "You need admin permissions edit"
+      redirect_to login_path, notice: message
+    end
   end
 
   def update
@@ -47,14 +90,24 @@ class EventsController < ApplicationController
   end
 
   def delete
-    @event=Event.find(params[:id])
+    if(session[:admin_email])
+      @event=Event.find(params[:id])
+    else
+      message = "You need admin permissions delete"
+      redirect_to login_path, notice: message
+    end
   end
 
   def destroy
-    @event=Event.find(params[:id])
-    @event.destroy
-    flash[:notice]="Event '#{@event.title}' deleted successfully."
-    redirect_to(events_path)
+    if(session[:admin_email])
+      @event=Event.find(params[:id])
+      @event.destroy
+      flash[:notice]="Event '#{@event.title}' deleted successfully."
+      redirect_to(events_path)
+    else
+      message = "You need admin permissions destroy"
+      redirect_to login_path, notice: message
+    end
   end
 
   private
