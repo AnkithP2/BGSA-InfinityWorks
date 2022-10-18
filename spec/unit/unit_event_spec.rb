@@ -5,8 +5,7 @@ require 'rails_helper'
 
 # event unit tests
 RSpec.describe Event, type: :model do
-  event = Event.new(title: 'test', date: '2022-09-12', starttime: '18:45', endtime: '19:45', logincode: 'abcd',
-                    location: 'at my house', eventpoints: '2')
+   event = Event.new(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
 
   it 'is valid with valid attributes' do
     expect(event).to be_valid
