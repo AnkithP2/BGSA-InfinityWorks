@@ -1,1 +1,3 @@
-json.array! @mentorships, partial: "mentorships/mentorship", as: :mentorship
+# frozen_string_literal: true
+
+json.array! @mentorships, partial: 'mentorships/mentorship', as: :mentorship

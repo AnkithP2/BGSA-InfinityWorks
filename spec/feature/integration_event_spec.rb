@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 # location: spec/feature/integration_spec.rb
 require 'rails_helper'
 
-#event integration tests
+# event integration tests
 RSpec.describe 'creating an event: ', type: :feature do
   scenario 'valid inputs' do
     visit new_event_path

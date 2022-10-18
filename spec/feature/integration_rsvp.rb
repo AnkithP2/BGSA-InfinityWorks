@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-#rsvp integration tests
+# rsvp integration tests
 RSpec.describe 'creating an Rsvp: ', type: :feature do
   scenario 'valid inputs' do
     visit new_event_path
@@ -19,12 +21,12 @@ RSpec.describe 'creating an Rsvp: ', type: :feature do
     fill_in 'Usertotal', with: 0
     click_on 'Create User'
     visit new_rsvp_path
-    select 'test', :from => 'rsvp_event_id'
-    select 'John Smith', :from => 'rsvp_userid'
+    select 'test', from: 'rsvp_event_id'
+    select 'John Smith', from: 'rsvp_userid'
     click_on 'Create Rsvp'
     visit rsvps_path
     expect(page).to have_content('John')
-    end
+  end
 end
 
 RSpec.describe 'creating an Rsvp: ', type: :feature do
@@ -45,12 +47,12 @@ RSpec.describe 'creating an Rsvp: ', type: :feature do
     fill_in 'Usertotal', with: 0
     click_on 'Create User'
     visit new_rsvp_path
-    select 'test', :from => 'rsvp_event_id'
-    select 'John Smith', :from => 'rsvp_userid'
+    select 'test', from: 'rsvp_event_id'
+    select 'John Smith', from: 'rsvp_userid'
     click_on 'Create Rsvp'
     visit rsvps_path
     expect(page).to have_content('Smith')
-    end
+  end
 end
 
 RSpec.describe 'creating an Rsvp: ', type: :feature do
@@ -71,10 +73,10 @@ RSpec.describe 'creating an Rsvp: ', type: :feature do
     fill_in 'Usertotal', with: 0
     click_on 'Create User'
     visit new_rsvp_path
-    select 'test', :from => 'rsvp_event_id'
-    select 'John Smith', :from => 'rsvp_userid'
+    select 'test', from: 'rsvp_event_id'
+    select 'John Smith', from: 'rsvp_userid'
     click_on 'Create Rsvp'
     visit rsvps_path
     expect(page).to have_content('test')
-    end
+  end
 end
