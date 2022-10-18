@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Migration for mentorships
 class CreateMentorships < ActiveRecord::Migration[6.1]
   def change
     create_table :mentorships do |t|
@@ -9,6 +12,5 @@ class CreateMentorships < ActiveRecord::Migration[6.1]
 
     add_foreign_key :mentorships, :users, column: :mentor_id, primary_key: :id
     add_foreign_key :mentorships, :users, column: :mentee_id, primary_key: :id
-
   end
 end
