@@ -1,3 +1,3 @@
 class Goal < ApplicationRecord
-    belongs_to :mentorship_id
+    belongs_to :mentorship
 end
