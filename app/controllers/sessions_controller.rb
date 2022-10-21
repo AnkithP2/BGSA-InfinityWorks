@@ -3,7 +3,7 @@
 # This controller controls admin sessions references
 class SessionsController < ApplicationController
   def create
-    @admin = Admin.find_by(email: params[:email])
+    @admin = Admin.find_by_email(params[:email])
     puts @admin.name
     puts @admin.email
     puts params[:password]
