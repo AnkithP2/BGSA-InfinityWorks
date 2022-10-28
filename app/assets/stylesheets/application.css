@@ -14,6 +14,9 @@
  *= require_self
  */
 
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
  .simple-calendar {
    
   }
@@ -38,3 +41,32 @@
   .current-month {}
 
   .has-events {}
+
+
+
+:root{
+    --black: #000000;
+    --red: #B21B29;
+    --green: #129D53;
+    --yellow: #FEDC5F;
+}
+
+
+p {
+    font: 100% Helvetica, sans-serif;
+    background-color: var(--black);
+}
+
+  body {
+    background-size: 100%;       
+    text-align: left;         
+}
+
+div.field {
+    background-size: 100%;       
+    text-align: left;   
+    background-color: var(--green);
+}
+
+
+

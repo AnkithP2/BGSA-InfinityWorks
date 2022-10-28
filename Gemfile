@@ -67,5 +67,6 @@ gem 'brakeman'
 gem 'rubocop'
 gem 'seed_dump'
 gem 'simple_calendar', '~> 2.4'
+gem 'bootstrap-sass'
 
 gem 'devise', '~> 4.8'

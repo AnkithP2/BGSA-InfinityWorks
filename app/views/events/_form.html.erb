@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 <%= form_with model: event do |form| %>
   <% if event.errors.any? %>
     <div id="error_explanation">
@@ -13,17 +15,17 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title %> <br> <br>
     <%= form.label :date %>
-    <%= form.date_field :date %>
+    <%= form.date_field :date %> <br> <br>
     <%= form.label :starttime %>
-    <%= form.datetime_local_field :starttime %>
+    <%= form.datetime_local_field :starttime %> <br> <br>
     <%= form.label :endtime %>
-    <%= form.datetime_local_field :endtime %>
+    <%= form.datetime_local_field :endtime %> <br> <br>
     <%= form.label :logincode %>
-    <%= form.text_field :logincode %>
+    <%= form.text_field :logincode %> <br> <br>
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location %> <br> <br>
     <%= form.label :eventpoints %>
     <%= form.number_field :eventpoints, in: 1..100, step: 1.0 %>
   </div>
