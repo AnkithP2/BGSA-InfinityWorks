@@ -22,14 +22,16 @@
     <br> 
 
     <strong>User IDs RSVP:</strong>
-      <% for user in @usersRSVP do %>
+      <p>Number of members rsvp: <%= display_rsvpd %> </p>
+      <% for user in @users_rsvp do %>
         <p>
         <%= user%> 
         </p>
       <% end %>
 
     <strong> User IDs Attended:</strong>
-      <% for user in @usersAttend do %>
+        <p>Number of members attended: <%= display_attended %> </p>
+      <% for user in @users_attend do %>
         <p>
         <%= user%> 
         </p>

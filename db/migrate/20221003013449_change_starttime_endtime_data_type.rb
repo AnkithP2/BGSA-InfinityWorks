@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Migration for start/end data
 class ChangeStarttimeEndtimeDataType < ActiveRecord::Migration[6.1]
   def change
     add_column :events, :starttime_datetime, :datetime
@@ -8,5 +11,4 @@ class ChangeStarttimeEndtimeDataType < ActiveRecord::Migration[6.1]
     remove_column :events, :endtime
     rename_column :events, :endtime_datetime, :endtime
   end
-
 end
