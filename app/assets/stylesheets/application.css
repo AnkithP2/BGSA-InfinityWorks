@@ -46,8 +46,6 @@ header h2 {
     padding: 15px;
 }
 
-
-
 header::after {
     content: '';
     display: table;
@@ -78,10 +76,6 @@ header::after {
     background-color: #04AA6D;
     color: white;
 }
-
-
-
-
 
 
  .simple-calendar {
