@@ -5,10 +5,6 @@ require 'rails_helper'
 RSpec.describe Link, type: :model do
     link = Link.new(section_id: '01', title: 'alink', link: 'link.com')
 
-    it 'is valid with valid attributes' do
-      expect(link).to be_valid
-    end
-
     # check empty containers
     it 'is not valid without a section_id' do
       link.section_id = nil
@@ -27,108 +23,96 @@ RSpec.describe Link, type: :model do
       expect(link).not_to be_valid
     end
 
-    # check disallowed characters
-    it 'is not valid with a name not containing alphabetic characters' do
-      link.password = '1234'
-      link.name = 'sean#@'
+    # check disallowed characters for title
+    it 'is not valid with a title not containing alphabetic characters' do
+      link.link = 'link.com'
+      link.title = 'aLink#@'
       expect(link).not_to be_valid
     end
 
-    # email checks
-    it 'is not valid email not containing @' do
-      link.name = 'sean'
-      link.email = 'anEmailsomewebsite.com'
+    # check disallowed characters for section_id
+    it 'is not valid section_id not containing an alpha-numerical character' do
+      link.title = 'aLink'
+      link.section_id = '01a#'
       expect(link).not_to be_valid
     end
-
-    it 'is valid email not containing .' do
-      link.email = 'anEmail@somewebsitecom'
-      expect(link).to be_valid
-    end
-
 
     # general text slot checks
     # SQL statement checks
     it 'is not valid textbox containing ALTER' do
-      link.name = 'sean ALTER'
+      link.title = 'aLink ALTER'
       expect(link).not_to be_valid
     end
     
     it 'is not valid textbox containing CREATE' do
-        link.name = 'sean CREATE'
+        link.title = 'aLink CREATE'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing DELETE' do
-        link.name = 'sean DELETE'
+        link.title = 'aLink DELETE'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing DROP' do
-        link.name = 'sean DROP'
+        link.title = 'aLink DROP'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing EXEC' do
-        link.name = 'sean EXEC'
+        link.title = 'aLink EXEC'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing INSERT' do
-        link.name = 'sean INSERT'
+        link.title = 'aLink INSERT'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing MERGE' do
-        link.name = 'sean MERGE'
+        link.title = 'aLink MERGE'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing SELECT' do
-        link.name = 'sean SELECT'
+        link.title = 'aLink SELECT'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing UPDATE' do
-        link.name = 'sean UPDATE'
+        link.title = 'aLink UPDATE'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing UNION' do
-        link.name = 'sean UNION'
+        link.title = 'aLink UNION'
         expect(link).not_to be_valid
     end
 
     # SQL block statement checks
     it 'is not valid textbox containing block statements [ OR ]' do
-        link.name = '[Sean ]'
+        link.title = '[aLink ]'
         expect(link).not_to be_valid
     end
     
     it 'is not valid textbox containing block statements ( OR )' do
-        link.name = '( )'
+        link.title = '( )'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing block statements ^' do
-        link.name = '^'
+        link.title = '^'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing block statements *' do
-        link.name = '*'
+        link.title = '*'
         expect(link).not_to be_valid
     end
 
     it 'is not valid textbox containing block statements |' do
-        link.name = '|'
+        link.title = '|'
         expect(link).not_to be_valid
-    end
-
-    #Final check for good text statement
-    it 'Final check' do
-        link.name = 'sean'
-        expect(link).to be_valid
     end
 end
 
