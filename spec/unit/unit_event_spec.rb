@@ -11,6 +11,7 @@ RSpec.describe Event, type: :model do
     expect(event).to be_valid
   end
 
+  # check empty containers
   it 'is not valid without a title' do
     subject.title = nil
     expect(subject).not_to be_valid
@@ -45,4 +46,7 @@ RSpec.describe Event, type: :model do
     subject.eventpoints = nil
     expect(subject).not_to be_valid
   end
+
+  # check disallowed characters on title
+  
 end
