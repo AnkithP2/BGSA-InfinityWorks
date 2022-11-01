@@ -34,30 +34,73 @@ RSpec.describe Admin, type: :model do
       expect(admin).not_to be_valid
     end
 
+    # email checks
     it 'is not valid email not containing @' do
-        admin.name = 'sean'
-        admin.email = 'anEmailsomewebsite.com'
-        expect(admin).not_to be_valid
+      admin.name = 'sean'
+      admin.email = 'anEmailsomewebsite.com'
+      expect(admin).not_to be_valid
     end
 
     it 'is valid email not containing .' do
-        admin.email = 'anEmail@somewebsitecom'
-        expect(admin).to be_valid
+      admin.email = 'anEmail@somewebsitecom'
+      expect(admin).to be_valid
     end
 
-    # text slot containing:
-        # sql statements:
-            # ALTER
-            # CREATE
-            # DELETE
-            # DROP
-            # EXEC
-            # INSERT
-            # MERGE
-            # SELECT
-            # UPDATE
-            # UNION
-        # block statements
+
+    # general text slot checks
+    # SQL statement checks
+    it 'is not valid textbox containing ALTER' do
+      admin.name = 'sean ALTER'
+      expect(admin).not_to be_valid
+    end
+    
+    it 'is not valid textbox containing CREATE' do
+        admin.name = 'sean CREATE'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing DELETE' do
+        admin.name = 'sean DELETE'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing DROP' do
+        admin.name = 'sean DROP'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing EXEC' do
+        admin.name = 'sean EXEC'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing INSERT' do
+        admin.name = 'sean INSERT'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing MERGE' do
+        admin.name = 'sean MERGE'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing SELECT' do
+        admin.name = 'sean SELECT'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing UPDATE' do
+        admin.name = 'sean UPDATE'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing UNION' do
+        admin.name = 'sean UNION'
+        expect(admin).not_to be_valid
+    end
+
+    # SQL block statement checks
+
 end
 
   
