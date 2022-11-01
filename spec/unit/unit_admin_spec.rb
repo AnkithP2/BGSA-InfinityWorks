@@ -100,7 +100,36 @@ RSpec.describe Admin, type: :model do
     end
 
     # SQL block statement checks
+    it 'is not valid textbox containing block statements [ OR ]' do
+        admin.name = '[Sean ]'
+        expect(admin).not_to be_valid
+    end
+    
+    it 'is not valid textbox containing block statements ( OR )' do
+        admin.name = '( )'
+        expect(admin).not_to be_valid
+    end
 
+    it 'is not valid textbox containing block statements ^' do
+        admin.name = '^'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing block statements *' do
+        admin.name = '*'
+        expect(admin).not_to be_valid
+    end
+
+    it 'is not valid textbox containing block statements |' do
+        admin.name = '|'
+        expect(admin).not_to be_valid
+    end
+
+    #Final check for good text statement
+    it 'Final check' do
+        admin.name = 'sean'
+        expect(admin).to be_valid
+    end
 end
 
   
