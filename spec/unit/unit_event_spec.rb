@@ -5,7 +5,8 @@ require 'rails_helper'
 
 # event unit tests
 RSpec.describe Event, type: :model do
-   event = Event.new(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+  event = Event.new(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45',
+                    logincode: 'abcd', location: 'at my house', eventpoints: '2')
 
   it 'is valid with valid attributes' do
     expect(event).to be_valid
@@ -48,7 +49,7 @@ RSpec.describe Event, type: :model do
   end
 
   it 'is not valid without a event points' do
-    event.location = "at my house"
+    event.location = 'at my house'
     event.eventpoints = nil
     expect(event).not_to be_valid
   end
@@ -79,7 +80,7 @@ RSpec.describe Event, type: :model do
     event.title = 'test ALTER'
     expect(event).not_to be_valid
   end
-  
+
   it 'is not valid textbox containing CREATE' do
     event.title = 'test CREATE'
     expect(event).not_to be_valid
@@ -130,7 +131,7 @@ RSpec.describe Event, type: :model do
     event.title = '[Sean ]'
     expect(event).not_to be_valid
   end
-  
+
   it 'is not valid textbox containing block statements ( OR )' do
     event.title = '( )'
     expect(event).not_to be_valid
@@ -151,9 +152,9 @@ RSpec.describe Event, type: :model do
     expect(event).not_to be_valid
   end
 
-  #Final check for good text statement
+  # Final check for good text statement
   it 'Final check' do
-      event.title = 'test'
-      expect(event).to be_valid
+    event.title = 'test'
+    expect(event).to be_valid
   end
 end
