@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-02T20:29:37+00:00">2022-11-02T20:29:37+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-11-02T20:43:58+00:00">2022-11-02T20:43:58+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -326,7 +326,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#67f74928dba3adc395e43ebc5ddce1da29efae0e" class="src_link" title="spec/unit/unit_event_spec.rb">spec/unit/unit_event_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">160</td>
+            <td class="cell--number">161</td>
             <td class="cell--number">92</td>
             <td class="cell--number">92</td>
             <td class="cell--number">0</td>
@@ -8282,7 +8282,7 @@
 
             
 
-            <code class="ruby">RSpec.describe Admin, type: :model do</code>
+            <code class="ruby">RSpec.describe(Admin, type: :model) do</code>
           </li>
         </div>
       
@@ -8293,7 +8293,7 @@
 
             
 
-            <code class="ruby">  admin = Admin.new(name: &#39;Sean&#39;, email: &#39;anEmail@somewebsite.com&#39;, password: &#39;1234&#39;)</code>
+            <code class="ruby">  admin = described_class.new(name: &#39;Sean&#39;, email: &#39;anEmail@somewebsite.com&#39;, password: &#39;1234&#39;)</code>
           </li>
         </div>
       
@@ -8326,7 +8326,7 @@
 
             
 
-            <code class="ruby">    expect(admin).to be_valid</code>
+            <code class="ruby">    expect(admin).to(be_valid)</code>
           </li>
         </div>
       
@@ -8392,7 +8392,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8458,7 +8458,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8524,7 +8524,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8601,7 +8601,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8678,7 +8678,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8733,7 +8733,7 @@
 
             
 
-            <code class="ruby">    expect(admin).to be_valid</code>
+            <code class="ruby">    expect(admin).to(be_valid)</code>
           </li>
         </div>
       
@@ -8810,7 +8810,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8865,7 +8865,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8920,7 +8920,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -8975,7 +8975,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9030,7 +9030,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9085,7 +9085,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9140,7 +9140,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9195,7 +9195,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9250,7 +9250,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9305,7 +9305,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9371,7 +9371,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9426,7 +9426,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9481,7 +9481,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9536,7 +9536,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9591,7 +9591,7 @@
 
             
 
-            <code class="ruby">    expect(admin).not_to be_valid</code>
+            <code class="ruby">    expect(admin).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9657,7 +9657,7 @@
 
             
 
-            <code class="ruby">    expect(admin).to be_valid</code>
+            <code class="ruby">    expect(admin).to(be_valid)</code>
           </li>
         </div>
       
@@ -9787,7 +9787,7 @@
 
             
 
-            <code class="ruby">RSpec.describe Event, type: :model do</code>
+            <code class="ruby">RSpec.describe(Event, type: :model) do</code>
           </li>
         </div>
       
@@ -9798,7 +9798,7 @@
 
             
 
-            <code class="ruby">  event = Event.new(title: &#39;test&#39;, date: &#39;2022-09-12&#39;, starttime: &#39;2022-09-12 18:45&#39;, endtime: &#39;2022-09-12 19:45&#39;,</code>
+            <code class="ruby">  event = described_class.new(title: &#39;test&#39;, date: &#39;2022-09-12&#39;, starttime: &#39;2022-09-12 18:45&#39;, endtime: &#39;2022-09-12 19:45&#39;,</code>
           </li>
         </div>
       
@@ -9809,7 +9809,7 @@
 
             
 
-            <code class="ruby">                    logincode: &#39;abcd&#39;, location: &#39;at my house&#39;, eventpoints: &#39;2&#39;)</code>
+            <code class="ruby">                              logincode: &#39;abcd&#39;, location: &#39;at my house&#39;, eventpoints: &#39;2&#39;</code>
           </li>
         </div>
       
@@ -9820,18 +9820,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  )</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="11">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="11">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is valid with valid attributes&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -9842,18 +9842,18 @@
 
             
 
-            <code class="ruby">    expect(event).to be_valid</code>
+            <code class="ruby">  it &#39;is valid with valid attributes&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="13">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="13">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).to(be_valid)</code>
           </li>
         </div>
       
@@ -9864,7 +9864,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -9875,18 +9875,18 @@
 
             
 
-            <code class="ruby">  # check empty containers</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="16">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="16">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid without a title&#39; do</code>
+            <code class="ruby">  # check empty containers</code>
           </li>
         </div>
       
@@ -9897,7 +9897,7 @@
 
             
 
-            <code class="ruby">    event.title = nil</code>
+            <code class="ruby">  it &#39;is not valid without a title&#39; do</code>
           </li>
         </div>
       
@@ -9908,18 +9908,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="19">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9930,18 +9930,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="21">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="21">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid without a date&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -9952,7 +9952,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test&#39;</code>
+            <code class="ruby">  it &#39;is not valid without a date&#39; do</code>
           </li>
         </div>
       
@@ -9963,7 +9963,7 @@
 
             
 
-            <code class="ruby">    event.date = nil</code>
+            <code class="ruby">    event.title = &#39;test&#39;</code>
           </li>
         </div>
       
@@ -9974,18 +9974,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.date = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="25">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -9996,18 +9996,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="27">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid without a start time&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10018,7 +10018,7 @@
 
             
 
-            <code class="ruby">    event.date = &#39;2022-09-12&#39;</code>
+            <code class="ruby">  it &#39;is not valid without a start time&#39; do</code>
           </li>
         </div>
       
@@ -10029,7 +10029,7 @@
 
             
 
-            <code class="ruby">    event.starttime = nil</code>
+            <code class="ruby">    event.date = &#39;2022-09-12&#39;</code>
           </li>
         </div>
       
@@ -10040,18 +10040,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.starttime = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10062,18 +10062,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="33">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="33">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid without a end time&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10084,7 +10084,7 @@
 
             
 
-            <code class="ruby">    event.starttime = &#39;2022-09-12 18:45&#39;</code>
+            <code class="ruby">  it &#39;is not valid without a end time&#39; do</code>
           </li>
         </div>
       
@@ -10095,7 +10095,7 @@
 
             
 
-            <code class="ruby">    event.endtime = nil</code>
+            <code class="ruby">    event.starttime = &#39;2022-09-12 18:45&#39;</code>
           </li>
         </div>
       
@@ -10106,18 +10106,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.endtime = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10128,18 +10128,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="39">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid without a login code&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10150,7 +10150,7 @@
 
             
 
-            <code class="ruby">    event.endtime = &#39;2022-09-12 19:45&#39;</code>
+            <code class="ruby">  it &#39;is not valid without a login code&#39; do</code>
           </li>
         </div>
       
@@ -10161,7 +10161,7 @@
 
             
 
-            <code class="ruby">    event.logincode = nil</code>
+            <code class="ruby">    event.endtime = &#39;2022-09-12 19:45&#39;</code>
           </li>
         </div>
       
@@ -10172,18 +10172,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.logincode = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="43">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10194,18 +10194,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="45">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="45">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid without a location&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10216,7 +10216,7 @@
 
             
 
-            <code class="ruby">    event.logincode = &#39;abcd&#39;</code>
+            <code class="ruby">  it &#39;is not valid without a location&#39; do</code>
           </li>
         </div>
       
@@ -10227,7 +10227,7 @@
 
             
 
-            <code class="ruby">    event.location = nil</code>
+            <code class="ruby">    event.logincode = &#39;abcd&#39;</code>
           </li>
         </div>
       
@@ -10238,18 +10238,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.location = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="49">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10260,18 +10260,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="51">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid without a event points&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10282,7 +10282,7 @@
 
             
 
-            <code class="ruby">    event.location = &#39;at my house&#39;</code>
+            <code class="ruby">  it &#39;is not valid without a event points&#39; do</code>
           </li>
         </div>
       
@@ -10293,7 +10293,7 @@
 
             
 
-            <code class="ruby">    event.eventpoints = nil</code>
+            <code class="ruby">    event.location = &#39;at my house&#39;</code>
           </li>
         </div>
       
@@ -10304,18 +10304,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.eventpoints = nil</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10326,7 +10326,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -10337,18 +10337,18 @@
 
             
 
-            <code class="ruby">  # check disallowed characters on title</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="58">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="58">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid with a title not containing alphabetic characters&#39; do</code>
+            <code class="ruby">  # check disallowed characters on title</code>
           </li>
         </div>
       
@@ -10359,7 +10359,7 @@
 
             
 
-            <code class="ruby">    event.eventpoints = &#39;2&#39;</code>
+            <code class="ruby">  it &#39;is not valid with a title not containing alphabetic characters&#39; do</code>
           </li>
         </div>
       
@@ -10370,7 +10370,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test#@&#39;</code>
+            <code class="ruby">    event.eventpoints = &#39;2&#39;</code>
           </li>
         </div>
       
@@ -10381,18 +10381,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test#@&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="62">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10403,18 +10403,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="64">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="64">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid with a title containing numerical characters&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10425,7 +10425,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test0&#39;</code>
+            <code class="ruby">  it &#39;is not valid with a title containing numerical characters&#39; do</code>
           </li>
         </div>
       
@@ -10436,18 +10436,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test0&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="67">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10458,7 +10458,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -10469,18 +10469,18 @@
 
             
 
-            <code class="ruby">  # check disallowed characters on logincode</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="70">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid with a logincode containing numerical characters&#39; do</code>
+            <code class="ruby">  # check disallowed characters on logincode</code>
           </li>
         </div>
       
@@ -10491,7 +10491,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test&#39;</code>
+            <code class="ruby">  it &#39;is not valid with a logincode containing numerical characters&#39; do</code>
           </li>
         </div>
       
@@ -10502,7 +10502,7 @@
 
             
 
-            <code class="ruby">    event.logincode = &#39;abcd019=&#39;</code>
+            <code class="ruby">    event.title = &#39;test&#39;</code>
           </li>
         </div>
       
@@ -10513,18 +10513,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.logincode = &#39;abcd019=&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="74">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="74">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10535,7 +10535,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -10546,7 +10546,7 @@
 
             
 
-            <code class="ruby">  # general text slot checks</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10557,18 +10557,18 @@
 
             
 
-            <code class="ruby">  # SQL statement checks</code>
+            <code class="ruby">  # general text slot checks</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="78">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="78">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing ALTER&#39; do</code>
+            <code class="ruby">  # SQL statement checks</code>
           </li>
         </div>
       
@@ -10579,7 +10579,7 @@
 
             
 
-            <code class="ruby">    event.logincode = &#39;abcd&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing ALTER&#39; do</code>
           </li>
         </div>
       
@@ -10590,7 +10590,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test ALTER&#39;</code>
+            <code class="ruby">    event.logincode = &#39;abcd&#39;</code>
           </li>
         </div>
       
@@ -10601,18 +10601,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test ALTER&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="82">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="82">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10623,18 +10623,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="84">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="84">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing CREATE&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10645,7 +10645,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test CREATE&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing CREATE&#39; do</code>
           </li>
         </div>
       
@@ -10656,18 +10656,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test CREATE&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="87">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="87">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10678,18 +10678,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="89">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="89">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing DELETE&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10700,7 +10700,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test DELETE&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing DELETE&#39; do</code>
           </li>
         </div>
       
@@ -10711,18 +10711,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test DELETE&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="92">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="92">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10733,18 +10733,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="94">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="94">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing DROP&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10755,7 +10755,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test DROP&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing DROP&#39; do</code>
           </li>
         </div>
       
@@ -10766,18 +10766,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test DROP&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="97">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="97">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10788,18 +10788,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="99">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="99">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing EXEC&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10810,7 +10810,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test EXEC&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing EXEC&#39; do</code>
           </li>
         </div>
       
@@ -10821,18 +10821,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test EXEC&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="102">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10843,18 +10843,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="104">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="104">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing INSERT&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10865,7 +10865,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test INSERT&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing INSERT&#39; do</code>
           </li>
         </div>
       
@@ -10876,18 +10876,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test INSERT&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="107">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10898,18 +10898,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="109">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="109">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing MERGE&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10920,7 +10920,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test MERGE&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing MERGE&#39; do</code>
           </li>
         </div>
       
@@ -10931,18 +10931,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test MERGE&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="112">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -10953,18 +10953,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="114">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="114">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing SELECT&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -10975,7 +10975,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test SELECT&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing SELECT&#39; do</code>
           </li>
         </div>
       
@@ -10986,18 +10986,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test SELECT&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="117">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="117">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11008,18 +11008,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="119">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="119">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing UPDATE&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -11030,7 +11030,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test UPDATE&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing UPDATE&#39; do</code>
           </li>
         </div>
       
@@ -11041,18 +11041,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test UPDATE&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="122">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="122">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11063,18 +11063,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="124">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="124">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing UNION&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -11085,7 +11085,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test UNION&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing UNION&#39; do</code>
           </li>
         </div>
       
@@ -11096,18 +11096,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;test UNION&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="127">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="127">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11118,7 +11118,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11129,18 +11129,18 @@
 
             
 
-            <code class="ruby">  # SQL block statement checks</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="130">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="130">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing block statements [ OR ]&#39; do</code>
+            <code class="ruby">  # SQL block statement checks</code>
           </li>
         </div>
       
@@ -11151,7 +11151,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;[Sean ]&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing block statements [ OR ]&#39; do</code>
           </li>
         </div>
       
@@ -11162,18 +11162,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;[Sean ]&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="133">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="133">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11184,18 +11184,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="135">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="135">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing block statements ( OR )&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -11206,7 +11206,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;( )&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing block statements ( OR )&#39; do</code>
           </li>
         </div>
       
@@ -11217,18 +11217,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;( )&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="138">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="138">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11239,18 +11239,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="140">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="140">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing block statements ^&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -11261,7 +11261,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;^&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing block statements ^&#39; do</code>
           </li>
         </div>
       
@@ -11272,18 +11272,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;^&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="143">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="143">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11294,18 +11294,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="145">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="145">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing block statements *&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -11316,7 +11316,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;*&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing block statements *&#39; do</code>
           </li>
         </div>
       
@@ -11327,18 +11327,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;*&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="148">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="148">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11349,18 +11349,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="150">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="150">
+            
             
 
             
 
-            <code class="ruby">  it &#39;is not valid textbox containing block statements |&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -11371,7 +11371,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;|&#39;</code>
+            <code class="ruby">  it &#39;is not valid textbox containing block statements |&#39; do</code>
           </li>
         </div>
       
@@ -11382,18 +11382,18 @@
 
             
 
-            <code class="ruby">    expect(event).not_to be_valid</code>
+            <code class="ruby">    event.title = &#39;|&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="153">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="153">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(event).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11404,7 +11404,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -11415,18 +11415,18 @@
 
             
 
-            <code class="ruby">  # Final check for good text statement</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="156">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="156">
+            
             
 
             
 
-            <code class="ruby">  it &#39;Final check&#39; do</code>
+            <code class="ruby">  # Final check for good text statement</code>
           </li>
         </div>
       
@@ -11437,7 +11437,7 @@
 
             
 
-            <code class="ruby">    event.title = &#39;test&#39;</code>
+            <code class="ruby">  it &#39;Final check&#39; do</code>
           </li>
         </div>
       
@@ -11448,12 +11448,23 @@
 
             
 
-            <code class="ruby">    expect(event).to be_valid</code>
+            <code class="ruby">    event.title = &#39;test&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="159">
+          <li class="covered" data-hits="1" data-linenumber="159">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(event).to(be_valid)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="160">
             
             
 
@@ -11464,7 +11475,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="160">
+          <li class="never" data-hits="" data-linenumber="161">
             
             
 
@@ -11556,7 +11567,7 @@
 
             
 
-            <code class="ruby">RSpec.describe Link, type: :model do</code>
+            <code class="ruby">RSpec.describe(Link, type: :model) do</code>
           </li>
         </div>
       
@@ -11567,7 +11578,7 @@
 
             
 
-            <code class="ruby">  link = Link.new(section_id: &#39;01&#39;, title: &#39;alink&#39;, link: &#39;link.com&#39;)</code>
+            <code class="ruby">  link = described_class.new(section_id: &#39;01&#39;, title: &#39;alink&#39;, link: &#39;link.com&#39;)</code>
           </li>
         </div>
       
@@ -11622,7 +11633,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11688,7 +11699,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11754,7 +11765,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11831,7 +11842,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11908,7 +11919,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -11985,7 +11996,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12040,7 +12051,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12095,7 +12106,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12150,7 +12161,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12205,7 +12216,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12260,7 +12271,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12315,7 +12326,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12370,7 +12381,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12425,7 +12436,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12480,7 +12491,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12546,7 +12557,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12601,7 +12612,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12656,7 +12667,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12711,7 +12722,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12766,7 +12777,7 @@
 
             
 
-            <code class="ruby">    expect(link).not_to be_valid</code>
+            <code class="ruby">    expect(link).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -12874,7 +12885,7 @@
 
             
 
-            <code class="ruby">RSpec.describe User, type: :model do</code>
+            <code class="ruby">RSpec.describe(User, type: :model) do</code>
           </li>
         </div>
       
@@ -12885,7 +12896,7 @@
 
             
 
-            <code class="ruby">  user = User.new(firstname: &#39;jacob&#39;, lastname: &#39;jacobs&#39;, userpoints: &#39;14&#39;, usertotal: &#39;64&#39;)</code>
+            <code class="ruby">  user = described_class.new(firstname: &#39;jacob&#39;, lastname: &#39;jacobs&#39;, userpoints: &#39;14&#39;, usertotal: &#39;64&#39;)</code>
           </li>
         </div>
       
@@ -12918,7 +12929,7 @@
 
             
 
-            <code class="ruby">    expect(user).to be_valid</code>
+            <code class="ruby">    expect(user).to(be_valid)</code>
           </li>
         </div>
       
@@ -12973,7 +12984,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13028,7 +13039,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13083,7 +13094,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13138,7 +13149,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13215,7 +13226,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13281,7 +13292,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13358,7 +13369,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13413,7 +13424,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13479,7 +13490,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13534,7 +13545,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13611,7 +13622,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13666,7 +13677,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13721,7 +13732,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13776,7 +13787,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13831,7 +13842,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13886,7 +13897,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13941,7 +13952,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -13996,7 +14007,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -14051,7 +14062,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -14106,7 +14117,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -14172,7 +14183,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -14227,7 +14238,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -14282,7 +14293,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -14337,7 +14348,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
@@ -14392,7 +14403,7 @@
 
             
 
-            <code class="ruby">    expect(user).not_to be_valid</code>
+            <code class="ruby">    expect(user).not_to(be_valid)</code>
           </li>
         </div>
       
