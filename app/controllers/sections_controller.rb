@@ -52,8 +52,8 @@ class SectionsController < ApplicationController
   def update
     respond_to do |format|
       @section = Section.find(params[:id])
-      if @section.update(link_params)
-        format.html { redirect_to link_url(@section), notice: 'Link was successfully updated.' }
+      if @section.update(section_params)
+        format.html { redirect_to section_url(@section), notice: 'Section was successfully updated.' }
         format.json { render :show, status: :ok, location: @section }
       else
         format.html { render :edit, status: :unprocessable_entity }

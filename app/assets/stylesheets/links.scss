@@ -3,26 +3,28 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-body { 
-    background-color: black; 
+body { // background
+    background-color: #000000; 
 } 
 
 .link_header {
-    color: #129d53;
+    color: #ffffff;
     padding:10px;
 }
 
 .link_sections {
     padding:10px;
-    font-size: 30px;
-    color: rgb(68, 0, 255);
+    font-size: 50px;
+    color: #129d53;
 }
 
-.link_title {
-    color: rgb(255, 0, 43);
+.link_title:hover {
+    font-size: 30px;
+    color: #fedc5f;
 }
 
 .link_link a {
     text-decoration: none;
-    color: rgb(255, 0, 234);
+    font-size: 30px;
+    color: #fedc5f;
 }
