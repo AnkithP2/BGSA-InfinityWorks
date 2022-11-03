@@ -13,15 +13,32 @@
   <strong>End Time:</strong>
   <%= @event.endtime %>
     <br>
-  <strong>Login Code</strong>
-  <%= @event.logincode %>
-    <br>
   <strong>Event Points:</strong>
   <%= @event.eventpoints %>
     <br>
-  <strong>User ID's Attending:</strong>
-  <%= display_attending %>
-</p>
+  <% if @admin %>
+    <strong>Login Code</strong>
+    <%= @event.logincode %>
+    <br> 
+
+    <strong>User IDs RSVP:</strong>
+      <p>Number of members rsvp: <%= display_rsvpd %> </p>
+      <% for user in @users_rsvp do %>
+        <p>
+        <%= user%> 
+        </p>
+      <% end %>
+
+    <strong> User IDs Attended:</strong>
+        <p>Number of members attended: <%= display_attended %> </p>
+      <% for user in @users_attend do %>
+        <p>
+        <%= user%> 
+        </p>
+      <% end %> 
+  <%end%>
+  
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back', events_path %>

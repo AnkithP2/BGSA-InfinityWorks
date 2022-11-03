@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>ID</strong>
+  <%= @user.id %>
+    <br>
   <strong>Name</strong>
   <%= @user.firstname %>
   <%= @user.lastname %>
@@ -10,6 +13,12 @@
     <br>
   <strong>Total Points</strong>
   <%= @user.usertotal %>
+    <br>
+  <strong>Mentors:</strong>
+  <%= list_mentors %>
+    <br>
+  <strong>Mentees:</strong>
+  <%= list_mentees %>
     <br>
 </p>
 

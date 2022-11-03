@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Belongs to:</strong>
+  <%= @goal.mentorship_id %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @goal.goal %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @goal.status %>
+</p>
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

@@ -2,7 +2,7 @@
 
 ## Introduction ##
 
-InfinityWorks is a multiform application that holds an events calendar with event details, point tracker, and link page.
+InfinityWorks is a multiform application that holds an events calendar with event details, point tracker, link page, and supports mentorships between different users. Admins can create events with descriptions and passcodes, and users can attend these events at the time specified by the admin, which add to their overall points. Links can be added by admins as well. Mentorships between different users allow goals to be created and tracked by both mentor and mentee
 
 ## Requirements ##
 
@@ -18,6 +18,7 @@ This code has been run and tested on:
 * Docker - Download latest version at https://www.docker.com/products/docker-desktop
 * Heroku CLI - Download latest version at https://devcenter.heroku.com/articles/heroku-cli
 * Git - Download latest version at https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+* Simple_Calendar - Download latest version at https://github.com/excid3/simple_calendar
 
 ## Installation ##
 
