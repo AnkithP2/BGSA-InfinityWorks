@@ -14,7 +14,7 @@
   <tbody class='link_sections'>
     <% @sections.each do |sec| %>
       <tr>
-        <th><%= sec.label %></th>
+        <th class='section_label'><%=sec.label %></th>
           <% sec.links.each do |link| %>
             <tr>
 
