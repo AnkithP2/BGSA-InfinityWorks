@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   resources :links
   resources :sections
 
-  resources :faq
-
   resources :admins, only: %i[new create edit update show destroy]
   resources :admin
   resources :registrations
