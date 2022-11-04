@@ -2,7 +2,6 @@
 
 # Helper for users
 module UsersHelper
-  '''
   def list_mentors
     if @user.mentors.size.zero?
       "None"
@@ -28,5 +27,4 @@ module UsersHelper
       # @user.mentees.map(&:mentee_id).join ", "
     end
   end
-  '''
 end

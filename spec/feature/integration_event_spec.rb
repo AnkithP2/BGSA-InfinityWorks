@@ -4,13 +4,10 @@
 require 'rails_helper'
 
 # event integration tests
+# create an event with no special attributes
 RSpec.describe 'creating an event: ', type: :feature do
   scenario 'valid inputs' do
-    visit new_registration_path
-    fill_in 'Name', with: 'Ankith'
-    fill_in 'Email', with: 'test@gmail.com'
-    fill_in 'Password', with: '1234'
-    click_on 'Create Admin'
+    createAdmin()
 
     visit new_event_path
     fill_in 'Title', with: 'test'
@@ -22,17 +19,13 @@ RSpec.describe 'creating an event: ', type: :feature do
     click_on 'Create Event'
     visit events_path
 
-    expect(page).to have_content('Ankith')
+    expect(page).to have_content('test')
   end
 end
 
 RSpec.describe 'creating an event with zero RSVP: ', type: :feature do
     scenario 'valid inputs' do
-      visit new_registration_path
-      fill_in 'Name', with: 'Ankith'
-      fill_in 'Email', with: 'test@gmail.com'
-      fill_in 'Password', with: '1234'
-      click_on 'Create Admin'
+      createAdmin()
   
       ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
       visit event_path(id: ev.id)
@@ -42,11 +35,7 @@ end
 
 RSpec.describe 'creating an event with at least one RSVP/Attended: ', type: :feature do
     scenario 'valid inputs' do
-      visit new_registration_path
-      fill_in 'Name', with: 'Ankith'
-      fill_in 'Email', with: 'test@gmail.com'
-      fill_in 'Password', with: '1234'
-      click_on 'Create Admin'
+      createAdmin()
   
       ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
       user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
@@ -56,4 +45,28 @@ RSpec.describe 'creating an event with at least one RSVP/Attended: ', type: :fea
       visit event_path(id: ev.id)
       expect(page).not_to have_content('None')
     end
-  end
+end
+
+RSpec.describe 'Attempt to attend an event which is closed: ', type: :feature do
+    scenario 'valid inputs' do
+      createAdmin()
+
+      ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+      user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+      at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+      at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+
+      rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+
+      visit event_path(id: ev.id)
+      expect(page).not_to have_content('None')
+    end
+end
+
+def createAdmin()
+    visit new_registration_path
+    fill_in 'Name', with: 'Ankith'
+    fill_in 'Email', with: 'test@gmail.com'
+    fill_in 'Password', with: '1234'
+    click_on 'Create Admin'
+end
