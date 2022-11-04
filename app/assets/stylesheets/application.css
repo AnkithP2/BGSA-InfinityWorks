@@ -14,6 +14,70 @@
  *= require_self
  */
 
+
+ /*
+Color scheme
+black #000000
+green #129d53
+red #b21b29
+yellow #fedc5f
+ */
+/* commented out for bootstrapping purposes 
+
+.top_container {
+    width: 1000px;
+}
+
+.bgsa_logo {
+    width: 250px;
+    float: left;
+    padding: 10px;
+}
+
+header {
+    background: #f4f4f4
+}
+
+.header {
+    height: 100px;
+}
+
+header h2 {
+    padding: 15px;
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.navbar {
+    background-color: #129d53;
+    overflow: hidden;
+    height: 55px;
+}
+
+.navbar a {
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+
  .simple-calendar {
    width: 100%;
    height: 75%;
