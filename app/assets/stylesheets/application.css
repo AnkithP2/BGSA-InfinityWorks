@@ -22,7 +22,7 @@ green #129d53
 red #b21b29
 yellow #fedc5f
  */
-
+/* commented out for bootstrapping purposes 
 
 .top_container {
     width: 1000px;
@@ -102,3 +102,7 @@ header::after {
   .current-month {}
 
   .has-events {}
+
+  */
+
+  
