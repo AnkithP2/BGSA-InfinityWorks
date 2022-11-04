@@ -11,14 +11,13 @@ RSpec.describe 'creating an event: ', type: :feature do
 
     visit new_event_path
     fill_in 'Title', with: 'test'
-    fill_in 'Starttime', with: '2022-09-12 18:45'
-    fill_in 'Endtime', with: '2022-09-12 19:45'
+    fill_in 'Date', with: '11/04/2022'
+    fill_in 'Starttime', with: '11/4/2022 18:45'
+    fill_in 'Endtime', with: '11/4/2022 19:45'
     fill_in 'Logincode', with: 'abcd'
     fill_in 'Location', with: 'At my house'
     fill_in 'Eventpoints', with: '2'
     click_on 'Create Event'
-    visit events_path
-
     expect(page).to have_content('test')
   end
 end
