@@ -8,8 +8,8 @@
     <div class='float-child'>
         <%= image_tag "BGSAlogo.png", class: "bgsa_logo"%>
         <ul class="nav navbar-expand-sm navbar-right">
-            <li><a href="#"> Login</a></li>
-            <li><a href="#"> Logout</a></li>
+            <%= link_to 'Login', login_path, class: "btn btn-inverse" %>
+            <%= link_to 'Logout', loginout_path, class: "btn btn-inverse"  %>
         </ul>
     </div>
 </header>
