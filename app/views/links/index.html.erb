@@ -11,10 +11,10 @@
     </tr>
   </thead>
 
-  <tbody class='table table-dark'>
+  <tbody class='table table-borderless'>
     <% @sections.each do |sec| %>
       <tr>
-        <th class='section_label'><%=sec.label %></th>
+        <th class=''><%=sec.label %></th>
           <% sec.links.each do |link| %>
             <tr>
               <td class='link_title'><%= link.title %></td>
