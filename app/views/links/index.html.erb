@@ -11,13 +11,12 @@
     </tr>
   </thead>
 
-  <tbody class='link_sections'>
+  <tbody class='table table-dark'>
     <% @sections.each do |sec| %>
       <tr>
         <th class='section_label'><%=sec.label %></th>
           <% sec.links.each do |link| %>
             <tr>
-
               <td class='link_title'><%= link.title %></td>
               <td class='link_link'><%= link_to link.link, link.link %></td>
 
