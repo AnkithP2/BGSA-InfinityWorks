@@ -15,14 +15,12 @@
     <p id="notice"><%=notice%></p>
     <%= form.label :Event %>
     <div id = Event>
-    <%=form.select :event_id, Event.order(:id).map { |event| [event.title, event.id] }, include_blank: true, id: "id_of_the_event_id_select_box" %>
+    <%=form.select :event_id, Event.order(:id).map { |event| [event.title + " " + event.starttime.strftime('%B %d %Y, at %I:%M %p'), event.id] }, include_blank: true, id: "id_of_the_event_id_select_box" %>
     </div>
-    <br> 
     <%= form.label :Name %>
     <div id = Name>
     <%=form.select :userid, User.order(:id).map { |user| [user.firstname + " " + user.lastname, user.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %>
     </div>
-    <br>
     <%= form.label :Password%>
     <%=form.password_field :password%>
   </div>
