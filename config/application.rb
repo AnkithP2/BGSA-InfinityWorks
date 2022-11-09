@@ -21,5 +21,9 @@ module TestApp
     #
     config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    #set beginning of the week to be sunday
+    config.beginning_of_week = :sunday
   end
 end
+

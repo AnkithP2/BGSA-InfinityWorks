@@ -4,9 +4,13 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+
+    #finds all the meetings based on events to display in the simple_calendar
     @meetings = Event.where(
       starttime: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
+    #sets up the admin cookie
+
     @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
   end
 
@@ -17,12 +21,13 @@ class EventsController < ApplicationController
     @rsvp = Rsvp.where(event_id: @event.id)
     @attendance = Attendance.where(event_id: @event.id)
 
+    #finds the users that rsvp to an event
     @users_rsvp = []
     @rsvp.each do |rsvp|
-      # @temp = User.where(id: rsvp.userid).first
       @users_rsvp.push(rsvp.userid)
     end
 
+    #finds users that attended an event
     @users_attend = []
     @attendance.each do |rsvp|
       @users_attend.push(rsvp.userid)
@@ -44,6 +49,8 @@ class EventsController < ApplicationController
 
   # instantiate the form contents
   def create
+
+    #protects non-admins from creating an event
     if session[:admin_email]
       @event = Event.new(event_params)
 

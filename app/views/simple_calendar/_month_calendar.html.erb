@@ -9,7 +9,11 @@
     <thead>
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <% if t('date.abbr_day_names')[day.wday] == "Sat" or  t('date.abbr_day_names')[day.wday] == "Sun"%>
+            <th style= "background-color: white;"class = <%=t('date.abbr_day_names')[day.wday]%> > <%= t('date.day_names')[day.wday] %></th>
+          <% else %>
+            <th style= "background-color: #353535;"class = <%=t('date.abbr_day_names')[day.wday]%> > <%= t('date.day_names')[day.wday] %></th>
+          <%end%>
         <% end %>
       </tr>
     </thead>
@@ -31,3 +35,4 @@
     </tbody>
   </table>
 </div>
+
