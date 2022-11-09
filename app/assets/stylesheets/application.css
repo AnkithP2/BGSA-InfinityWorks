@@ -56,13 +56,68 @@ header::after {
     clear: both;
 }
 
-
  .simple-calendar {
-   
+   width: 100%;
+   height: 75%;
+   border-collapse: collapse;
+   border-spacing: 0;
+   border: 1px solid black;
+   font-size: 20px;
+   font-style: Arial sans-serif;
+   color: white;
+   background-color: black;
   }
-  .day {}
+  .day {
+    color: white;
+  }
+/* 
+  can't figure out the links sizing so I will work on it later
+  .next-Test{
+    font-size: 100px;
+    color: green;
+  } */
   
-  .wday-0 {}
+  
+  
+  .Mon {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+  }
+  .Tue {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+  }
+  .Wed {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+  }
+  .Thu {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+  }
+  .Fri {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+  }
+  .Sat {
+    font-size:20px;
+    color: black;
+    border: 10px solid black;
+  }
+  .Sun {
+    font-size:20px;
+    color: black;
+    border: 10px solid black;
+  }
+  
+
+  .wday-0 {
+  }
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
@@ -74,13 +129,63 @@ header::after {
   .past {}
   .future {}
 
-  .start-date {}
+
+  .start-date {
+
+  }
+
 
   .prev-month {}
   .next-month { }
   .current-month {}
 
-  .has-events {}
+
+  .calendar-title{
+    font-size: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-style: Arial sans-serif;
+  }
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   

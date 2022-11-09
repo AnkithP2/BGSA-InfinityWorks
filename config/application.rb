@@ -19,7 +19,11 @@ module TestApp
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    #set beginning of the week to be sunday
+    config.beginning_of_week = :sunday
   end
 end
+
