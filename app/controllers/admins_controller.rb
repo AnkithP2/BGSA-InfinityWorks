@@ -4,11 +4,6 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: %i[show edit update destroy]
 
-  # GET /admins or /admins.json
-  def index
-    @admins = Admin.all
-  end
-
   # GET /admins/1 or /admins/1.json
   def show; end
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'events#index'
 
   resources :rsvps
-  resources :attendances
+  resources :attendances, only: %i[index new create edit update show destroy]
   resources :events
 
   resources :links

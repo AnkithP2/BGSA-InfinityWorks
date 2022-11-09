@@ -33,7 +33,7 @@ class AttendancesController < ApplicationController
           begin
             user = User.find(@attendance.userid)
             # user will always be found since the check for this already exists within the model
-            
+
           ensure
             event = Event.find(@attendance.event_id)
             user.userpoints = user.userpoints + event.eventpoints
@@ -63,10 +63,6 @@ class AttendancesController < ApplicationController
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def delete
-    @attendance = Attendance.find(params[:id])
   end
 
   def destroy
