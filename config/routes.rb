@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :registrations
 
-  resources :users
+  resources :users, only: %i[index new create edit update show destroy]
 
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'

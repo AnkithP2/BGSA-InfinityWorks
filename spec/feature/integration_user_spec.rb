@@ -62,7 +62,7 @@ RSpec.describe "deleting a user: ", type: :feature do
       visit delete_user_path(:id => user)
     end
 
-    scenario "Attempt to delete and invalid usear" do
+    scenario "Attempt to delete and invalid user" do
       visit users_path
       expect(page).not_to have_content("Destroy")
     end
