@@ -91,6 +91,9 @@ header::after {
   }
   .day {
     color: white;
+    width: 14.285%;
+
+    text-align: center;
   }
 /* 
   can't figure out the links sizing so I will work on it later
@@ -105,47 +108,76 @@ header::after {
     font-size:20px;
     color: white;
     border: 10px solid black;
+    width: 14.285%;
+    border-bottom: 1px solid white !important;
   }
   .Tue {
     font-size:20px;
     color: white;
     border: 10px solid black;
+    width: 14.285%;
   }
   .Wed {
     font-size:20px;
     color: white;
     border: 10px solid black;
+    width: 14.285%;
   }
   .Thu {
     font-size:20px;
     color: white;
     border: 10px solid black;
+    width: 14.285%;
   }
   .Fri {
     font-size:20px;
     color: white;
     border: 10px solid black;
+    width: 14.285%;
   }
   .Sat {
     font-size:20px;
     color: black;
     border: 10px solid black;
+    width: 14.285%;
   }
   .Sun {
     font-size:20px;
     color: black;
     border: 10px solid black;
+    width: 14.285%;
   }
   
 
   .wday-0 {
+    height: 100px;
+    border: 1px solid white;
+    background-color: #353535 !important;
   }
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
+  .wday-1 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-2 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-3 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-4 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-5 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-6 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
 
   .today {}
   .past {}
@@ -155,9 +187,14 @@ header::after {
 
   }
 
-  .prev-month {}
-  .next-month { }
-  .current-month {}
+  .prev-month {
+    background-color: black !important;
+  }
+  .next-month { 
+    background-color: black !important;
+  }
+  .current-month {
+  }
 
   .calendar-title{
     font-size: 50px;
@@ -165,6 +202,25 @@ header::after {
     margin-right: 30px;
     font-style: Arial sans-serif;
   }
+
+  .card-body{
+    
+    border-radius: 5%;
+  }
+
+  .card-header{
+    background-color: white !important;
+  }
+
+  .card{
+    background-color: #353535 !important;
+  }
+
+  .table1{
+    width: 100%;
+  }
+
+
 
 
   
