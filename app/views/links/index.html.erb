@@ -2,40 +2,32 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1 class='link_header'>Links</h1>
+<style type="text/css">
+   body { background: black; } 
+</style>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1 class='link_header text-white p-3'>Links</h1>
 
-
-  <tbody class='table table-borderless'>
+<div>
+  <ul>
     <% @sections.each do |sec| %>
-      <tr>
-        <th class=''><%=sec.label %></th>
+      <li class='font-weight-bold list-unstyled text-white display-4 '> <%=sec.label%></li>
+        <ul>
           <% sec.links.each do |link| %>
-            <tr>
-              <td class='link_title'><%= link.title %></td>
-              <td class='link_link'><%= link_to link.link, link.link %></td>
-
-              <td><%= link_to 'Show', link_path(link) if is_admin %></td>
-              <td><%= link_to 'Edit', edit_link_path(link) if is_admin %></td>
-              <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } if is_admin %></td>
-            </tr>
+            <div class='text-white display-6'><%= link.title %></div>
+            <div class='text-white display-6'><%= link_to link.link, link.link %></div>
+              <td><%= link_to 'Edit', edit_link_path(link), class: "btn btn-light btn-rounded" if is_admin %></td>
+              <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>
           <% end %>
-      </tr>
+        </ul>
     <% end %>
-  </tbody>
-</table>
-
+  </ul>
+</div>
 
 <br>
-
-<%= link_to 'New Link', new_link_path if is_admin %>
-<%= link_to 'New Section', new_section_path if is_admin %>
-<%= link_to 'Show Sections', sections_path if is_admin %>
-
+<div class='float-start'>
+  <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded" if is_admin %>
+  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded" if is_admin %>
+  <%= link_to 'Show Sections', sections_path, class: "btn btn-light btn-rounded" if is_admin %>
+<div>
 
