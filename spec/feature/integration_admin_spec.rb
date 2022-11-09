@@ -27,4 +27,20 @@ RSpec.describe 'Admin integration test: ', type: :feature do
     visit events_path
     expect(page).to have_content('No admin permissions')
   end
+
+  scenario 'update an existing admin' do
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+
+    visit edit_admin_path(id: admin)
+    fill_in 'Password', with: 'abcd'
+    click_on 'Update Admin'
+
+    visit admin_path(id: admin)
+    expect(page).to have_content('Sean')
+  end
+
+  scenario 'delete existing admin' do
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    admin.destroy
+  end
 end
