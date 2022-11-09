@@ -14,8 +14,8 @@
       <li class='font-weight-bold list-unstyled text-white display-4 '> <%=sec.label%></li>
         <ul>
           <% sec.links.each do |link| %>
-            <div class='p-3 text-white display-6'><%= link.title %></div>
-            <div class='p-3 text-white display-6'><%= link_to link.link, link.link %></div>
+            <div class='text-white display-6'><%= link.title %></div>
+            <div class='text-white display-6'><%= link_to link.link, link.link %></div>
               <td><%= link_to 'Edit', edit_link_path(link), class: "btn btn-light btn-rounded" if is_admin %></td>
               <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>
           <% end %>
@@ -27,9 +27,9 @@
 
 
 <br>
-
-<%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded" if is_admin %>
-<%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded" if is_admin %>
-<%= link_to 'Show Sections', sections_path, class: "btn btn-light btn-rounded" if is_admin %>
-
+<div class='float-start'>
+  <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded" if is_admin %>
+  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded" if is_admin %>
+  <%= link_to 'Show Sections', sections_path, class: "btn btn-light btn-rounded" if is_admin %>
+<div>
 

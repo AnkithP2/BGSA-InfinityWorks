@@ -7,10 +7,10 @@
 <header class='float-container bg-light'>
     <div class='float-child'>
         <%= image_tag "BGSAlogo.png", class: "bgsa_logo"%>
-        <ul class="nav navbar-expand-sm navbar-right">
-            <%= link_to 'Login', login_path, class: "btn btn-inverse" %>
-            <%= link_to 'Logout', loginout_path, class: "btn btn-inverse"  %>
-        </ul>
+            <div class='col-xs float-end'>
+                <%= link_to 'Login', login_path, class: "btn btn-inverse me-1" %>
+                <%= link_to 'Logout', loginout_path, class: "btn btn-inverse me-1"  %>
+            </div>
     </div>
 </header>
 
