@@ -6,47 +6,44 @@ require 'rails_helper'
 RSpec.describe 'creating an Attendance: ', type: :feature do
   scenario 'valid inputs' do
     createAdmin()
-    createValidEvent()
-    createValidUser()
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
     visit new_attendance_path
     select 'test', from: 'attendance_event_id'
     select 'John Smith', from: 'attendance_userid'
     fill_in 'attendance_password', with: 'abcd'
     click_on 'Create Attendance'
-    expect(page).to have_content('John')
     visit attendances_path
+    expect(page).to have_content('John')
+  end
+
+  scenario 'incorrect password when attempting to attend' do
+    createAdmin()
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+    
+    visit new_attendance_path
+    select 'test', from: 'attendance_event_id'
+    select 'John Smith', from: 'attendance_userid'
+    fill_in 'attendance_password', with: 'abc'
+    click_on 'Create Attendance'
+    expect(page).to have_content('Incorrect Password')
+  end
+
+  scenario 'user not found when trying to attend' do
+    createAdmin()
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+    
+    visit new_attendance_path
+    select 'test', from: 'attendance_event_id'
+    select 'John Smith', from: 'attendance_userid'
+    fill_in 'attendance_password', with: 'abc'
+    click_on 'Create Attendance'
+    expect(page).to have_content('Incorrect Password')
   end
 end
-
-RSpec.describe 'Created attendance shows: ', type: :feature do
-    scenario 'valid inputs' do
-      createAdmin()
-      ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-      user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-      
-      visit new_attendance_path
-      select 'test', from: 'attendance_event_id'
-      select 'John Smith', from: 'attendance_userid'
-      fill_in 'attendance_password', with: 'abc'
-      click_on 'Create Attendance'
-      expect(page).not_to have_content('John')
-    end
-end
-
-RSpec.describe 'Attendance with invalid password: ', type: :feature do
-    scenario 'valid inputs' do
-      createAdmin()
-      ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-      user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-      at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abc')
-    
-
-      expect(page).to have_content(at.id)
-
-    end
-end
-
 
 # Helper functions below, do not touch
 def createAdmin()

@@ -25,16 +25,12 @@ class AttendancesController < ApplicationController
     if !errors.empty?
       flash[:notice] = errors.join(' |  ').html_safe
       redirect_to new_attendance_path
-    elsif check_password
+    else
       respond_to do |format|
         if @attendance.save
           format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully created.' }
           format.json { render :show, status: :created, location: @attendance }
           begin
-            user = User.find(@attendance.userid)
-          rescue ActiveRecord::RecordNotFound
-            user = User.new(firstname: 'John', lastname: 'Smith', userpoints: 0, usertotal: 0)
-            user.save
           ensure
             event = Event.find(@attendance.event_id)
             user.userpoints = user.userpoints + event.eventpoints
@@ -45,10 +41,7 @@ class AttendancesController < ApplicationController
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @attendance.errors, status: :unprocessable_entity }
         end
-      end
-    else
-      flash[:notice] = 'Incorrect Password'
-      redirect_to new_attendance_path
+    end
     end
   end
 
@@ -78,10 +71,6 @@ class AttendancesController < ApplicationController
     @attendance.destroy
     flash[:notice] = "attendance '#{@attendance.id}' deleted successfully."
     redirect_to(attendances_path)
-  end
-
-  def check_password
-    @attendance.password == Event.find(@attendance.event_id).logincode
   end
 
   private
