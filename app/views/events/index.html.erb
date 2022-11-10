@@ -2,55 +2,59 @@
 
 <h1>Events</h1>
 <h2>Shows all events</h2>
+<% if @admin %>
+  Admin: <%= @admin.name %>
+<% else %>
+  No admin permissions
+<%end%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Start Time</th>
-      <th>End Time</th>
-      <th>Login Code</th>
-      <th>Location</th>
-      <th>Event Points</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.date %></td>
-        <td><%= event.starttime %></td>
-        <td><%= event.endtime %></td>
-        <td><%= event.logincode %></td>
-        <td><%= event.location %></td>
-        <td><%= event.eventpoints %></td>
-        <td><%= link_to 'Show', event_path(event) %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class = "container mt-5 text-center">
+<%= month_calendar(attribute: :starttime, end_attribute: :endtime, events: @meetings) do |date,meetings| %>
+  <div class = "day">
+    <%= date%>
+  </div>
+  <%meetings.each do |meeting|%>
+    <div class= "card-header">
+      <div class= "card-title">
+        <%= link_to meeting.title, meeting%>
+      </div>
+    </div>
+    <div class = "card-body">
+      <p class = "card-text">
+        Located at: 
+        <%= meeting.location %>
+      </p>
+    </div>
+    <div class = "card-footer">
+      <p class = "card-text">
+        Start: 
+        <%= meeting.starttime.strftime('%B %d %Y, at %I:%M %p') %>
+      </p>
+      <p class = "card-text">
+        End: 
+        <%= meeting.endtime.strftime('%B %d %Y, at %I:%M %p') %>
+      </p>
+    </div>
+  <%end%>
+<% end %>
+</div>
 
 <br>
 <br>
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<% if @admin %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>
 <br>
 <%= link_to 'New Attendance', new_attendance_path %>
 
 <br>
-<%= link_to 'New Admin', new_admin_path %>
+<%= link_to 'New Admin', new_registration_path %>
 <br>
 <%= link_to 'Login', login_path %>
 <br>
 <%= link_to 'Logout', loginout_path %>
-<br>
-<%= link_to 'All Admin', admins_path(@admins) %>
 <br>
 
 
@@ -62,5 +66,5 @@
 <%= link_to 'Point Tracker', users_path %> 
 <br>
 <%= link_to 'Links Page', links_path %> 
-
-
+<br>
+<%= link_to 'FAQ Page', "/faq.html" %>

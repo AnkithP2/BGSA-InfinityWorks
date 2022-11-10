@@ -1,35 +1,33 @@
+<%= stylesheet_link_tag "links" %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Links</h1>
-<h2>Shows all links</h2>
+<style type="text/css">
+   body { background: black; } 
+</style>
 
-<table>
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Title</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1 class='link_header text-white p-3'>Links</h1>
 
-  <tbody>
-    <% @links.each do |link| %>
-      <tr>
-        <td><%= link.author %></td>
-        <td><%= link.title %></td>
-        <td><%= link_to link.link, link.link %></td>
-
-        <td><%= link_to 'Show', link_path(link) %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div>
+  <ul>
+    <% @sections.each do |sec| %>
+      <li class='font-weight-bold list-unstyled text-white display-4 '> <%=sec.label%></li>
+        <ul>
+          <% sec.links.each do |link| %>
+            <div class='text-white display-6'><%= link.title %></div>
+            <div class='text-white display-6'><%= link_to link.link, link.link %></div>
+              <td><%= link_to 'Edit', edit_link_path(link), class: "btn btn-light btn-rounded" if is_admin %></td>
+              <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>
+          <% end %>
+        </ul>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+</div>
 
 <br>
+<div class='float-start'>
+  <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded" if is_admin %>
+  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded" if is_admin %>
+  <%= link_to 'Show Sections', sections_path, class: "btn btn-light btn-rounded" if is_admin %>
+<div>
 
-<%= link_to 'New Link', new_link_path %>
-
-<%= link_to 'Home', events_path %>
