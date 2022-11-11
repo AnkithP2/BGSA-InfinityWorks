@@ -1,18 +1,18 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+    <%= link_to t('simple_calendar.previous', default: 'Prev'), calendar.url_for_previous_view, class: "btn btn-light" %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, class: "btn btn-light" %>
   </div>
 
-  <table class="table table-striped">
-    <thead>
+  <table class="table1">
+    <thead >
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
           <% if t('date.abbr_day_names')[day.wday] == "Sat" or  t('date.abbr_day_names')[day.wday] == "Sun"%>
-            <th style= "background-color: white;"class = <%=t('date.abbr_day_names')[day.wday]%> > <%= t('date.day_names')[day.wday] %></th>
+            <th style= "background-color: white;" class = <%=t('date.abbr_day_names')[day.wday]%> > <%= t('date.day_names')[day.wday] %></th>
           <% else %>
-            <th style= "background-color: #353535;"class = <%=t('date.abbr_day_names')[day.wday]%> > <%= t('date.day_names')[day.wday] %></th>
+            <th style= "background-color: #353535;" class = <%=t('date.abbr_day_names')[day.wday]%> > <%= t('date.day_names')[day.wday] %></th>
           <%end%>
         <% end %>
       </tr>

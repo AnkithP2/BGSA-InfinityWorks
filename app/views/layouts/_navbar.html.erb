@@ -34,6 +34,9 @@
             <li class="nav-item">
                 <%= link_to 'New RSVP', new_rsvp_path, class: "btn btn-inverse" %>
             </li>
+            <li class="nav-item">
+                <%= link_to 'FAQ', "/faq.html", class: "btn btn-inverse" %>
+            </li>
             <% if @admin %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle btn btn-inverse" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Controls</a>
@@ -43,6 +46,7 @@
                     <%= link_to 'New Admin', new_registration_path, class: "dropdown-item btn btn-inverse" %>
                 </div>
             </li>
+
             <% end %>
         </ul>
     </div>
