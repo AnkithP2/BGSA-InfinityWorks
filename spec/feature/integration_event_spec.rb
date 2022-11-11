@@ -5,7 +5,7 @@ require 'rails_helper'
 
 # event integration tests
 # create an event with no special attributes
-RSpec.describe 'creating an event: ', type: :feature do
+RSpec.describe 'event integration tests: ', type: :feature do
   scenario 'valid inputs' do
     createAdmin()
 
@@ -13,53 +13,86 @@ RSpec.describe 'creating an event: ', type: :feature do
     fill_in 'Title', with: 'test'
     fill_in 'Date', with: '11/04/2022'
     fill_in 'Starttime', with: '11/4/2022 18:45'
-    fill_in 'Endtime', with: '11/4/2022 19:45'
+    fill_in 'Endtime', with: '11/4/2042 19:45'
     fill_in 'Logincode', with: 'abcd'
     fill_in 'Location', with: 'At my house'
     fill_in 'Eventpoints', with: '2'
     click_on 'Create Event'
     expect(page).to have_content('test')
   end
-end
 
-RSpec.describe 'creating an event with zero RSVP: ', type: :feature do
-    scenario 'valid inputs' do
-      createAdmin()
-  
-      ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-      visit event_path(id: ev.id)
-      expect(page).to have_content('None')
-    end
-end
+  scenario 'access new event without admin permissions' do
 
-RSpec.describe 'creating an event with at least one RSVP/Attended: ', type: :feature do
-    scenario 'valid inputs' do
-      createAdmin()
-  
-      ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-      user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-      at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
-      rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+    visit new_event_path
+    expect(page).not_to have_content('you need admin')
+  end
 
-      visit event_path(id: ev.id)
-      expect(page).not_to have_content('None')
-    end
-end
+  scenario 'edit an event with admin permissions' do
+    createAdmin()
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    visit edit_event_path(id: ev)
+    fill_in 'Title', with: 'testing'
+    click_on 'Update Event'
 
-RSpec.describe 'Attempt to attend an event which is closed: ', type: :feature do
-    scenario 'valid inputs' do
-      createAdmin()
+    expect(page).to have_content('testing')
+  end
 
-      ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2022-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-      user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-      at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
-      at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+  scenario 'edit an event without admin permissions' do
+    createAdmin()
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    visit loginout_path
+    visit edit_event_path(id: ev)
 
-      rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+    expect(page).not_to have_content('Ankith')
+  end
 
-      visit event_path(id: ev.id)
-      expect(page).not_to have_content('None')
-    end
+  scenario 'creating an event with zero RSVP: ' do
+    createAdmin()
+
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    visit event_path(id: ev.id)
+    expect(page).to have_content('None')
+  end
+
+  scenario 'creating an event with at least one RSVP/Attended: ' do
+    createAdmin()
+
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+    at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+    rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+
+    visit event_path(id: ev.id)
+    expect(page).not_to have_content('None')
+  end
+
+  scenario 'Attempt to attend an event which is closed: ' do
+    createAdmin()
+
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+    at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+    at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+
+    rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+
+    visit event_path(id: ev.id)
+    expect(page).not_to have_content('None')
+  end
+
+  scenario 'delete existing event with admin permissions' do
+    createAdmin()
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    visit event_path(id: ev.id)
+    click_on 'Delete'
+  end
+
+  scenario 'delete existing event without admin permissions' do
+    createAdmin()
+    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    visit event_path(id: ev.id)
+    click_on 'Delete'
+  end
 end
 
 def createAdmin()
