@@ -18,4 +18,7 @@ validates :logincode, format: { with: /[A-Za-z0-9]+\z/}
 # protects against SQL attacks and checks for common SQL statements
 validates :title, :logincode, :location, format: { without: /'(''|[^'])*'/}
 validates :title, :logincode, :location, format: { without: /\b(ALTER|CREATE|DELETE|DROP|EXEC(UTE){0,1}|INSERT( +INTO){0,1}|MERGE|SELECT|UPDATE|UNION( +ALL){0,1})\b/}
+
+
+
 end

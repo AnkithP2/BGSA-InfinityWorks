@@ -116,41 +116,47 @@ header::after {
     color: white;
     border: 10px solid black;
     width: 14.285%;
+    border-bottom: 1px solid white !important;
   }
   .Wed {
     font-size:20px;
     color: white;
     border: 10px solid black;
     width: 14.285%;
+    border-bottom: 1px solid white !important;
   }
   .Thu {
     font-size:20px;
     color: white;
     border: 10px solid black;
     width: 14.285%;
+    border-bottom: 1px solid white !important;
   }
   .Fri {
     font-size:20px;
     color: white;
     border: 10px solid black;
     width: 14.285%;
+    border-bottom: 1px solid white !important;
   }
   .Sat {
     font-size:20px;
     color: black;
     border: 10px solid black;
     width: 14.285%;
+    border-bottom: 1px solid white !important;
   }
   .Sun {
     font-size:20px;
     color: black;
     border: 10px solid black;
     width: 14.285%;
+    border-bottom: 1px solid white !important;
   }
   
 
   .wday-0 {
-    height: 100px;
+    height: 125px;
     border: 1px solid white;
     background-color: #353535 !important;
   }
@@ -213,7 +219,7 @@ header::after {
   }
 
   .card{
-    background-color: #353535 !important;
+    background-color: #129d53 !important;
   }
 
   .table1{
