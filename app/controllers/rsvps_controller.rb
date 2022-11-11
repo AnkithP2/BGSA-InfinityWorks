@@ -57,10 +57,12 @@ class RsvpsController < ApplicationController
     end
   end
 
+  '''
   def delete
     @rsvp = Rsvp.find(params[:id])
   end
-
+  '''
+  
   # DELETE /rsvps/1 or /rsvps/1.json
   def destroy
     @rsvp = Rsvp.find(params[:id])
