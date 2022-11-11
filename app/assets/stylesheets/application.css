@@ -27,7 +27,9 @@ yellow #fedc5f
 }
 
 
-.btn.btn-rounded { border-radius: 50px }
+.btn.btn-rounded { 
+  border-radius: 50px
+}
 
 .btn.btn-inverse {
     font-size: large;
