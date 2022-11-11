@@ -2,6 +2,9 @@
 
 # Helper for users
 module UsersHelper
+  def is_admin
+    return true if session[:admin_email]
+  end
   '''
   def list_mentors
     if @user.mentors.size.zero?

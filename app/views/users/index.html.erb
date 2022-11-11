@@ -1,34 +1,48 @@
+<%= stylesheet_link_tag "links" %>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
-<h1>Point Tracker</h1>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Semester Points</th>
-      <th>Total Points</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class='card w-75 mx-auto'>
+  <div class='card-body'>
+    <div class="mx-auto" style="width: 400px;">
+      <h1 class='card-title'>Point Tracker</h1>
+    </div>
+    
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.firstname %></td>
-        <td><%= user.lastname %></td>
-        <td><%= user.userpoints %></td>
-        <td><%= user.usertotal %></td>
-        <td><%= link_to 'Show', user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <style type="text/css">
+      body { background: black; } 
+    </style>
 
 
-<br>
+    <table class='table '>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Semester Points</th>
+          <th>Total Points</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<%= link_to 'Back', events_path %>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.userpoints %></td>
+            <td><%= user.usertotal %></td>
+
+            <td><%= link_to 'Show', user_path(user) if is_admin %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } if is_admin%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
