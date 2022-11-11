@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 #admin integration tests
-RSpec.describe 'register as a new admin: ', type: :feature do
+RSpec.describe 'Admin integration test: ', type: :feature do
   scenario 'valid inputs' do
     visit new_registration_path
     fill_in 'Name', with: 'Ankith'
@@ -13,10 +13,8 @@ RSpec.describe 'register as a new admin: ', type: :feature do
 
     expect(page).to have_content('Ankith')
   end
-end
 
-RSpec.describe 'log out as an admin: ', type: :feature do
-scenario 'valid inputs' do
+  scenario 'logout as admin' do
     visit new_registration_path
     fill_in 'Name', with: 'Ankith'
     fill_in 'Email', with: 'test@gmail.com'
@@ -28,6 +26,21 @@ scenario 'valid inputs' do
     visit loginout_path
     visit events_path
     expect(page).to have_content('No admin permissions')
-end
-end
+  end
 
+  scenario 'update an existing admin' do
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+
+    visit edit_admin_path(id: admin)
+    fill_in 'Password', with: 'abcd'
+    click_on 'Update Admin'
+
+    visit admin_path(id: admin)
+    expect(page).to have_content('Sean')
+  end
+
+  scenario 'delete existing admin' do
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    admin.destroy
+  end
+end
