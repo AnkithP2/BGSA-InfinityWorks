@@ -26,3 +26,4 @@ module TestApp
     config.beginning_of_week = :sunday
   end
 end
+

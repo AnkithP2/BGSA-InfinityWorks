@@ -14,18 +14,24 @@
  *= require_self
  */
 
-
- /*
+/*
 Color scheme
+
 black #000000
 green #129d53
 red #b21b29
 yellow #fedc5f
- */
-/* commented out for bootstrapping purposes 
+*/
 
-.top_container {
-    width: 1000px;
+.btn.btn-rounded { border-radius: 50px }
+
+.btn.btn-inverse {
+    font-size: large;
+    color:black;
+}
+
+.bg-primary {
+    background-color: #129d53;
 }
 
 .bgsa_logo {
@@ -34,16 +40,14 @@ yellow #fedc5f
     padding: 10px;
 }
 
-header {
-    background: #f4f4f4
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
 }
-
-.header {
-    height: 100px;
-}
-
-header h2 {
-    padding: 15px;
+  
+.navbar .navbar-collapse {
+    text-align: center;
 }
 
 header::after {
@@ -52,32 +56,6 @@ header::after {
     clear: both;
 }
 
-.navbar {
-    background-color: #129d53;
-    overflow: hidden;
-    height: 55px;
-}
-
-.navbar a {
-    float: left;
-    color: #000000;
-    text-align: center;
-    padding: 10px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.navbar a.active {
-    background-color: #04AA6D;
-    color: white;
-}
-
-*/
  .simple-calendar {
    width: 100%;
    height: 75%;
@@ -88,12 +66,16 @@ header::after {
    font-style: Arial sans-serif;
    color: white;
    background-color: black;
+   min-width: 960px !important;
   }
   .day {
     color: white;
     width: 14.285%;
 
-    text-align: center;
+    vertical-align: top;
+    text-align: left;
+    padding-top: .5%;
+    padding-left: 1%;
   }
 /* 
   can't figure out the links sizing so I will work on it later
@@ -109,49 +91,56 @@ header::after {
     color: white;
     border: 10px solid black;
     width: 14.285%;
-    border-bottom: 1px solid white !important;
+    border: 1px solid white;
+    text-align: center;
   }
   .Tue {
     font-size:20px;
     color: white;
     border: 10px solid black;
     width: 14.285%;
-    border-bottom: 1px solid white !important;
+    border: 1px solid white;
+    text-align: center;
   }
   .Wed {
     font-size:20px;
     color: white;
     border: 10px solid black;
     width: 14.285%;
-    border-bottom: 1px solid white !important;
+    border: 1px solid white;
+    text-align: center;
   }
   .Thu {
     font-size:20px;
     color: white;
     border: 10px solid black;
     width: 14.285%;
-    border-bottom: 1px solid white !important;
+    border: 1px solid white;
+    text-align: center;
   }
   .Fri {
     font-size:20px;
     color: white;
     border: 10px solid black;
     width: 14.285%;
-    border-bottom: 1px solid white !important;
+    text-align: center;
+    border: 1px solid white;
   }
   .Sat {
     font-size:20px;
     color: black;
     border: 10px solid black;
     width: 14.285%;
-    border-bottom: 1px solid white !important;
+    text-align: center;
+    border: 1px solid white;
   }
   .Sun {
     font-size:20px;
     color: black;
     border: 10px solid black;
     width: 14.285%;
-    border-bottom: 1px solid white !important;
+    border: 1px solid white;
+    text-align: center;
   }
   
 
@@ -183,11 +172,13 @@ header::after {
   .wday-6 {
     border: 1px solid white;
     background-color: #353535 !important;
+
   }
 
   .today {}
   .past {}
   .future {}
+
 
   .start-date {
 
@@ -202,6 +193,7 @@ header::after {
   .current-month {
   }
 
+
   .calendar-title{
     font-size: 50px;
     margin-left: 30px;
@@ -209,61 +201,31 @@ header::after {
     font-style: Arial sans-serif;
   }
 
+  .calendar-heading{
+    border: 1px solid white !important;
+  }
+
   .card-body{
-    
     border-radius: 5%;
+    
   }
 
   .card-header{
     background-color: white !important;
+    border-radius: 5%;
+    text-align: center;
   }
 
   .card{
     background-color: #129d53 !important;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
   }
 
   .table1{
     width: 100%;
   }
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

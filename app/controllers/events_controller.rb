@@ -4,11 +4,13 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+
     #finds all the meetings based on events to display in the simple_calendar
     @meetings = Event.where(
       starttime: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
     )
     #sets up the admin cookie
+
     @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
 
     @color = true
@@ -49,6 +51,7 @@ class EventsController < ApplicationController
 
   # instantiate the form contents
   def create
+
     #protects non-admins from creating an event
     if session[:admin_email]
       @event = Event.new(event_params)

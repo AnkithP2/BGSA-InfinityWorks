@@ -1,7 +1,8 @@
+<style type="text/css">
+  body {background: black}
+</style>
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
-<h2>Shows all events</h2>
 <% if @admin %>
   Admin: <%= @admin.name %>
 <% else %>
@@ -44,28 +45,6 @@
 <br>
 <br>
 
-<% if @admin %>
-  <%= link_to 'New Event', new_event_path %>
-<% end %>
-<br>
-<%= link_to 'New Attendance', new_attendance_path %>
 
 <br>
 <%= link_to 'New Admin', new_registration_path %>
-<br>
-<%= link_to 'Login', login_path %>
-<br>
-<%= link_to 'Logout', loginout_path %>
-<br>
-
-
-
-<br>
-<%= link_to 'New RSVP', new_rsvp_path %>
-
-<br>
-<%= link_to 'Point Tracker', users_path %> 
-<br>
-<%= link_to 'Links Page', links_path %> 
-
-
