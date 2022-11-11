@@ -16,14 +16,20 @@
 
 /*
 Color scheme
-
 black #000000
 green #129d53
 red #b21b29
 yellow #fedc5f
 */
 
-.btn.btn-rounded { border-radius: 50px }
+.card, .card-header, .card-body, .card-footer{
+    border-radius: 50px !important;
+}
+
+
+.btn.btn-rounded { 
+  border-radius: 50px
+}
 
 .btn.btn-inverse {
     font-size: large;
