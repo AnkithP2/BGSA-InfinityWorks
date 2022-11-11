@@ -83,25 +83,3 @@ def createAdmin()
     fill_in 'Password', with: '1234'
     click_on 'Create Admin'
 end
-
-def createValidEvent()
-    visit new_event_path
-    fill_in 'Title', with: 'test'
-    fill_in 'Date', with: '11/04/2022'
-    fill_in 'Starttime', with: '11/4/2022 18:45'
-    fill_in 'Endtime', with: '11/4/2022 19:45'
-    fill_in 'Logincode', with: 'abcd'
-    fill_in 'Location', with: 'At my house'
-    fill_in 'Eventpoints', with: '2'
-    click_on 'Create Event'
-end
-
-def createValidUser()
-    visit new_user_path
-    fill_in 'Firstname', with: 'John'
-    fill_in 'Lastname', with: 'Smith'
-    fill_in 'Userpoints', with: 0
-    fill_in 'Usertotal', with: 0
-    click_on 'Create User'
-    visit users_path
-end

@@ -40,9 +40,11 @@ class AttendancesController < ApplicationController
             user.usertotal = user.usertotal + event.eventpoints
             user.save
           end
+        '''
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @attendance.errors, status: :unprocessable_entity }
+        '''
         end
     end
     end
@@ -58,10 +60,13 @@ class AttendancesController < ApplicationController
       if @attendance.update(attendance_params)
         format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully updated.' }
         format.json { render :show, status: :ok, location: @attendance }
+      '''
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @attendance.errors, status: :unprocessable_entity }
+      '''
       end
+      
     end
   end
 
