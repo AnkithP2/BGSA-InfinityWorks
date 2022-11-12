@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_11_08_225649) do
+=======
+ActiveRecord::Schema.define(version: 2022_11_09_202339) do
+>>>>>>> c7a1f6f89357d1384cd154b63808e84e7feed3e9
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +49,6 @@ ActiveRecord::Schema.define(version: 2022_11_08_225649) do
     t.integer "max_attendance"
   end
 
-  create_table "goals", force: :cascade do |t|
-    t.bigint "mentorship_id"
-    t.string "goal"
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["mentorship_id"], name: "index_goals_on_mentorship_id"
-  end
-
   create_table "links", force: :cascade do |t|
     t.bigint "section_id"
     t.string "title"
@@ -61,15 +56,6 @@ ActiveRecord::Schema.define(version: 2022_11_08_225649) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["section_id"], name: "index_links_on_section_id"
-  end
-
-  create_table "mentorships", force: :cascade do |t|
-    t.bigint "mentor_id"
-    t.bigint "mentee_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["mentee_id"], name: "index_mentorships_on_mentee_id"
-    t.index ["mentor_id"], name: "index_mentorships_on_mentor_id"
   end
 
   create_table "rsvps", force: :cascade do |t|
@@ -95,6 +81,4 @@ ActiveRecord::Schema.define(version: 2022_11_08_225649) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "mentorships", "users", column: "mentee_id"
-  add_foreign_key "mentorships", "users", column: "mentor_id"
 end

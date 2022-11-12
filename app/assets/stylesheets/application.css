@@ -14,20 +14,26 @@
  *= require_self
  */
 
-
- /*
+/*
 Color scheme
 black #000000
 green #129d53
 red #b21b29
 yellow #fedc5f
- */
+*/
 
-.btn.btn-rounded { border-radius: 50px }
+.card, .card-header, .card-body, .card-footer{
+    border-radius: 50px !important;
+}
+
+
+.btn.btn-rounded { 
+  border-radius: 50px
+}
 
 .btn.btn-inverse {
     font-size: large;
-    color:black
+    color:black;
 }
 
 .bg-primary {
@@ -56,31 +62,178 @@ header::after {
     clear: both;
 }
 
-
  .simple-calendar {
-   
+   width: 100%;
+   height: 75%;
+   border-collapse: collapse;
+   border-spacing: 0;
+   border: 1px solid black;
+   font-size: 20px;
+   font-style: Arial sans-serif;
+   color: white;
+   background-color: black;
+   min-width: 960px !important;
   }
-  .day {}
+  .day {
+    color: white;
+    width: 14.285%;
+
+    vertical-align: top;
+    text-align: left;
+    padding-top: .5%;
+    padding-left: 1%;
+  }
+/* 
+  can't figure out the links sizing so I will work on it later
+  .next-Test{
+    font-size: 100px;
+    color: green;
+  } */
   
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
+  
+  
+  .Mon {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+    width: 14.285%;
+    border: 1px solid white;
+    text-align: center;
+  }
+  .Tue {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+    width: 14.285%;
+    border: 1px solid white;
+    text-align: center;
+  }
+  .Wed {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+    width: 14.285%;
+    border: 1px solid white;
+    text-align: center;
+  }
+  .Thu {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+    width: 14.285%;
+    border: 1px solid white;
+    text-align: center;
+  }
+  .Fri {
+    font-size:20px;
+    color: white;
+    border: 10px solid black;
+    width: 14.285%;
+    text-align: center;
+    border: 1px solid white;
+  }
+  .Sat {
+    font-size:20px;
+    color: black;
+    border: 10px solid black;
+    width: 14.285%;
+    text-align: center;
+    border: 1px solid white;
+  }
+  .Sun {
+    font-size:20px;
+    color: black;
+    border: 10px solid black;
+    width: 14.285%;
+    border: 1px solid white;
+    text-align: center;
+  }
+  
+
+  .wday-0 {
+    height: 125px;
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-1 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-2 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-3 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-4 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-5 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+  }
+  .wday-6 {
+    border: 1px solid white;
+    background-color: #353535 !important;
+
+  }
 
   .today {}
   .past {}
   .future {}
 
-  .start-date {}
 
-  .prev-month {}
-  .next-month { }
-  .current-month {}
+  .start-date {
 
-  .has-events {}
+  }
+
+  .prev-month {
+    background-color: black !important;
+  }
+  .next-month { 
+    background-color: black !important;
+  }
+  .current-month {
+  }
+
+
+  .calendar-title{
+    font-size: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-style: Arial sans-serif;
+  }
+
+  .calendar-heading{
+    border: 1px solid white !important;
+  }
+
+  .card-body{
+    border-radius: 5%;
+    
+  }
+
+  .card-header{
+    background-color: white !important;
+    border-radius: 5%;
+    text-align: center;
+  }
+
+  .card{
+    background-color: #129d53 !important;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+  }
+
+  .table1{
+    width: 100%;
+  }
+
+
 
 
   

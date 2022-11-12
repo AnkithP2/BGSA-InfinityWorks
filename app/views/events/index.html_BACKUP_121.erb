@@ -21,6 +21,29 @@
           <%= link_to meeting.title, meeting%>
         </div>
       </div>
+<<<<<<< HEAD
+    </div>
+    <div class = "card-body">
+      <p class = "card-text">
+        Located at: 
+        <%= meeting.location %>
+      </p>
+    </div>
+    <div class = "card-footer">
+      <p class = "card-text">
+        Start: 
+        <%= meeting.starttime.strftime('%B %d %Y, at %I:%M %p') %>
+      </p>
+      <p class = "card-text">
+        End: 
+        <%= meeting.endtime.strftime('%B %d %Y, at %I:%M %p') %>
+      </p>
+<!--      <div class = "card-attendance">
+        <%= link_to 'RSVP', new_rsvp_path(event_id_temp: meeting.id) %>
+        <%= link_to 'Check-In', new_attendance_path %>
+      </div>
+-->
+=======
       <div class = "card-body">
         <p class = "card-text">
           Place: 
@@ -36,6 +59,7 @@
           <%= meeting.endtime.strftime('%b %d, %I:%M %p') %>
         </p>
         </div>
+>>>>>>> c7a1f6f89357d1384cd154b63808e84e7feed3e9
     </div>
   <%end%>
 <% end %>
@@ -45,6 +69,31 @@
 <br>
 <br>
 
+<<<<<<< HEAD
+<% if @admin %>
+  <%= link_to 'New Event', new_event_path %>
+<% end %>
+<br>
 
 <br>
 <%= link_to 'New Admin', new_registration_path %>
+<br>
+<%= link_to 'Login', login_path %>
+<br>
+<%= link_to 'Logout', loginout_path %>
+
+
+
+
+
+<br>
+<%= link_to 'Point Tracker', users_path %> 
+<br>
+<%= link_to 'Links Page', links_path %> 
+
+
+=======
+
+<br>
+<%= link_to 'New Admin', new_registration_path %>
+>>>>>>> c7a1f6f89357d1384cd154b63808e84e7feed3e9

@@ -1,3 +1,4 @@
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,12 +8,13 @@
 <header class='float-container bg-light'>
     <div class='float-child'>
         <%= image_tag "BGSAlogo.png", class: "bgsa_logo"%>
-        <ul class="nav navbar-expand-sm navbar-right">
-            <%= link_to 'Login', login_path, class: "btn btn-inverse" %>
-            <%= link_to 'Logout', loginout_path, class: "btn btn-inverse"  %>
-        </ul>
+            <div class='col-xs float-end'>
+                <%= link_to 'Login', login_path, class: "btn btn-inverse me-1" %>
+                <%= link_to 'Logout', loginout_path, class: "btn btn-inverse me-1"  %>
+            </div>
     </div>
 </header>
+
 
 <nav class="navbar navbar-expand-lg navbar-light" style='background-color:#129d53'>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#SupportedContent" aria-controls="SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +37,8 @@
             <li class="nav-item">
                 <%= link_to 'New Attendance', new_attendance_path, class: "dropdown-item btn btn-inverse" %>
             <li>
+                <%= link_to 'FAQ', "/faq.html", class: "btn btn-inverse" %>
+            </li>
             <% if @admin %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle btn btn-inverse" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Controls</a>
@@ -46,7 +50,9 @@
                     <%= link_to 'View Attendance', attendances_path, class: "dropdown-item btn btn-inverse" %>
                 </div>
             </li>
+
             <% end %>
         </ul>
     </div>
 </nav>
+
