@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :goals
-  resources :mentorships
   resources :admin_securities
   root 'events#index'
 
   resources :rsvps
-  resources :attendances
+  resources :attendances, only: %i[index new create edit update show destroy]
   resources :events
 
   resources :links
@@ -17,7 +15,7 @@ Rails.application.routes.draw do
   resources :admin
   resources :registrations
 
-  resources :users
+  resources :users, only: %i[index new create edit update show destroy]
 
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
