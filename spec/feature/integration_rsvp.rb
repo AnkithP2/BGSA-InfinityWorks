@@ -23,7 +23,7 @@ RSpec.describe 'creating an Rsvp: ', type: :feature do
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'Create Rsvp'
+    click_on 'RSVP'
     visit rsvps_path
     expect(page).to have_content('John')
   end
@@ -49,7 +49,7 @@ RSpec.describe 'creating an Rsvp: ', type: :feature do
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'Create Rsvp'
+    click_on 'RSVP'
     visit rsvps_path
     expect(page).to have_content('Smith')
   end
@@ -75,7 +75,7 @@ RSpec.describe 'creating an Rsvp: ', type: :feature do
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'Create Rsvp'
+    click_on 'RSVP'
     visit rsvps_path
     expect(page).to have_content('test')
   end

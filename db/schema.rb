@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2022_11_09_202339) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "starttime"
     t.datetime "endtime"
+    t.integer "max_attendance"
   end
 
   create_table "links", force: :cascade do |t|

@@ -26,15 +26,17 @@
                 <%= link_to 'Calendar', events_path, class: "btn btn-inverse" %>
             </li>
             <li class="nav-item">
-                <%= link_to 'Links', links_path, class: "btn btn-inverse" %>
+                <%= link_to 'RSVP', new_rsvp_path, class: "btn btn-inverse" %>
             </li>
+            <li class="nav-item">
+                <%= link_to 'Check In', new_attendance_path, class: "dropdown-item btn btn-inverse" %>
             <li class="nav-item">
                 <%= link_to 'Point Tracker', users_path, class: "btn btn-inverse" %>
             </li>
             <li class="nav-item">
-                <%= link_to 'New RSVP', new_rsvp_path, class: "btn btn-inverse" %>
-            </li>
-            <li class="nav-item">
+                <%= link_to 'Links', links_path, class: "btn btn-inverse" %>
+            </li>           
+            <li>
                 <%= link_to 'FAQ', "/faq.html", class: "btn btn-inverse" %>
             </li>
             <% if @admin %>
@@ -42,8 +44,10 @@
                 <a class="nav-link dropdown-toggle btn btn-inverse" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Controls</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <%= link_to 'New Event', new_event_path, class: "dropdown-item btn btn-inverse" %>
-                    <%= link_to 'New Attendance', new_attendance_path, class: "dropdown-item btn btn-inverse" %>
                     <%= link_to 'New Admin', new_registration_path, class: "dropdown-item btn btn-inverse" %>
+                    <%= link_to 'New User', new_user_path, class: "dropdown-item btn btn-inverse" %>
+                    <%= link_to 'View RSVP', rsvps_path, class: "dropdown-item btn btn-inverse" %>
+                    <%= link_to 'View Attendance', attendances_path, class: "dropdown-item btn btn-inverse" %>
                 </div>
             </li>
 
