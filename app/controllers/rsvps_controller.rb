@@ -71,6 +71,7 @@ class RsvpsController < ApplicationController
     end
   end
 
+  '''
   def delete
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
@@ -79,7 +80,8 @@ class RsvpsController < ApplicationController
       redirect_to login_path , notice: message
     end
   end
-
+  '''
+  
   # DELETE /rsvps/1 or /rsvps/1.json
   def destroy
     if session[:admin_email]
