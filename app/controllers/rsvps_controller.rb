@@ -26,12 +26,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/new
   def new
-    if session[:admin_email]
-      @rsvp = Rsvp.new
-    else
-      message = 'You need admin permissions'
-      redirect_to login_path , notice: message
-    end
+    @rsvp = Rsvp.new
   end
 
   # GET /rsvps/1/edit
