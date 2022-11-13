@@ -9,9 +9,28 @@ class Rsvp < ApplicationRecord
   # Check each error adding message if popped
   def self.error_checks(rsvp)
     errors = []
+    errors.append('No Event Entered') unless check_user_input(rsvp)
+    errors.append('No User Entered') unless check_event_input(rsvp)
+    if errors.empty?
+      error_checks_2(rsvp)
+    else
+      errors
+    end
+  end
+
+  def self.error_checks_2(rsvp)
+    errors = []
     errors.append('Registration Closed') unless check_rsvp_time(rsvp)
     errors.append('User Already Registered') unless check_user_exists(rsvp)
     errors
+  end
+
+  def self.check_event_input(rsvp)
+    !rsvp.userid.nil?
+  end
+
+  def self.check_user_input(rsvp)
+    !rsvp.event_id.nil?
   end
 
   # Check if user has already registered

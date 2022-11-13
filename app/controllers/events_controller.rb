@@ -12,6 +12,8 @@ class EventsController < ApplicationController
     #sets up the admin cookie
 
     @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+
+    @color = true
   end
 
   def show
@@ -120,4 +122,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:title, :date, :starttime, :endtime, :logincode, :location, :eventpoints)
   end
+
+
 end

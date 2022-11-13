@@ -12,9 +12,8 @@ RSpec.describe 'RSVP Integration Tests: ', type: :feature do
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'Create Rsvp'
+    click_on 'RSVP'
     expect(page).to have_content('test')
-    
     visit rsvps_path
   end
 
@@ -26,8 +25,7 @@ RSpec.describe 'RSVP Integration Tests: ', type: :feature do
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'Create Rsvp'
-    
+    click_on 'RSVP'
     visit rsvps_path
     expect(page).not_to have_content('test')
   end
@@ -41,8 +39,7 @@ RSpec.describe 'RSVP Integration Tests: ', type: :feature do
     visit edit_rsvp_path(id: rsvp)
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'Update Rsvp'
-
+    click_on 'RSVP'
     visit rsvps_path
     expect(page).to have_content('test')
     

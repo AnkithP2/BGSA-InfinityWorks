@@ -13,7 +13,7 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     select 'test', from: 'attendance_event_id'
     select 'John Smith', from: 'attendance_userid'
     fill_in 'attendance_password', with: 'abcd'
-    click_on 'Create Attendance'
+    click_on 'Check In'
     visit attendances_path
     expect(page).to have_content('John')
   end
@@ -27,7 +27,7 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     select 'test', from: 'attendance_event_id'
     select 'John Smith', from: 'attendance_userid'
     fill_in 'attendance_password', with: 'abc'
-    click_on 'Create Attendance'
+    click_on 'Check In'
     expect(page).to have_content('Incorrect Password')
   end
 
@@ -39,7 +39,7 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     visit new_attendance_path
     select 'test', from: 'attendance_event_id'
     select 'John Smith', from: 'attendance_userid'
-    click_on 'Create Attendance'
+    click_on 'Check In'
     expect(page).to have_content('Incorrect Password')
   end
 
