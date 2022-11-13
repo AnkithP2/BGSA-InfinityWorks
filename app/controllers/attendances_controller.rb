@@ -40,11 +40,8 @@ class AttendancesController < ApplicationController
         if @attendance.save
           format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully created.' }
           format.json { render :show, status: :created, location: @attendance }
-          begin
-            user = User.find(@attendance.userid)
-          rescue ActiveRecord::RecordNotFound
-            user = User.new(firstname: 'John', lastname: 'Smith', userpoints: 0, usertotal: 0)
-            user.save
+          # user will always be found since the check for this already exists within the model
+
           ensure
             event = Event.find(@attendance.event_id)
             user.userpoints = user.userpoints + event.eventpoints
