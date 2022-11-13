@@ -76,7 +76,7 @@ class RsvpsController < ApplicationController
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
     else
-      message = 'You need admin permissions'
+      message = "You need admin permissions"
       redirect_to login_path , notice: message
     end
   end
