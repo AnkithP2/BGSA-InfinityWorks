@@ -6,22 +6,27 @@
   body { background: black; } 
 </style>
 
-<h1 class='link_header text-white p-3'>Links</h1>
-
-<div>
-  <ul>
-    <% @sections.each do |sec| %>
-      <li class='font-weight-bold list-unstyled text-white display-4 '> <%=sec.label%></li>
-        <ul>
-          <% sec.links.each do |link| %>
-            <div class='text-white display-6'><%= link.title %></div>
-            <div class='text-white display-6'><%= link_to link.link, link.link %></div>
+<div class='card w-75 mx-auto' >
+  <div class='card-body' >
+    <h1 class='card-title text-center'>Links</h1>
+    <div>
+      <ul>
+        <% @sections.each do |sec| %>
+          <li class='font-weight-bold list-unstyled text-black display-4 '> <%=sec.label%></li>
+          <ul>
+            <% sec.links.each do |link| %>
+              <div class='text-black display-6'><%= link.title %></div>
+              <div class='text-black display-6'><%= link_to link.link, link.link %></div>
               <td><%= link_to 'Edit', edit_link_path(link), class: "btn btn-light btn-rounded" if is_admin %></td>
               <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>
-          <% end %>
-        </ul>
-    <% end %>
-  </ul>
+              <br>
+            <% end %>
+          </ul>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
 </div>
 
 <br>
@@ -29,5 +34,5 @@
   <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded" if is_admin %>
   <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded" if is_admin %>
   <%= link_to 'Show Sections', sections_path, class: "btn btn-light btn-rounded" if is_admin %>
-<div>
+</div>
 
