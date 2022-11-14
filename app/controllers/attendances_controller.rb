@@ -7,7 +7,7 @@ class AttendancesController < ApplicationController
       @attendances = Attendance.all
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -16,7 +16,7 @@ class AttendancesController < ApplicationController
       @attendance = Attendance.find(params[:id])
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -32,22 +32,22 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
     # check for errors if none register user
     errors = Attendance.error_checks(@attendance)
-    if !errors.empty?
-      flash[:notice] = errors.join(' |  ').html_safe
-      redirect_to new_attendance_path
-    else
+    if errors.empty?
       respond_to do |format|
         if @attendance.save
-          format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully created.' }
-          format.json { render :show, status: :created, location: @attendance }
+          format.html { redirect_to(attendance_url(@attendance), notice: 'attendance was successfully created.') }
+          format.json { render(:show, status: :created, location: @attendance) }
           # user will always be found since the check for this already exists within the model
           # there was an ensure here that I removed to get the app working -sullivan
           Attendance.add_points(@attendance.event_id, @attendance.userid)
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @attendance.errors, status: :unprocessable_entity }
+          format.html { render(:new, status: :unprocessable_entity) }
+          format.json { render(json: @attendance.errors, status: :unprocessable_entity) }
         end
       end
+    else
+      flash[:notice] = errors.join(' |  ').html_safe
+      redirect_to(new_attendance_path)
     end
   end
 
@@ -56,7 +56,7 @@ class AttendancesController < ApplicationController
       @attendance = Attendance.find(params[:id])
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -65,16 +65,16 @@ class AttendancesController < ApplicationController
       respond_to do |format|
         @attendance = Attendance.find(params[:id])
         if @attendance.update(attendance_params)
-          format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully updated.' }
-          format.json { render :show, status: :ok, location: @attendance }
+          format.html { redirect_to(attendance_url(@attendance), notice: 'attendance was successfully updated.') }
+          format.json { render(:show, status: :ok, location: @attendance) }
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @attendance.errors, status: :unprocessable_entity }
+          format.html { render(:edit, status: :unprocessable_entity) }
+          format.json { render(json: @attendance.errors, status: :unprocessable_entity) }
         end
       end
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -83,7 +83,7 @@ class AttendancesController < ApplicationController
       @attendance = Attendance.find(params[:id])
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -95,7 +95,7 @@ class AttendancesController < ApplicationController
       redirect_to(attendances_path)
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 

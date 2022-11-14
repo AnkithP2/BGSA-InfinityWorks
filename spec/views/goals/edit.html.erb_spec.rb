@@ -2,13 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe 'goals/edit', type: :view do
-  before(:each) do
+RSpec.describe('goals/edit', type: :view) do
+  before do
     @goal = assign(:goal, Goal.create!(
                             belongs_to: '',
                             goal: 'MyString',
                             status: 'MyString'
-                          ))
+                          )
+    )
   end
 
   it 'renders the edit goal form' do

@@ -6,15 +6,13 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps or /rsvps.json
   def index
-
     @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
-
 
     if session[:admin_email]
       @rsvps = Rsvp.all
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -24,7 +22,7 @@ class RsvpsController < ApplicationController
       @rsvp = Rsvp.find(params[:id])
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -41,19 +39,19 @@ class RsvpsController < ApplicationController
     @rsvp = Rsvp.new(rsvp_params)
     # check for errors if none register user
     errors = Rsvp.error_checks(@rsvp)
-    if !errors.empty?
-      flash[:notice] = errors.join(' |  ').html_safe
-      redirect_to new_rsvp_path
-    else
+    if errors.empty?
       respond_to do |format|
         if @rsvp.save
-          format.html { redirect_to rsvp_url(@rsvp), notice: 'Rsvp was successfully created.' }
-          format.json { render :show, status: :created, location: @rsvp }
+          format.html { redirect_to(rsvp_url(@rsvp), notice: 'Rsvp was successfully created.') }
+          format.json { render(:show, status: :created, location: @rsvp) }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+          format.html { render(:new, status: :unprocessable_entity) }
+          format.json { render(json: @rsvp.errors, status: :unprocessable_entity) }
         end
       end
+    else
+      flash[:notice] = errors.join(' |  ').html_safe
+      redirect_to(new_rsvp_path)
     end
   end
 
@@ -62,16 +60,16 @@ class RsvpsController < ApplicationController
     if session[:admin_email]
       respond_to do |format|
         if @rsvp.update(rsvp_params)
-          format.html { redirect_to rsvp_url(@rsvp), notice: 'Rsvp was successfully updated.' }
-          format.json { render :show, status: :ok, location: @rsvp }
+          format.html { redirect_to(rsvp_url(@rsvp), notice: 'Rsvp was successfully updated.') }
+          format.json { render(:show, status: :ok, location: @rsvp) }
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+          format.html { render(:edit, status: :unprocessable_entity) }
+          format.json { render(json: @rsvp.errors, status: :unprocessable_entity) }
         end
       end
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -80,7 +78,7 @@ class RsvpsController < ApplicationController
       @rsvp = Rsvp.find(params[:id])
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -93,7 +91,7 @@ class RsvpsController < ApplicationController
       redirect_to(rsvps_path)
     else
       message = 'You need admin permissions'
-      redirect_to login_path , notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
