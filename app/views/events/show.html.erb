@@ -1,44 +1,72 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Event ID:</strong>
-  <%= @event.id %>
-    <br>
-  <strong>Title:</strong>
-  <%= @event.title %>
-    <br>
-  <strong>Start Time:</strong>
-  <%= @event.starttime.strftime('%B %d %Y, at %I:%M %p') %>
-    <br>
-  <strong>End Time:</strong>
-  <%= @event.endtime.strftime('%B %d %Y, at %I:%M %p') %>
-    <br>
-  <strong>Event Points:</strong>
-  <%= @event.eventpoints %>
-    <br>
-  <% if @admin %>
-    <strong>Login Code</strong>
-    <%= @event.logincode %>
-    <br> 
+  
+  
+
+
+
+
+
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<br> 
+<div class='card w-50 mx-auto text-center'>
+  <div class='card-body' >
+    <h1 class='card-title'>Event Information</h1>
+ 
+    <h5 class='card-title' style='text-align:left;padding-left: 5%;'>
+      <strong>Event ID:</strong>
+      <%= @event.id %>
+      <br>
+      <strong>Title:</strong>
+      <%= @event.title %>
+      <br>
+      <strong>Start Time:</strong>
+      <%= @event.starttime.strftime('%B %d %Y, at %I:%M %p') %>
+        <br>
+      <strong>End Time:</strong>
+      <%= @event.endtime.strftime('%B %d %Y, at %I:%M %p') %>
+        <br>
+      <strong>Event Points:</strong>
+      <%= @event.eventpoints %>
+        <br>
+      <% if @admin %>
+        <strong>Login Code</strong>
+        <%= @event.logincode %>
+      <br>
+    
 
     <strong>RSVPd: <%= display_rsvpd %></strong>
     <br>
       <% for user in @users_rsvp do %>
-        <%= User.find(user).firstname + " " + User.find(user).lastname + " "%> 
+        <%= User.find(user).firstname + " " + User.find(user).lastname + " "%> <br>
       <% end %>
-    <br>
 
     <strong>Attended:  <%= display_attended %> </strong>
     <br>
       <% for user in @users_attend do %>
         <p>
-        <%= User.find(user).firstname + " " + User.find(user).lastname + " "%> 
+        <%= User.find(user).firstname + " " + User.find(user).lastname + " "%> <br>
         </p>
       <% end %>
-      <br>
   <%end%>
-  
+  <br>
+  </h5>
 
+
+    
+    <style type="text/css">
+        body { background: black; } 
+    </style>
+  </div>
+</div>
+<center><br>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Back', events_path %>
+</center>
