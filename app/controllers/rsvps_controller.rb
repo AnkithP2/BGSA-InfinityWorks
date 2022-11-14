@@ -6,6 +6,10 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps or /rsvps.json
   def index
+
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+
+
     if session[:admin_email]
       @rsvps = Rsvp.all
     else
