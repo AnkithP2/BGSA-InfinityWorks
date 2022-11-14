@@ -38,7 +38,8 @@
       <% end %> 
   <%end%>
   
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<% if @admin %>
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<% end %>
 <%= link_to 'Back', events_path %>
