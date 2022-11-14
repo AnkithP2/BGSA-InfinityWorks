@@ -3,11 +3,21 @@
 # This controller controls attendance CRUD and references
 class AttendancesController < ApplicationController
   def index
-    @attendances = Attendance.all
+    if session[:admin_email]
+      @attendances = Attendance.all
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   def show
-    @attendance = Attendance.find(params[:id])
+    if session[:admin_email]
+      @attendance = Attendance.find(params[:id])
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   # To cover if value on the database have defaults for forms
@@ -25,63 +35,70 @@ class AttendancesController < ApplicationController
     if !errors.empty?
       flash[:notice] = errors.join(' |  ').html_safe
       redirect_to new_attendance_path
-    elsif check_password
+    else
       respond_to do |format|
         if @attendance.save
           format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully created.' }
           format.json { render :show, status: :created, location: @attendance }
-          begin
-            user = User.find(@attendance.userid)
-          rescue ActiveRecord::RecordNotFound
-            user = User.new(firstname: 'John', lastname: 'Smith', userpoints: 0, usertotal: 0)
-            user.save
-          ensure
-            event = Event.find(@attendance.event_id)
-            user.userpoints = user.userpoints + event.eventpoints
-            user.usertotal = user.usertotal + event.eventpoints
-            user.save
-          end
+          
+          # user will always be found since the check for this already exists within the model
+          # there was an ensure here that I removed to get the app working -sullivan
+          Attendance.add_points(@attendance.event_id, @attendance.userid)
+          
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @attendance.errors, status: :unprocessable_entity }
         end
       end
-    else
-      flash[:notice] = 'Incorrect Password'
-      redirect_to new_attendance_path
     end
   end
 
   def edit
-    @attendance = Attendance.find(params[:id])
+    if session[:admin_email]
+      @attendance = Attendance.find(params[:id])
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   def update
-    respond_to do |format|
-      @attendance = Attendance.find(params[:id])
-      if @attendance.update(attendance_params)
-        format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully updated.' }
-        format.json { render :show, status: :ok, location: @attendance }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
+    if session[:admin_email]
+      respond_to do |format|
+        @attendance = Attendance.find(params[:id])
+        if @attendance.update(attendance_params)
+          format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully updated.' }
+          format.json { render :show, status: :ok, location: @attendance }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @attendance.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
     end
   end
 
   def delete
-    @attendance = Attendance.find(params[:id])
+    if session[:admin_email]
+      @attendance = Attendance.find(params[:id])
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   def destroy
-    @attendance = Attendance.find(params[:id])
-    @attendance.destroy
-    flash[:notice] = "attendance '#{@attendance.id}' deleted successfully."
-    redirect_to(attendances_path)
-  end
-
-  def check_password
-    @attendance.password == Event.find(@attendance.event_id).logincode
+    if session[:admin_email]
+      @attendance = Attendance.find(params[:id])
+      @attendance.destroy
+      flash[:notice] = "attendance '#{@attendance.id}' deleted successfully."
+      redirect_to(attendances_path)
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   private

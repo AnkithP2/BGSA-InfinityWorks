@@ -6,12 +6,22 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps or /rsvps.json
   def index
-    @rsvps = Rsvp.all
+    if session[:admin_email]
+      @rsvps = Rsvp.all
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   # GET /rsvps/1 or /rsvps/1.json
   def show
-    @rsvp = Rsvp.find(params[:id])
+    if session[:admin_email]
+      @rsvp = Rsvp.find(params[:id])
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   # GET /rsvps/new
@@ -25,7 +35,6 @@ class RsvpsController < ApplicationController
   # POST /rsvps or /rsvps.json
   def create
     @rsvp = Rsvp.new(rsvp_params)
-
     # check for errors if none register user
     errors = Rsvp.error_checks(@rsvp)
     if !errors.empty?
@@ -46,27 +55,44 @@ class RsvpsController < ApplicationController
 
   # PATCH/PUT /rsvps/1 or /rsvps/1.json
   def update
-    respond_to do |format|
-      if @rsvp.update(rsvp_params)
-        format.html { redirect_to rsvp_url(@rsvp), notice: 'Rsvp was successfully updated.' }
-        format.json { render :show, status: :ok, location: @rsvp }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+    if session[:admin_email]
+      respond_to do |format|
+        if @rsvp.update(rsvp_params)
+          format.html { redirect_to rsvp_url(@rsvp), notice: 'Rsvp was successfully updated.' }
+          format.json { render :show, status: :ok, location: @rsvp }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @rsvp.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
     end
   end
 
+  '''
   def delete
-    @rsvp = Rsvp.find(params[:id])
+    if session[:admin_email]
+      @rsvp = Rsvp.find(params[:id])
+    else
+      message = "You need admin permissions"
+      redirect_to login_path , notice: message
+    end
   end
-
+  '''
+  
   # DELETE /rsvps/1 or /rsvps/1.json
   def destroy
-    @rsvp = Rsvp.find(params[:id])
-    @rsvp.destroy
-    flash[:notice] = "rsvp '#{@rsvp.id}' deleted successfully."
-    redirect_to(rsvps_path)
+    if session[:admin_email]
+      @rsvp = Rsvp.find(params[:id])
+      @rsvp.destroy
+      flash[:notice] = "rsvp '#{@rsvp.id}' deleted successfully."
+      redirect_to(rsvps_path)
+    else
+      message = 'You need admin permissions'
+      redirect_to login_path , notice: message
+    end
   end
 
   private

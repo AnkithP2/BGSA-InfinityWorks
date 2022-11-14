@@ -4,11 +4,6 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: %i[show edit update destroy]
 
-  # GET /admins or /admins.json
-  def index
-    @admins = Admin.all
-  end
-
   # GET /admins/1 or /admins/1.json
   def show; end
 
@@ -49,15 +44,17 @@ class AdminsController < ApplicationController
     end
   end
 
-  # DELETE /admins/1 or /admins/1.json
+  # DELETE /admins/1 or /admins/1.
+  '''
   def destroy
     @admin.destroy
 
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
+      format.html { redirect_to admins_url, notice: "Admin was successfully destroyed." }
       format.json { head :no_content }
     end
   end
+  '''
 
   private
 

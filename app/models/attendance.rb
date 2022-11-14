@@ -10,10 +10,29 @@ class Attendance < ApplicationRecord
   # Check each error adding message if popped
   def self.error_checks(attendance)
     errors = []
+    errors.append('No Event Entered') unless check_user_input(attendance)
+    errors.append('No User Entered') unless check_event_input(attendance)
+    if errors.empty?
+      error_checks_2(attendance)
+    else
+      errors
+    end
+  end
+
+  def self.error_checks_2(attendance)
+    errors = []
     errors.append('Registration Closed') unless check_attendance_time(attendance)
     errors.append('User Already Registered') unless check_user_exists(attendance)
     errors.append('Incorrect Password') unless check_password(attendance)
     errors
+  end
+
+  def self.check_event_input(attendance)
+    !attendance.userid.nil?
+  end
+
+  def self.check_user_input(attendance)
+    !attendance.event_id.nil?
   end
 
   # Check password is correct
@@ -35,5 +54,13 @@ class Attendance < ApplicationRecord
     #    current_date = Date.today
     #    flash[:notice] = start_time
     ((current_time > start_time) && (current_time < end_time))
+  end
+
+  def self.add_points(eventid,userid)
+    event = Event.find(eventid)
+    user = User.find(userid)
+    user.userpoints = user.userpoints + event.eventpoints
+    user.usertotal = user.usertotal + event.eventpoints
+    user.save
   end
 end

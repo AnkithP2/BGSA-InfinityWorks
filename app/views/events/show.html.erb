@@ -8,10 +8,10 @@
   <%= @event.title %>
     <br>
   <strong>Start Time:</strong>
-  <%= @event.starttime %>
+  <%= @event.starttime.strftime('%B %d %Y, at %I:%M %p') %>
     <br>
   <strong>End Time:</strong>
-  <%= @event.endtime %>
+  <%= @event.endtime.strftime('%B %d %Y, at %I:%M %p') %>
     <br>
   <strong>Event Points:</strong>
   <%= @event.eventpoints %>
@@ -21,21 +21,21 @@
     <%= @event.logincode %>
     <br> 
 
-    <strong>User IDs RSVP:</strong>
-      <p>Number of members rsvp: <%= display_rsvpd %> </p>
+    <strong>RSVPd: <%= display_rsvpd %></strong>
+    <br>
       <% for user in @users_rsvp do %>
-        <p>
-        <%= user%> 
-        </p>
+        <%= User.find(user).firstname + " " + User.find(user).lastname + " "%> 
       <% end %>
+    <br>
 
-    <strong> User IDs Attended:</strong>
-        <p>Number of members attended: <%= display_attended %> </p>
+    <strong>Attended:  <%= display_attended %> </strong>
+    <br>
       <% for user in @users_attend do %>
         <p>
-        <%= user%> 
+        <%= User.find(user).firstname + " " + User.find(user).lastname + " "%> 
         </p>
-      <% end %> 
+      <% end %>
+      <br>
   <%end%>
   
 <% if @admin %>

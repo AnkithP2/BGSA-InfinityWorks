@@ -11,8 +11,4 @@ class User < ApplicationRecord
   # checks numericality of userpoints and usertotal
   # only allows integers
   validates :userpoints, :usertotal, numericality: { only_integer: true }
-
-  # where foreign_key is = to the supplied user id
-  has_many :mentees, class_name: 'Mentorship', foreign_key: 'mentor_id'
-  has_many :mentors, class_name: 'Mentorship', foreign_key: 'mentee_id'
 end

@@ -2,56 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
-/*
-
-
-body { // background
-    background-color: #000000; 
-} 
-
-.link_header {
-    color: #ffffff;
-    padding:10px;
+.card, .card-header, .card-body, .card-footer {
+  border-radius: 50px !important;
 }
-
-.link_sections {
-    padding:10px;
-    color: #b21b29;
-}
-
-.link_title {
-    font-size: 30px;
-    color: #ffffff;
-    padding: 20px;
-    padding-left: 50px;
-    line-height: 30px;
-    min-width: 400px;
-}
-
-.link_link {
-    padding-bottom: 0px;
-    min-width: 400px;
-}
-
-.link_link a {
-    text-decoration: none;
-    word-wrap: break-word;
-    font-size: 30px;
-    color: #ffffff;
-}
-
-.link_link a:hover {
-    color: #fedc5f;
-    -webkit-transition: color 0.5s;
-}
-
-.section_label {
-    padding:10px;
-    font-size: 50px;
-}
-
-
-*/
-
-

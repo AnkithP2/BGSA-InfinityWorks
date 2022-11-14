@@ -17,7 +17,7 @@ class LinksController < ApplicationController
     if session[:admin_email]
       @link = Link.new
     else
-      message = 'You need admin permissions new'
+      message = 'You need admin permissions to make a new link'
       redirect_to login_path, notice: message
     end
   end
@@ -36,7 +36,7 @@ class LinksController < ApplicationController
         end
       end
     else
-      message = 'You need admin permissions create'
+      message = 'You need admin permissions to create'
       redirect_to login_path, notice: message
     end
   end
@@ -45,7 +45,7 @@ class LinksController < ApplicationController
     if session[:admin_email]
       @link = Link.find(params[:id])
     else
-      message = 'You need admin permissions edit'
+      message = 'You need admin permissions to edit'
       redirect_to login_path, notice: message
     end
   end
@@ -67,7 +67,7 @@ class LinksController < ApplicationController
     if session[:admin_email]
       @link = Link.find(params[:id])
     else
-      message = 'You need admin permissions delete'
+      message = 'You need admin permissions to delete'
       redirect_to login_path, notice: message
     end
   end
@@ -79,7 +79,7 @@ class LinksController < ApplicationController
       flash[:notice] = "Link '#{@link.title}' deleted successfully."
       redirect_to(links_path)
     else
-      message = 'You need admin permissions destroy'
+      message = 'You need admin permissions to destroy'
       redirect_to login_path, notice: message
     end
   end
