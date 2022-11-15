@@ -2,12 +2,13 @@
 
 require 'rails_helper'
 
-RSpec.describe 'mentorships/edit', type: :view do
-  before(:each) do
+RSpec.describe('mentorships/edit', type: :view) do
+  before do
     @mentorship = assign(:mentorship, Mentorship.create!(
                                         mentor_id: nil,
                                         mentee_id: nil
-                                      ))
+                                      )
+    )
   end
 
   it 'renders the edit mentorship form' do

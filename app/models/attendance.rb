@@ -56,7 +56,7 @@ class Attendance < ApplicationRecord
     ((current_time > start_time) && (current_time < end_time))
   end
 
-  def self.add_points(eventid,userid)
+  def self.add_points(eventid, userid)
     event = Event.find(eventid)
     user = User.find(userid)
     user.userpoints = user.userpoints + event.eventpoints

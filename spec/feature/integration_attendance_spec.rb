@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 # Attendance integration tests
-RSpec.describe 'creating an Attendance: ', type: :feature do
+RSpec.describe('creating an Attendance: ', type: :feature) do
   scenario 'valid inputs' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
     loginAsAdmin('Sean','test@gmail.com', '1234')
@@ -16,15 +16,15 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     fill_in 'attendance_password', with: 'abcd'
     click_on 'Submit'
     visit attendances_path
-    expect(page).to have_content('John')
+    expect(page).to(have_content('John'))
   end
 
-  scenario 'incorrect password when attempting to attend' do
+  it 'incorrect password when attempting to attend' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
     loginAsAdmin('Sean','test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    
+
     visit new_attendance_path
     select 'test', from: 'attendance_event_id'
     select 'John Smith', from: 'attendance_userid'
@@ -33,12 +33,12 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     expect(page).to have_content('Incorrect Password')
   end
 
-  scenario 'no password given' do
+  it 'no password given' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
     loginAsAdmin('Sean','test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    
+
     visit new_attendance_path
     select 'test', from: 'attendance_event_id'
     select 'John Smith', from: 'attendance_userid'
@@ -46,7 +46,7 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     expect(page).to have_content('Incorrect Password')
   end
 
-  scenario 'update existing attendance' do
+  it 'update existing attendance' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
     loginAsAdmin('Sean','test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
@@ -61,7 +61,7 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     expect(page).to(have_content('John'))
   end
 
-  scenario 'delete existing attendance' do
+  it 'delete existing attendance' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
     loginAsAdmin('Sean','test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
@@ -77,7 +77,6 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     visit attendances_path
     expect(page).not_to(have_content('Destroy'))
   end
-
 end
 
 # Helper functions below, do not touch
