@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe('Sessions integration test: ', type: :feature) do
   it 'valid login inputs' do
     visit new_registration_path
-    fill_in 'Name', with: 'Ankith'
-    fill_in 'Email', with: 'test@gmail.com'
-    fill_in 'Password', with: '1234'
+    fill_in 'admin_name', with: 'Ankith'
+    fill_in 'admin_email', with: 'test@gmail.com'
+    fill_in 'admin_password', with: '1234'
     click_on 'Create Admin'
     visit login_path
     fill_in 'email', with: 'test@gmail.com'
@@ -15,14 +15,14 @@ RSpec.describe('Sessions integration test: ', type: :feature) do
     click_on 'Log In'
     # visit events_path
 
-    expect(page).to(have_content('Admin: Ankith'))
+    expect(page).to(have_content('Ankith'))
   end
 
   it 'invalid login inputs' do
     visit new_registration_path
-    fill_in 'Name', with: 'Ankith'
-    fill_in 'Email', with: 'test@gmail.com'
-    fill_in 'Password', with: '1234'
+    fill_in 'admin_name', with: 'Ankith'
+    fill_in 'admin_email', with: 'test@gmail.com'
+    fill_in 'admin_password', with: '1234'
     click_on 'Create Admin'
     visit login_path
     fill_in 'email', with: 'test@gmail.com'
@@ -34,6 +34,11 @@ RSpec.describe('Sessions integration test: ', type: :feature) do
   end
 
   it 'valid logout' do
+    visit new_registration_path
+    fill_in 'admin_name', with: 'Ankith'
+    fill_in 'admin_email', with: 'test@gmail.com'
+    fill_in 'admin_password', with: '1234'
+    click_on 'Create Admin'
     visit events_path
     click_on 'Logout'
 
