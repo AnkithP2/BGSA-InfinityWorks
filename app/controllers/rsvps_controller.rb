@@ -7,7 +7,10 @@ class RsvpsController < ApplicationController
   # GET /rsvps or /rsvps.json
   def index
     @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     if session[:admin_email]
       @rsvps = Rsvp.all
     else
@@ -18,6 +21,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/1 or /rsvps/1.json
   def show
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
     else
@@ -28,6 +32,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/new
   def new
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
     @rsvp = Rsvp.new
   end
 

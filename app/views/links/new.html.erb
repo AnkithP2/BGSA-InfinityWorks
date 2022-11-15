@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class='card w-50 mx-auto text-center'>
   <div class='card-body' >
       <h1 class='card-title'>New Link</h1>
@@ -10,3 +11,24 @@
 
 <%= link_to 'Back', links_path %>
 
+=======
+<style type="text/css">
+  body { background: black; } 
+</style>
+
+<div class='card w-75 mx-auto' >
+  <div class='card-body' >
+    <h1 class='card-title text-center'>New Link</h1>
+    <div>
+      <ul>
+        <%= render 'form', link: @link %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class='d-flex justify-content-center'>
+  <%= link_to 'Back', links_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+</div>
+>>>>>>> Stashed changes
