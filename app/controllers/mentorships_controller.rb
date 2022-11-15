@@ -30,11 +30,11 @@ class MentorshipsController < ApplicationController
 
     respond_to do |format|
       if @mentorship.save
-        format.html { redirect_to(mentorship_url(@mentorship), notice: 'Mentorship was successfully created.') }
-        format.json { render(:show, status: :created, location: @mentorship) }
+        format.html { redirect_to mentorship_url(@mentorship), notice: 'Mentorship was successfully created.' }
+        format.json { render :show, status: :created, location: @mentorship }
       else
-        format.html { render(:new, status: :unprocessable_entity) }
-        format.json { render(json: @mentorship.errors, status: :unprocessable_entity) }
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @mentorship.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,11 +43,11 @@ class MentorshipsController < ApplicationController
   def update
     respond_to do |format|
       if @mentorship.update(mentorship_params)
-        format.html { redirect_to(mentorship_url(@mentorship), notice: 'Mentorship was successfully updated.') }
-        format.json { render(:show, status: :ok, location: @mentorship) }
+        format.html { redirect_to mentorship_url(@mentorship), notice: 'Mentorship was successfully updated.' }
+        format.json { render :show, status: :ok, location: @mentorship }
       else
-        format.html { render(:edit, status: :unprocessable_entity) }
-        format.json { render(json: @mentorship.errors, status: :unprocessable_entity) }
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @mentorship.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,8 +57,8 @@ class MentorshipsController < ApplicationController
     @mentorship.destroy
 
     respond_to do |format|
-      format.html { redirect_to(mentorships_url, notice: 'Mentorship was successfully destroyed.') }
-      format.json { head(:no_content) }
+      format.html { redirect_to mentorships_url, notice: 'Mentorship was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

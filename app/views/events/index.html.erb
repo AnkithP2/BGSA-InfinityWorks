@@ -3,6 +3,10 @@
 </style>
 <p id="notice"><%= notice %></p>
 
+<% if @admin %>
+  Admin: <%= @admin.name %>
+<%end%>
+
 <div class = "container mt-5 text-center">
 <%= month_calendar(attribute: :starttime, end_attribute: :endtime, events: @meetings) do |date,meetings| %>
   <div class = "day">

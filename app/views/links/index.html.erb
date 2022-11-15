@@ -12,11 +12,11 @@
     <div>
       <ul>
         <% @sections.each do |sec| %>
-          <li class='font-weight-bold list-unstyled text-black display-6 '> <%=sec.label%></li>
+          <li class='font-weight-bold list-unstyled text-black display-4 '> <%=sec.label%></li>
           <ul>
             <% sec.links.each do |link| %>
-              <div class='text-black fs-2'><%= link.title %></div>
-              <div class='text-black fs-5'><%= link_to link.link, link.link %></div>
+              <div class='text-black display-6'><%= link.title %></div>
+              <div class='text-black display-6'><%= link_to link.link, link.link %></div>
               <td><%= link_to 'Edit', edit_link_path(link), class: "btn btn-light btn-rounded" if is_admin %></td>
               <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>
               <br>

@@ -1,12 +1,5 @@
-<br> 
-<div class='card w-50 mx-auto text-center'>
-  <div class='card-body' >
-      <h1 class='card-title'>New Section</h1>
-    <style type="text/css">
-    body { background: black; } 
-  </style>
-<%= render 'form', section: @section %>
-  </div>
-</div>
+<h1>New Section</h1>
 
-<%= link_to 'Back', sections_path %> 
+<%= render 'form', section: @section %>
+
+<%= link_to 'Back', sections_path %>

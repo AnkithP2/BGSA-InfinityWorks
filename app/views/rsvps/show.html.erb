@@ -1,28 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<br> 
-<div class='card w-50 mx-auto text-center'>
-  <div class='card-body' >
-    <h1 class='card-title'>RSVP Information</h1>
-    <h5 class='card-title' style='text-align:left;padding-left: 5%;'>
-    <strong>RSVP ID:</strong>
-    <%= @rsvp.id %>
-      <br>
-    <strong>Event Associated With:</strong>
-    <%= Event.find(@rsvp.event_id).title %>
-      <br>
-    <strong>User ID:</strong>
-    <%= @rsvp.userid %>
-      <br>
+<strong>RSVP ID:</strong>
+<%= @rsvp.id %>
+  <br>
+<strong>Event Associated With:</strong>
+<%= Event.find(@rsvp.event_id).title %>
+  <br>
+<strong>User ID:</strong>
+<%= @rsvp.userid %>
+  <br>
 
-    
-    <style type="text/css">
-        body { background: black; } 
-    </style>
-  </div>
-</div>
-<center><br>
+
 <%= link_to 'Edit', edit_rsvp_path(@rsvp) %> |
 <%= link_to 'Back', rsvps_path %>
-</center>
-

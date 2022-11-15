@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
-  before do
+  setup do
     @book = books(:one)
   end
 

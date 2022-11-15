@@ -3,7 +3,7 @@
 require 'application_system_test_case'
 
 class BooksTest < ApplicationSystemTestCase
-  before do
+  setup do
     @book = books(:one)
   end
 

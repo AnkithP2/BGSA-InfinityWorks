@@ -22,11 +22,11 @@ class AdminsController < ApplicationController
     respond_to do |format|
       if @admin.save
         session[:admin_email] = @admin.email
-        format.html { redirect_to(admin_url(@admin), notice: 'Admin was successfully created.') }
-        format.json { render(:show, status: :created, location: @admin) }
+        format.html { redirect_to admin_url(@admin), notice: 'Admin was successfully created.' }
+        format.json { render :show, status: :created, location: @admin }
       else
-        format.html { render(:new, status: :unprocessable_entity) }
-        format.json { render(json: @admin.errors, status: :unprocessable_entity) }
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @admin.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -35,17 +35,17 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to(admin_url(@admin), notice: 'Admin was successfully updated.') }
-        format.json { render(:show, status: :ok, location: @admin) }
+        format.html { redirect_to admin_url(@admin), notice: 'Admin was successfully updated.' }
+        format.json { render :show, status: :ok, location: @admin }
       else
-        format.html { render(:edit, status: :unprocessable_entity) }
-        format.json { render(json: @admin.errors, status: :unprocessable_entity) }
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @admin.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /admins/1 or /admins/1.
-  '
+  '''
   def destroy
     @admin.destroy
 
@@ -54,7 +54,7 @@ class AdminsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  '
+  '''
 
   private
 

@@ -1,20 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<br> 
-<div class='card w-50 mx-auto text-center'>
-  <div class='card-body' >
-    <h1 class='card-title'>Attendance Information</h1>
-    <h5 class='card-title' style='text-align:left;padding-left: 5%;'><strong>Attendance ID:  </strong><%= @attendance.id %><br>
-    <strong>Event Associated With:  </strong><%= Event.find(@attendance.event_id).title %><br>
-    <strong>User ID:  </strong><%= @attendance.userid %></h5>
+<p>
+  <strong>Attendance ID:</strong>
+  <%= @attendance.id %>
+    <br>
+  <strong>Event Associated With:</strong>
+  <%= Event.find(@attendance.event_id).title %>
+    <br>
+  <strong>User ID:</strong>
+  <%= @attendance.userid %>
+    <br>
+</p>
 
-    
-    <style type="text/css">
-        body { background: black; } 
-    </style>
-  </div>
-</div>
-<center><br>
 <%= link_to 'Edit', edit_attendance_path(@attendance) %> |
 <%= link_to 'Back', attendances_path %>
-</center>

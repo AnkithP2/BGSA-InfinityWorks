@@ -9,15 +9,8 @@
     <div class='float-child'>
         <%= image_tag "BGSAlogo.png", class: "bgsa_logo"%>
         <div class='col-xs float-end'>
-            
-            <% if @admin %>
-            <div class="btn btn-inverse me-1">
-            Welcome, <%= @admin.name %>
-            </div>            
-            <%= link_to 'Logout', loginout_path, class: "btn btn-inverse me-1"  %> 
-            <% else %>
             <%= link_to 'Login', login_path, class: "btn btn-inverse me-1" %>
-            <%end%>
+            <%= link_to 'Logout', loginout_path, class: "btn btn-inverse me-1"  %> 
         </div>
     </div>
 </header>
@@ -48,7 +41,7 @@
             </li>
             <% if @admin %>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-item btn btn-inverse" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Controls</a>
+                <a class="nav-link dropdown-toggle btn btn-inverse" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Controls</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <%= link_to 'New Event', new_event_path, class: "dropdown-item btn btn-inverse" %>
                     <%= link_to 'New Admin', new_registration_path, class: "dropdown-item btn btn-inverse" %>

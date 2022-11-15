@@ -2,7 +2,7 @@
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <br>
+
       <ul>
         <% user.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -16,9 +16,9 @@
     <%= form.text_field :firstname %>
     <%= form.label :lastname %>
     <%= form.text_field :lastname %>
-    <%= form.label :semesterpoints %>
+    <%= form.label :userpoints %>
     <%= form.text_field :userpoints %>
-    <%= form.label :totalpoints %>
+    <%= form.label :usertotal %>
     <%= form.text_field :usertotal %>
   </div>
 

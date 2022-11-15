@@ -18,7 +18,7 @@ class LinksController < ApplicationController
       @link = Link.new
     else
       message = 'You need admin permissions to make a new link'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -28,16 +28,16 @@ class LinksController < ApplicationController
 
       respond_to do |format|
         if @link.save
-          format.html { redirect_to(link_url(@link), notice: 'Link was successfully created.') }
-          format.json { render(:show, status: :created, location: @link) }
+          format.html { redirect_to link_url(@link), notice: 'Link was successfully created.' }
+          format.json { render :show, status: :created, location: @link }
         else
-          format.html { render(:new, status: :unprocessable_entity) }
-          format.json { render(json: @link.errors, status: :unprocessable_entity) }
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @link.errors, status: :unprocessable_entity }
         end
       end
     else
       message = 'You need admin permissions to create'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -46,7 +46,7 @@ class LinksController < ApplicationController
       @link = Link.find(params[:id])
     else
       message = 'You need admin permissions to edit'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -54,11 +54,11 @@ class LinksController < ApplicationController
     respond_to do |format|
       @link = Link.find(params[:id])
       if @link.update(link_params)
-        format.html { redirect_to(link_url(@link), notice: 'Link was successfully updated.') }
-        format.json { render(:show, status: :ok, location: @link) }
+        format.html { redirect_to link_url(@link), notice: 'Link was successfully updated.' }
+        format.json { render :show, status: :ok, location: @link }
       else
-        format.html { render(:edit, status: :unprocessable_entity) }
-        format.json { render(json: @link.errors, status: :unprocessable_entity) }
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @link.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,7 +68,7 @@ class LinksController < ApplicationController
       @link = Link.find(params[:id])
     else
       message = 'You need admin permissions to delete'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -80,7 +80,7 @@ class LinksController < ApplicationController
       redirect_to(links_path)
     else
       message = 'You need admin permissions to destroy'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 

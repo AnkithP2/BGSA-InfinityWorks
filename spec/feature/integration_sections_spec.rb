@@ -1,8 +1,8 @@
 # location: spec/feature/integration_links_spec.rb
 require 'rails_helper'
 
-RSpec.describe('Creating a link: ', type: :feature) do
-  it 'valid inputs' do
+RSpec.describe 'Creating a link: ', type: :feature do
+  scenario 'valid inputs' do
     visit new_registration_path
     fill_in 'Name', with: 'Brandon'
     fill_in 'Email', with: 'test@gmail.com'
@@ -12,6 +12,6 @@ RSpec.describe('Creating a link: ', type: :feature) do
     fill_in 'Label', with: 'newsection'
     click_on 'Create Section'
     visit sections_path
-    expect(page).to(have_content('newsection'))
+    expect(page).to have_content('newsection')
   end
 end

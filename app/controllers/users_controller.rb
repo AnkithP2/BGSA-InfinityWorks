@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       @user = User.new
     else
       message = 'You need admin permissions to make a new user'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -31,16 +31,16 @@ class UsersController < ApplicationController
 
       respond_to do |format|
         if @user.save
-          format.html { redirect_to(user_url(@user), notice: 'user was successfully created.') }
-          format.json { render(:show, status: :created, location: @user) }
+          format.html { redirect_to user_url(@user), notice: 'user was successfully created.' }
+          format.json { render :show, status: :created, location: @user }
         else
-          format.html { render(:new, status: :unprocessable_entity) }
-          format.json { render(json: @user.errors, status: :unprocessable_entity) }
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
     else
       message = 'You need admin permissions to create'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     else
       message = 'You need admin permissions to edit'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -71,7 +71,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     else
       message = 'You need admin permissions to delete'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
       redirect_to(users_path)
     else
       message = 'You need admin permissions to destroy'
-      redirect_to(login_path, notice: message)
+      redirect_to login_path, notice: message
     end
   end
 

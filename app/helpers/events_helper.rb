@@ -24,6 +24,10 @@ module EventsHelper
   end
 
   def changeColor
-    @color = !(@color == true)
+    if @color == true
+      @color = false
+    else 
+      @color = true
+    end
   end
 end
