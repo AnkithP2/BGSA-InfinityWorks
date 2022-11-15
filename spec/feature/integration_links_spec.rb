@@ -6,9 +6,9 @@ require 'rails_helper'
 RSpec.describe('Links tests', type: :feature) do
   it 'Creating a title for links:' do
     visit new_registration_path
-    fill_in 'Name', with: 'Brandon'
-    fill_in 'Email', with: 'test@gmail.com'
-    fill_in 'Password', with: '12345'
+    fill_in 'admin_name', with: 'Brandon'
+    fill_in 'admin_email', with: 'test@gmail.com'
+    fill_in 'admin_password', with: '12345'
     click_on 'Create Admin'
     visit new_section_path
     fill_in 'Label', with: 'newsection'
@@ -23,9 +23,9 @@ RSpec.describe('Links tests', type: :feature) do
 
   scenario 'Creating a link' do
     visit new_registration_path
-    fill_in 'Name', with: 'Brandon'
-    fill_in 'Email', with: 'test@gmail.com'
-    fill_in 'Password', with: '12345'
+    fill_in 'admin_name', with: 'Brandon'
+    fill_in 'admin_email', with: 'test@gmail.com'
+    fill_in 'admin_password', with: '12345'
     click_on 'Create Admin'
     visit new_section_path
     fill_in 'Label', with: 'newsection'

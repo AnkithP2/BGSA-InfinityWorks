@@ -4,7 +4,7 @@ class Admin < ApplicationRecord
   validates :name, :email, presence: true
 
   # only allows alpha characters and removes newline options
-  validates :name, format: { with: /[A-Za-z]+\z/ }
+  validates :name, format: { with: /\A[A-Za-z]+\z/ }
 
   # protects against SQL attacks and checks for common SQL statements
   validates :name, format: { without: /'(''|[^'])*'/ }

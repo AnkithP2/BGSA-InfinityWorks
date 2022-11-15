@@ -7,8 +7,8 @@ module EventsHelper
       'None'
     else
       @event.attendances.size
-      #         @event.attendances.map(&:userid)
-      #        for id in userIds
+      #         @event.attendances.map(&:user_id)
+      #        for id in user_ids
       #          userNames += User.id.firstname
       #      end
       #     userNames

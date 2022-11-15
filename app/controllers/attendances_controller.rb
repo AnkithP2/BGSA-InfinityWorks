@@ -42,7 +42,7 @@ class AttendancesController < ApplicationController
 
           # user will always be found since the check for this already exists within the model
           # there was an ensure here that I removed to get the app working -sullivan
-          Attendance.add_points(@attendance.event_id, @attendance.userid)
+          Attendance.add_points(@attendance.event_id, @attendance.user_id)
 
         else
           format.html { render(:new, status: :unprocessable_entity) }
@@ -107,6 +107,6 @@ class AttendancesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def attendance_params
-    params.require(:attendance).permit(:event_id, :userid, :password)
+    params.require(:attendance).permit(:event_id, :user_id, :password)
   end
 end

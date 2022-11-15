@@ -2,7 +2,7 @@
 
 # Model for RSVPs
 class Rsvp < ApplicationRecord
-  validates :event_id, :userid, presence: true
+  validates :event_id, :user_id, presence: true
   belongs_to :event
   has_many :users
 
@@ -26,7 +26,7 @@ class Rsvp < ApplicationRecord
   end
 
   def self.check_event_input(rsvp)
-    !rsvp.userid.nil?
+    !rsvp.user_id.nil?
   end
 
   def self.check_user_input(rsvp)
@@ -35,7 +35,7 @@ class Rsvp < ApplicationRecord
 
   # Check if user has already registered
   def self.check_user_exists(rsvp)
-    Rsvp.where(userid: rsvp.userid, event_id: rsvp.event_id).empty?
+    Rsvp.where(user_id: rsvp.user_id, event_id: rsvp.event_id).empty?
   end
 
   # Check if registration is open
