@@ -6,6 +6,18 @@
 
 <p id="notice"><%= notice %></p>
 
+<<<<<<< HEAD
+<style type="text/css">
+  body { background: black; } 
+</style>
+
+<div class='card w-75 mx-auto'>
+  <div class='card-body'  >
+    <div class="text-center">
+      <h1>Attendances</h1>
+    </div>
+    <table class='table ' style="margin-left:auto;margin-right:auto;width:75%;">
+=======
 <div class='card w-75 mx-auto' id=“point-card”>
   <div class='card-body'>
     <div class="mx-auto" style="width: 400px;">
@@ -13,6 +25,7 @@
     </div>
 
     <table class='table'>
+>>>>>>> 9a7ffa8a5be340b350fbe4d4f643a3b859a58a1a
       <thead>
         <tr>
           <th colspan="25">Event</th>
@@ -22,6 +35,20 @@
         </tr>
       </thead>
 
+<<<<<<< HEAD
+      <tbody>
+        <% @attendances.each do |attendance| %>
+          <tr>
+            <td colspan="25"><%= Event.find(attendance.event_id).title%></td>
+            <td colspan ="15"><%= User.find(attendance.userid).firstname %></td>
+            <td colspan ="10"><%= User.find(attendance.userid).lastname %></td>
+            <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>      </tr>
+        <% end %>
+      </tbody>
+    </table> 
+  </div>
+</div>
+=======
       
       <tbody>
     <% @attendances.each do |attendance| %>
@@ -70,3 +97,4 @@
 
 
 
+>>>>>>> 9a7ffa8a5be340b350fbe4d4f643a3b859a58a1a
