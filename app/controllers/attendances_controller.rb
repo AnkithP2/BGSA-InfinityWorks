@@ -3,6 +3,7 @@
 # This controller controls attendance CRUD and references
 class AttendancesController < ApplicationController
   def index
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @attendances = Attendance.all
     else
@@ -24,6 +25,7 @@ class AttendancesController < ApplicationController
   # to fill in
   # create the form
   def new
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
     @attendance = Attendance.new
   end
 

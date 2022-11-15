@@ -1,4 +1,4 @@
-<div class='card w-50 mx-auto text-center'>
+<div class='card w-75 mx-auto text-center'>
   <div class='card-body' >
       <h1 class='card-title'>New Link</h1>
     <style type="text/css">
@@ -8,5 +8,8 @@
   </div>
 </div>
 
-<%= link_to 'Back', links_path %>
+<br>
+<div class='d-flex justify-content-center'>
+  <%= link_to 'Back', links_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+</div>
 

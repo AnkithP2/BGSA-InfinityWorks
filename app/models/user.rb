@@ -2,8 +2,8 @@
 
 class User < ApplicationRecord
   validates :firstname, :lastname, :userpoints, :usertotal, presence: true
-  has_many :attendances
-  has_many :rsvps
+  has_many :attendances, dependent: :destroy
+  has_many :rsvps, dependent: :destroy
 
   # only allows alphabetic characters and removes newline options
   validates :firstname, :lastname, format: { with: /[A-Za-z]+\z/ }

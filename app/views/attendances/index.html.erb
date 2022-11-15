@@ -6,13 +6,17 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class='card w-75 mx-auto' id=“point-card”>
-  <div class='card-body'>
-    <div class="mx-auto" style="width: 400px;">
-      <h1 class='card-title text-center'>Attendances</h1>
-    </div>
+<style type="text/css">
+  body { background: black; } 
+</style>
 
-    <table class='table'>
+<br>
+<div class='card w-75 mx-auto'>
+  <div class='card-body'  >
+    <div class="text-center">
+      <h1>Attendances</h1>
+    </div>
+    <table class='table ' style="margin-left:auto;margin-right:auto;width:75%;">
       <thead>
         <tr>
           <th colspan="25">Event</th>
@@ -22,51 +26,15 @@
         </tr>
       </thead>
 
-      
       <tbody>
-    <% @attendances.each do |attendance| %>
-      <tr>
-        <td colspan="25"><%= Event.find(attendance.event_id).title%></td>
-        <td colspan ="15"><%= User.find(attendance.userid).firstname %></td>
-        <td colspan ="10"><%= User.find(attendance.userid).lastname %></td>
-        <td><%= link_to 'Show', attendance_path(attendance) %></td>
-        <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-        <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <% @attendances.each do |attendance| %>
+          <tr>
+            <td colspan="25"><%= Event.find(attendance.event_id).title%></td>
+            <td colspan ="15"><%= User.find(attendance.userid).firstname %></td>
+            <td colspan ="10"><%= User.find(attendance.userid).lastname %></td>
+            <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>      </tr>
+        <% end %>
+      </tbody>
+    </table> 
   </div>
 </div>
-
-<br>
-
-<%= link_to 'New attendance', new_attendance_path %>
-<br>
-
-<%= link_to 'Home', events_path %>
-<br> 
-
-<%= link_to 'Point Tracker', users_path %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

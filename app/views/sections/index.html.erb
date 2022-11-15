@@ -4,13 +4,14 @@
     body { background: black; }
 </style>
 
+<br>
+
 <p id="notice"><%= notice %></p>
 
 <div class='card w-75 mx-auto' id=“point-card”>
   <div class='card-body'>
     <div class="mx-auto" style="width: 400px;">
       <h1 class='card-title text-center'>Sections</h1>
-      <h2 class='card-title text-center'>Show all sections</h2>
     </div>
 
     <table class='table'>
@@ -27,7 +28,6 @@
         <td><%= section.label %></td>
         <!-- <td><%= link_to section.label %></td> -->
 
-        <td><%= link_to 'Show', section_path(section) %></td>
         <td><%= link_to 'Edit', edit_section_path(section) %></td>
         <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -38,12 +38,10 @@
 </div>
 
 <br>
-
-<br>
-
-<%= link_to 'New Section', new_section_path %>
-
-<%= link_to 'Back', links_path %>
+<div class='d-flex justify-content-center'>
+  <%= link_to 'Back', links_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+</div>
 
 
 
