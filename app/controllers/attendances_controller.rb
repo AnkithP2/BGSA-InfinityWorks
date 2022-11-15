@@ -38,7 +38,7 @@ class AttendancesController < ApplicationController
     else
       respond_to do |format|
         if @attendance.save
-          format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully created.' }
+          format.html { redirect_to events_path, notice: 'attendance was successfully created.' }
           format.json { render :show, status: :created, location: @attendance }
           
           # user will always be found since the check for this already exists within the model
