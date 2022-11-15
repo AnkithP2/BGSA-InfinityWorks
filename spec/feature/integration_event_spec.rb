@@ -7,7 +7,8 @@ require 'rails_helper'
 # create an event with no special attributes
 RSpec.describe 'event integration tests: ', type: :feature do
   scenario 'valid inputs' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
 
     visit new_event_path
     fill_in 'Title', with: 'test'
@@ -28,7 +29,8 @@ RSpec.describe 'event integration tests: ', type: :feature do
   end
 
   scenario 'edit an event with admin permissions' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     visit edit_event_path(id: ev)
     fill_in 'Title', with: 'testing'
@@ -38,7 +40,8 @@ RSpec.describe 'event integration tests: ', type: :feature do
   end
 
   scenario 'edit an event without admin permissions' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     visit loginout_path
     visit edit_event_path(id: ev)
@@ -47,7 +50,8 @@ RSpec.describe 'event integration tests: ', type: :feature do
   end
 
   scenario 'creating an event with zero RSVP: ' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
 
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     visit event_path(id: ev.id)
@@ -55,7 +59,8 @@ RSpec.describe 'event integration tests: ', type: :feature do
   end
 
   scenario 'creating an event with at least one RSVP/Attended: ' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
 
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
@@ -67,7 +72,8 @@ RSpec.describe 'event integration tests: ', type: :feature do
   end
 
   scenario 'Attempt to attend an event which is closed: ' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
 
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
@@ -81,24 +87,26 @@ RSpec.describe 'event integration tests: ', type: :feature do
   end
 
   scenario 'delete existing event with admin permissions' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     visit event_path(id: ev.id)
     click_on 'Delete'
   end
 
   scenario 'delete existing event without admin permissions' do
-    createAdmin()
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     visit event_path(id: ev.id)
     click_on 'Delete'
   end
 end
 
-def createAdmin()
-    visit new_registration_path
-    fill_in 'Name', with: 'Ankith'
-    fill_in 'Email', with: 'test@gmail.com'
-    fill_in 'Password', with: '1234'
-    click_on 'Create Admin'
+#Helper Functions
+def loginAsAdmin(name, email, password)
+  visit login_path
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  click_on 'Log In'
 end
