@@ -2,7 +2,6 @@
   <% if attendance.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
-
       <ul>
         <% attendance.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -14,20 +13,14 @@
   <div class="field">
     <p id="notice"><%=notice%></p>
     <%= form.label :Event %>
-    <div id = Event>
-    <%=form.select :event_id, Event.order(:id).map { |event| [event.title, event.id] }, include_blank: true, id: "id_of_the_event_id_select_box" %>
-    </div>
-    <br> 
+    <p><%= form.select :event_id, Event.order(:starttime).map { |event| ((event.starttime > DateTime.now.in_time_zone('US/Central')) || (event.endtime < DateTime.now.in_time_zone('US/Central'))) ? nil : [event.title + " " + event.starttime.strftime('%B %d %Y, at %I:%M %p'), event.id] }.compact%> </p>
     <%= form.label :Name %>
-    <div id = Name>
-    <%=form.select :userid, User.order(:id).map { |user| [user.firstname + " " + user.lastname, user.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %>
-    </div>
-    <br>
+    <p><%=form.select :userid, User.order(:id).map { |user| [user.firstname + " " + user.lastname, user.id] }, include_blank: true, id: "id_of_the_user_id_select_box" %> </p>
     <%= form.label :Password%>
-    <%=form.password_field :password%>
+    <p><%=form.password_field :password%> </p>
   </div>
-  
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Submit"%>
   </div>
 <% end %>

@@ -4,11 +4,6 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: %i[show edit update destroy]
 
-  # GET /admins or /admins.json
-  def index
-    @admins = Admin.all
-  end
-
   # GET /admins/1 or /admins/1.json
   def show; end
 
@@ -27,11 +22,11 @@ class AdminsController < ApplicationController
     respond_to do |format|
       if @admin.save
         session[:admin_email] = @admin.email
-        format.html { redirect_to admin_url(@admin), notice: 'Admin was successfully created.' }
-        format.json { render :show, status: :created, location: @admin }
+        format.html { redirect_to(admin_url(@admin), notice: 'Admin was successfully created.') }
+        format.json { render(:show, status: :created, location: @admin) }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
+        format.html { render(:new, status: :unprocessable_entity) }
+        format.json { render(json: @admin.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -40,24 +35,26 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to admin_url(@admin), notice: 'Admin was successfully updated.' }
-        format.json { render :show, status: :ok, location: @admin }
+        format.html { redirect_to(admin_url(@admin), notice: 'Admin was successfully updated.') }
+        format.json { render(:show, status: :ok, location: @admin) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @admin.errors, status: :unprocessable_entity) }
       end
     end
   end
 
-  # DELETE /admins/1 or /admins/1.json
+  # DELETE /admins/1 or /admins/1.
+  '
   def destroy
     @admin.destroy
 
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
+      format.html { redirect_to admins_url, notice: "Admin was successfully destroyed." }
       format.json { head :no_content }
     end
   end
+  '
 
   private
 

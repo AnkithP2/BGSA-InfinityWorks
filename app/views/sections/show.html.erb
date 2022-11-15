@@ -1,10 +1,23 @@
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Label</strong>
-  <%= @section.label %>
+<br> 
+<div class='card w-50 mx-auto text-center'>
+  <div class='card-body' >
+    <h1 class='card-title'>Section Information</h1>
+    <h5 class='card-title' style='text-align:left;padding-left: 5%;'>
+    <strong>Label</strong>
+    <%= @section.label %>
     <br>
-</p>
 
+    
+    <style type="text/css">
+        body { background: black; } 
+    </style>
+  </div>
+</div>
+<center><br>
 <%= link_to 'Edit', edit_section_path(@section) %> |
 <%= link_to 'Back', sections_path %>
+</center>
+

@@ -22,4 +22,8 @@ module EventsHelper
       @event.rsvps.size
     end
   end
+
+  def changeColor
+    @color = !(@color == true)
+  end
 end
