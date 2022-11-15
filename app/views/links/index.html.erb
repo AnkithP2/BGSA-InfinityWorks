@@ -32,9 +32,9 @@
 </div>
 
 <br>
-<div class='float-start'>
-  <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded" if is_admin %>
-  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded" if is_admin %>
-  <%= link_to 'Show Sections', sections_path, class: "btn btn-light btn-rounded" if is_admin %>
+<div class='d-flex justify-content-center'>
+  <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+  <%= link_to 'Edit Sections', sections_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
 </div>
 
