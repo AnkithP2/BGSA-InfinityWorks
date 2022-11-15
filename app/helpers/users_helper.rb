@@ -4,7 +4,7 @@
 
 # Helper for users
 module UsersHelper
-  def is_admin
+  def admin?
     return true if session[:admin_email]
   end
   '

@@ -42,12 +42,19 @@ AllCops:
         - "node_modules/**/*"
         - "bin/*"
         - "config/**/*"
+    NewCops: disable
 
 ###########################################################
 ###################### RuboCop ############################
 ###########################################################
 
 # You can find all configuration options for rubocop here: https://docs.rubocop.org/rubocop/cops_bundler.html
+
+Rails/HasManyOrHasOneDependent:
+    Enabled: false
+
+Rails/HelperInstanceVariable:
+    Enabled: false
 
 ###########################################################
 ####################### Gemspec ###########################
@@ -467,4 +474,7 @@ RSpec/IdenticalEqualityAssertion: # (new in 2.4)
     Enabled: true
 
 RSpec/MultipleExpectations:
+    Enabled: false
+
+RSpec/InstanceVariable:
     Enabled: false

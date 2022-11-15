@@ -11,6 +11,7 @@ class ChangeStarttimeEndtimeDataType < ActiveRecord::Migration[6.1]
     remove_column :events, :endtime
     rename_column :events, :endtime_datetime, :endtime
   end
+
   def down
     rename_column :events, :endtime, :endtime_datetime
     add_column :events, :endtime, :datetime

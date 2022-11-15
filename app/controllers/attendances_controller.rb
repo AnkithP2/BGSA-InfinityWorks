@@ -21,7 +21,7 @@ class AttendancesController < ApplicationController
     end
   end
 
-  # To cover if value on the database have defaults for forms
+  # To cover if valuecreateAdmin on the database have defaults for forms
   # to fill in
   # create the form
   def new
@@ -50,7 +50,7 @@ class AttendancesController < ApplicationController
         end
       end
     else
-      flash[:notice] = errors.join(' |  ').html_safe
+      flash[:notice] = errors.join(' |  ').sanitize
       redirect_to(new_attendance_path)
     end
   end
