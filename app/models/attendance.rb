@@ -55,4 +55,12 @@ class Attendance < ApplicationRecord
     #    flash[:notice] = start_time
     ((current_time > start_time) && (current_time < end_time))
   end
+
+  def self.add_points(eventid,userid)
+    event = Event.find(eventid)
+    user = User.find(userid)
+    user.userpoints = user.userpoints + event.eventpoints
+    user.usertotal = user.usertotal + event.eventpoints
+    user.save
+  end
 end
