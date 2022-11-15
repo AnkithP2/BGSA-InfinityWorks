@@ -5,7 +5,7 @@ class CreateAttendances < ActiveRecord::Migration[6.1]
   def change
     create_table :attendances do |t|
       t.belongs_to :event
-      t.integer :userid
+      t.belongs_to :user
       t.boolean :signup
       t.boolean :attended
 

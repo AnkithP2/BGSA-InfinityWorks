@@ -12,23 +12,11 @@ RSpec.describe 'RSVP Integration Tests: ', type: :feature do
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'RSVP'
+    click_on 'Submit'
     expect(page).to have_content('test')
     visit rsvps_path
   end
 
-  scenario 'Attempt RSVP with event currently going' do
-    createAdmin()
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2020-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-
-    visit new_rsvp_path
-    select 'test', from: 'rsvp_event_id'
-    select 'John Smith', from: 'rsvp_userid'
-    click_on 'RSVP'
-    visit rsvps_path
-    expect(page).to(have_content('John'))
-  end
 end
 
 RSpec.describe('creating an Rsvp: ', type: :feature) do
@@ -52,7 +40,7 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
-    click_on 'RSVP'
+    click_on 'Submit'
     visit rsvps_path
     expect(page).to(have_content('Smith'))
   end

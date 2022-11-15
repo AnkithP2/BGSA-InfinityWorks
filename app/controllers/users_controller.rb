@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     if session[:admin_email]
       @user = User.find(params[:id])
       @user.destroy
-      flash[:notice] = "user '#{@user.id}' deleted successfully."
+      flash[:notice] = "user '#{@user_id}' deleted successfully."
       redirect_to(users_path)
     else
       message = 'You need admin permissions to destroy'

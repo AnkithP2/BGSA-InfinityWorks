@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 2022_11_09_202339) do
 
   create_table "attendances", force: :cascade do |t|
     t.bigint "event_id"
-    t.integer "userid"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password"
     t.index ["event_id"], name: "index_attendances_on_event_id"
+    t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -56,10 +57,11 @@ ActiveRecord::Schema.define(version: 2022_11_09_202339) do
 
   create_table "rsvps", force: :cascade do |t|
     t.bigint "event_id"
-    t.integer "userid"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_rsvps_on_event_id"
+    t.index ["user_id"], name: "index_rsvps_on_user_id"
   end
 
   create_table "sections", force: :cascade do |t|
