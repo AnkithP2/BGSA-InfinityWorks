@@ -3,8 +3,8 @@
 class Event < ApplicationRecord
   # provides a one-to-many relationship with attendence
   validates :title, :date, :starttime, :endtime, :logincode, :location, :eventpoints, presence: true
-  has_many :attendances
-  has_many :rsvps
+  has_many :attendances, dependent: :destroy
+  has_many :rsvps, dependent: :destroy
 
   # only allows alphabetic characters and removes newline options
   validates :title, format: { with: /[A-Za-z]+\z/ }
