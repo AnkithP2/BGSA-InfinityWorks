@@ -67,6 +67,8 @@ gem 'bcrypt'
 gem 'bcrypt-ruby'
 gem 'brakeman'
 gem 'rubocop'
+gem 'rubocop-rails'
+gem 'rubocop-performance'
 gem 'seed_dump'
 gem 'simple_calendar', '~> 2.4'
 
