@@ -1,6 +1,14 @@
-<h1>Editing Admin</h1>
+<br> 
+<div class='card w-50 mx-auto text-center'>
+  <div class='card-body' >
+      <h1 class='card-title'>Edit Admin</h1>
+    <style type="text/css">
+    body { background: black; } 
+  </style>
+  <%= render 'form', admin: @admin %>
+  </div>
+</div>
 
-<%= render 'form', admin: @admin %>
 
 <%= link_to 'Show', @admin %> |
 <%= link_to 'Back', :back %>
