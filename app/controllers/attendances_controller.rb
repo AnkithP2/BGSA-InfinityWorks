@@ -92,7 +92,7 @@ class AttendancesController < ApplicationController
   def destroy
     if session[:admin_email]
       @attendance = Attendance.find(params[:id])
-      @attendance.destroy
+      @attendance.destroy!
       flash[:notice] = "attendance '#{@attendance.id}' deleted successfully."
       redirect_to(attendances_path)
     else

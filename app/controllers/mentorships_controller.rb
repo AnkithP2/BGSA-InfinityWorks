@@ -54,7 +54,7 @@ class MentorshipsController < ApplicationController
 
   # DELETE /mentorships/1 or /mentorships/1.json
   def destroy
-    @mentorship.destroy
+    @mentorship.destroy!
 
     respond_to do |format|
       format.html { redirect_to(mentorships_url, notice: 'Mentorship was successfully destroyed.') }

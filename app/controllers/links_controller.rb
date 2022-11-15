@@ -5,11 +5,11 @@ class LinksController < ApplicationController
   def index
     @links = Link.all
     @sections = Section.includes(:links).all
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
   end
 
   def show
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     @link = Link.find(params[:id])
   end
 
@@ -75,7 +75,7 @@ class LinksController < ApplicationController
   def destroy
     if session[:admin_email]
       @link = Link.find(params[:id])
-      @link.destroy
+      @link.destroy!
       flash[:notice] = "Link '#{@link.title}' deleted successfully."
       redirect_to(links_path)
     else

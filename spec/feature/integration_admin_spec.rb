@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # location: spec/feature/integration_spec.rb
 require 'rails_helper'
 
@@ -52,6 +54,6 @@ RSpec.describe('Admin integration test: ', type: :feature) do
 
   it 'delete existing admin' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    admin.destroy
+    admin.destroy!
   end
 end
