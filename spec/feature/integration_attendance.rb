@@ -30,7 +30,6 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
   end
 end
 
-RSpec.describe('creating an Attendance: ', type: :feature) do
   it 'valid inputs' do
     visit new_event_path
     fill_in 'Title', with: 'test'
@@ -57,7 +56,6 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
   end
 end
 
-RSpec.describe('creating an Attendance: ', type: :feature) do
   it 'valid inputs' do
     visit new_event_path
     fill_in 'Title', with: 'test'

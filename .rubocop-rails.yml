@@ -87,3 +87,9 @@ Rails/WhereExists:
 
 Rails/WhereNot:
   Enabled: true
+
+Rails/HasManyOrHasOneDependent:
+    Enabled: false
+
+Rails/HelperInstanceVariable:
+    Enabled: false

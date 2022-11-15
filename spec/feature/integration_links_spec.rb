@@ -3,8 +3,8 @@
 # location: spec/feature/integration_links_spec.rb
 require 'rails_helper'
 
-RSpec.describe('Creating a title for links: ', type: :feature) do
-  it 'valid inputs' do
+RSpec.describe('Links tests', type: :feature) do
+  it 'Creating a title for links:' do
     visit new_registration_path
     fill_in 'Name', with: 'Brandon'
     fill_in 'Email', with: 'test@gmail.com'
@@ -20,10 +20,8 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
     visit links_path
     expect(page).to(have_content('stackoverflow'))
   end
-end
 
-RSpec.describe('Creating a link: ', type: :feature) do
-  it 'valid inputs' do
+  it 'Creating a link: ' do
     visit new_registration_path
     fill_in 'Name', with: 'Brandon'
     fill_in 'Email', with: 'test@gmail.com'
@@ -39,10 +37,8 @@ RSpec.describe('Creating a link: ', type: :feature) do
     visit links_path
     expect(page).to(have_content('https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'))
   end
-end
 
-RSpec.describe('Creating a section in links: ', type: :feature) do
-  it 'valid inputs' do
+  it 'Creating a section in links:' do
     visit new_registration_path
     fill_in 'Name', with: 'Brandon'
     fill_in 'Email', with: 'test@gmail.com'

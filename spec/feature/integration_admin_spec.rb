@@ -18,7 +18,7 @@ RSpec.describe('Admin integration test: ', type: :feature) do
 
   it 'admin with invalid characters' do
     visit new_registration_path
-    fill_in 'Name', with: 'Ankith'
+    fill_in 'Name', with: 'Ankith!@#$%^&*()'
     fill_in 'Email', with: 'test@gmail.com'
     fill_in 'Password', with: '1234'
     click_on 'Create Admin'

@@ -3,11 +3,13 @@
 require 'rails_helper'
 
 # Attendance integration tests
-RSpec.describe('creating an Attendance: ', type: :feature) do
-  it 'valid inputs' do
-    createAdmin
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+RSpec.describe('Attendance: ', type: :feature) do
+  it 'attendance valid inputs' do
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45',
+                  logincode: 'abcd', location: 'at my house', eventpoints: '2'
+    )
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
     visit new_attendance_path
     select 'test', from: 'attendance_event_id'
@@ -18,10 +20,12 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
     expect(page).to(have_content('John'))
   end
 
-  it 'incorrect password when attempting to attend' do
-    createAdmin
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+  it 'attendance incorrect password when attempting to attend' do
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45',
+                  logincode: 'abcd', location: 'at my house', eventpoints: '2'
+    )
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
     visit new_attendance_path
     select 'test', from: 'attendance_event_id'
@@ -31,10 +35,12 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
     expect(page).to(have_content('Incorrect Password'))
   end
 
-  it 'no password given' do
-    createAdmin
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+  it 'attendance no password given' do
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45',
+                  logincode: 'abcd', location: 'at my house', eventpoints: '2'
+    )
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
     visit new_attendance_path
     select 'test', from: 'attendance_event_id'
@@ -43,11 +49,13 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
     expect(page).to(have_content('Incorrect Password'))
   end
 
-  it 'update existing attendance' do
-    createAdmin
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+  it 'attendance update existing attendance' do
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45',
+                  logincode: 'abcd', location: 'at my house', eventpoints: '2'
+    )
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+    Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
 
     visit edit_attendance_path(id: at)
     fill_in 'attendance_password', with: 'abcd'
@@ -58,10 +66,12 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
   end
 
   it 'delete existing attendance' do
-    createAdmin
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    at = Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45',
+                  logincode: 'abcd', location: 'at my house', eventpoints: '2'
+    )
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+    Attendance.create!(event_id: ev.id, userid: user.id, password: 'abcd')
 
     visit attendances_path
     click_on 'Destroy'
@@ -75,7 +85,7 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
 end
 
 # Helper functions below, do not touch
-def createAdmin
+def create_admin
   visit(new_registration_path)
   fill_in('Name', with: 'Ankith')
   fill_in('Email', with: 'test@gmail.com')
