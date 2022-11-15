@@ -4,10 +4,11 @@
 class SessionsController < ApplicationController
   def create
     @admin = Admin.find_by_email(params[:email])
-    puts @admin.name
-    puts @admin.email
-    puts params[:password]
+    
     if !!@admin && @admin.authenticate(params[:password])
+      puts @admin.name
+      puts @admin.email
+      puts params[:password]
       session[:admin_email] = @admin.email
       redirect_to events_path
     else
