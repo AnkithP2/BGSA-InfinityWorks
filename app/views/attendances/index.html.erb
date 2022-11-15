@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<div class='card w-50 mx-auto text-center table-center'>
+  <div class='card-body' >
 <h1>Attendances</h1>
-<h2>Shows all attendance</h2>
-
 <table>
   <thead>
     <tr>
@@ -21,18 +21,10 @@
         <td colspan ="10"><%= User.find(attendance.userid).lastname %></td>
         <td><%= link_to 'Show', attendance_path(attendance) %></td>
         <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
-        <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>      </tr>
     <% end %>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New attendance', new_attendance_path %>
-<br>
-
-<%= link_to 'Home', events_path %>
-<br> 
-
-<%= link_to 'Point Tracker', users_path %>
+</table> 
+      </div>
+  </div>
+</div>
