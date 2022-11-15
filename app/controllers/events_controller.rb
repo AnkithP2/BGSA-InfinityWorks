@@ -92,14 +92,16 @@ class EventsController < ApplicationController
     end
   end
 
+  
   def delete
     if session[:admin_email]
       @event = Event.find(params[:id])
     else
-      message = 'You need admin permissions delete'
-      redirect_to(login_path, notice: message)
+      message = "You need admin permissions delete"
+      redirect_to login_path, notice: message
     end
   end
+  
 
   def destroy
     if session[:admin_email]
