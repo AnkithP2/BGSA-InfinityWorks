@@ -7,13 +7,13 @@ class Event < ApplicationRecord
   has_many :rsvps, dependent: :destroy
 
   # only allows alphabetic characters and removes newline options
-  validates :title, format: { with: /[A-Za-z]+\z/ }
+  validates :title, format: { with: /\A[A-Za-z]+\z/ }
 
   # only allows start time to be before or at end time
   # validates :endtime, comparison: { greater_than: :starttime }
 
   # only allows alpha-numeric characters and removes newline options
-  validates :logincode, format: { with: /[A-Za-z0-9]+\z/ }
+  validates :logincode, format: { with: /\A[A-Za-z0-9]+\z/ }
 
   # protects against SQL attacks and checks for common SQL statements
   validates :title, :logincode, :location, format: { without: /'(''|[^'])*'/ }

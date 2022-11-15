@@ -5,7 +5,7 @@ class Link < ApplicationRecord
   belongs_to :section
 
   # only allows alphabetic characters and removes newline options
-  validates :title, format: { with: /[A-Za-z]+\z/ }
+  validates :title, format: { with: /\A[A-Za-z]+\z/ }
 
   # protects against SQL attacks and checks for common SQL statements
   validates :title, :link, format: { without: /'(''|[^'])*'/ }
