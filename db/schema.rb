@@ -46,12 +46,11 @@ ActiveRecord::Schema.define(version: 2022_11_09_202339) do
   end
 
   create_table "links", force: :cascade do |t|
-    t.bigint "section_id"
+    t.string "author"
     t.string "title"
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["section_id"], name: "index_links_on_section_id"
   end
 
   create_table "rsvps", force: :cascade do |t|

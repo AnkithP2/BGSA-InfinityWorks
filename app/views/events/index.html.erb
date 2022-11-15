@@ -5,8 +5,6 @@
 
 <% if @admin %>
   Admin: <%= @admin.name %>
-<% else %>
-  No admin permissions
 <%end%>
 
 <div class = "container mt-5 text-center">
@@ -41,10 +39,3 @@
 <% end %>
 </div>
 
-<br>
-<br>
-<br>
-
-
-<br>
-<%= link_to 'New Admin', new_registration_path %>

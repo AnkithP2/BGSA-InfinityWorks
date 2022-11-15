@@ -43,7 +43,7 @@ class RsvpsController < ApplicationController
     else
       respond_to do |format|
         if @rsvp.save
-          format.html { redirect_to rsvp_url(@rsvp), notice: 'Rsvp was successfully created.' }
+          format.html { redirect_to events_path, notice: 'Rsvp was successfully created.' }
           format.json { render :show, status: :created, location: @rsvp }
         else
           format.html { render :new, status: :unprocessable_entity }
@@ -71,15 +71,17 @@ class RsvpsController < ApplicationController
     end
   end
 
+  '''
   def delete
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
     else
-      message = 'You need admin permissions'
+      message = "You need admin permissions"
       redirect_to login_path , notice: message
     end
   end
-
+  '''
+  
   # DELETE /rsvps/1 or /rsvps/1.json
   def destroy
     if session[:admin_email]

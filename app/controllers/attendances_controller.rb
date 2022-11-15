@@ -38,11 +38,13 @@ class AttendancesController < ApplicationController
     else
       respond_to do |format|
         if @attendance.save
-          format.html { redirect_to attendance_url(@attendance), notice: 'attendance was successfully created.' }
+          format.html { redirect_to events_path, notice: 'attendance was successfully created.' }
           format.json { render :show, status: :created, location: @attendance }
+          
           # user will always be found since the check for this already exists within the model
           # there was an ensure here that I removed to get the app working -sullivan
           Attendance.add_points(@attendance.event_id, @attendance.userid)
+          
         else
           format.html { render :new, status: :unprocessable_entity }
           format.json { render json: @attendance.errors, status: :unprocessable_entity }
