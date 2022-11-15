@@ -2,16 +2,17 @@
     body {background: black}
 </style>
 
+
 <br>
 <div class='card w-25 mx-auto text-center'>
   <div class='card-body' >
-    <h1 class='card-title'>Admin login</h1>
+    <h1 class='card-title'>Admin Login</h1>
         <p id="notice"><%=notice%></p><br>
         <%= form_tag '/login' do %>
-        <div>
-          Email: <%= text_field_tag :email %><br><br>
-        </div>
-          Password: <%= password_field_tag :password %><br><br>
+        
+          Email <br><%= text_field_tag :email %> <br><br>
+        
+          Password <br><%= password_field_tag :password %> <br><br>
 
           <%= submit_tag "Log In" %>
         <% end %>

@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-    <%= form.label :link %>
-    <%= form.url_field :link %>
-    <%= form.label :section_id %>
+    <%= form.label "Title: " %>
+    <%= form.text_field :title %> <br><br>
+    <%= form.label "Link: " %>
+    <%= form.url_field :link %> <br><br>
+    <%= form.label "Section: " %>
     <%= form.select :section_id, Section.order(:id).map {|section| [section.label, section.id]}%>
   </div>
 

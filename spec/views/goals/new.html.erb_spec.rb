@@ -2,13 +2,14 @@
 
 require 'rails_helper'
 
-RSpec.describe 'goals/new', type: :view do
-  before(:each) do
+RSpec.describe('goals/new', type: :view) do
+  before do
     assign(:goal, Goal.new(
                     belongs_to: '',
                     goal: 'MyString',
                     status: 'MyString'
-                  ))
+                  )
+    )
   end
 
   it 'renders new goal form' do

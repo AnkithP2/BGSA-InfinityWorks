@@ -36,7 +36,7 @@ RSpec.describe 'Admin integration test: ', type: :feature do
 
     visit loginout_path
     visit events_path
-    expect(page).to have_content('No admin permissions')
+    expect(page).not_to have_content('Ankith')
   end
 
   scenario 'update an existing admin' do
