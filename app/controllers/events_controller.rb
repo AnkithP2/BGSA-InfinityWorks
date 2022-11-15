@@ -7,17 +7,17 @@ class EventsController < ApplicationController
 
     # finds all the meetings based on events to display in the simple_calendar
     @meetings = Event.where(
-      starttime: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+      starttime: Time.zone.now.beginning_of_month.beginning_of_week..Time.zone.now.end_of_month.end_of_week
     )
     # sets up the admin cookie
 
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
 
     @color = true
   end
 
   def show
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
 
     @event = Event.find(params[:id])
     @rsvp = Rsvp.where(event_id: @event.id)
@@ -104,7 +104,7 @@ class EventsController < ApplicationController
   def destroy
     if session[:admin_email]
       @event = Event.find(params[:id])
-      @event.destroy
+      @event.destroy!
       flash[:notice] = "Event '#{@event.title}' deleted successfully."
       redirect_to(events_path)
     else
