@@ -6,7 +6,6 @@
 
 <p id="notice"><%= notice %></p>
 
-<<<<<<< Updated upstream
 <div class='card w-75 mx-auto' id=“point-card”>
   <div class='card-body'>
     <div class="mx-auto" style="width: 400px;">
@@ -37,38 +36,13 @@
 </table>
   </div>
 </div>
-=======
-<style type="text/css">
-  body { background: black; } 
-</style>
-
-<div class='card w-75 mx-auto' >
-  <div class='card-body' >
-    <h1 class='card-title text-center'>Sections</h1>
-    <div>
-      <ul>
-        <% @sections.each do |section| %>
-          <tr>
-            <li class='font-weight-bold list-unstyled text-black display-4 '> <%=section.label%> </li>
-    
-            <td><%= link_to 'Edit', edit_section_path(section), class: "btn btn-light btn-rounded" if is_admin %></td>
-            <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>
-          </tr>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
->>>>>>> Stashed changes
 
 <br>
 
 <br>
 
+<%= link_to 'New Section', new_section_path %>
 
-<<<<<<< Updated upstream
 <%= link_to 'Back', links_path %>
 
 
@@ -91,10 +65,4 @@
 
 
 
-=======
-<div class='d-flex justify-content-center'>
-  <%= link_to 'Back', links_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
-  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
-</div>
->>>>>>> Stashed changes
 

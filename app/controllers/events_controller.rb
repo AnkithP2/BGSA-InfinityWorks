@@ -41,7 +41,6 @@ class EventsController < ApplicationController
   # to fill in
   # create the form
   def new
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @event = Event.new
     else
