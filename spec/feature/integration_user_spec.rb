@@ -91,6 +91,8 @@ RSpec.describe('creating an user: ', type: :feature) do
   end
 
   it 'Attempt to delete and invalid user' do
+    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    loginAsAdmin('Sean','test@gmail.com','1234')
     visit users_path
     expect(page).not_to(have_content('Destroy'))
   end
