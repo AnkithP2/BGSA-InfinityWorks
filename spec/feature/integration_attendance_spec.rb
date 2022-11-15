@@ -4,9 +4,9 @@ require 'rails_helper'
 
 # Attendance integration tests
 RSpec.describe('creating an Attendance: ', type: :feature) do
-  scenario 'valid inputs' do
+  it 'valid inputs' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin('Sean','test@gmail.com', '1234')
+    loginAsAdmin('Sean', 'test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
@@ -21,7 +21,7 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
 
   it 'incorrect password when attempting to attend' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin('Sean','test@gmail.com', '1234')
+    loginAsAdmin('Sean', 'test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
@@ -30,12 +30,12 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
     select 'John Smith', from: 'attendance_user_id'
     fill_in 'attendance_password', with: 'abc'
     click_on 'Submit'
-    expect(page).to have_content('Incorrect Password')
+    expect(page).to(have_content('Incorrect Password'))
   end
 
   it 'no password given' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin('Sean','test@gmail.com', '1234')
+    loginAsAdmin('Sean', 'test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
@@ -43,12 +43,12 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
     select 'test', from: 'attendance_event_id'
     select 'John Smith', from: 'attendance_user_id'
     click_on 'Submit'
-    expect(page).to have_content('Incorrect Password')
+    expect(page).to(have_content('Incorrect Password'))
   end
 
   it 'update existing attendance' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin('Sean','test@gmail.com', '1234')
+    loginAsAdmin('Sean', 'test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
     at = Attendance.create!(event_id: ev.id, user_id: user.id, password: 'abcd')
@@ -63,7 +63,7 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
 
   it 'delete existing attendance' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin('Sean','test@gmail.com', '1234')
+    loginAsAdmin('Sean', 'test@gmail.com', '1234')
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
     at = Attendance.create!(event_id: ev.id, user_id: user.id, password: 'abcd')
@@ -80,9 +80,9 @@ RSpec.describe('creating an Attendance: ', type: :feature) do
 end
 
 # Helper functions below, do not touch
-def loginAsAdmin(name, email, password)
-    visit login_path
-    fill_in 'email', with: email
-    fill_in 'password', with: password
-    click_on 'Log In'
+def loginAsAdmin(_name, email, password)
+  visit(login_path)
+  fill_in('email', with: email)
+  fill_in('password', with: password)
+  click_on('Log In')
 end

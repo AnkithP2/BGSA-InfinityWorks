@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   # to fill in
   # create the form
   def new
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @user = User.new
     else
@@ -79,7 +79,7 @@ class UsersController < ApplicationController
   def destroy
     if session[:admin_email]
       @user = User.find(params[:id])
-      @user.destroy
+      @user.destroy!
       flash[:notice] = "user '#{@user_id}' deleted successfully."
       redirect_to(users_path)
     else

@@ -26,7 +26,7 @@ RSpec.describe('creating an user: ', type: :feature) do
   it 'invalid username with number' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
     loginAsAdmin(admin.name, admin.email, admin.password)
-    
+
     visit new_user_path
     fill_in 'user_firstname', with: 'John1'
     fill_in 'user_lastname', with: 'Smith'
@@ -87,20 +87,20 @@ RSpec.describe('creating an user: ', type: :feature) do
 
   it 'attempt delete an existing user without admin' do
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    user.destroy
+    user.destroy!
   end
 
   it 'Attempt to delete and invalid user' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin('Sean','test@gmail.com','1234')
+    loginAsAdmin('Sean', 'test@gmail.com', '1234')
     visit users_path
     expect(page).not_to(have_content('Destroy'))
   end
 end
 
-def loginAsAdmin(name, email, password)
-    visit login_path
-    fill_in 'email', with: email
-    fill_in 'password', with: password
-    click_on 'Log In'
+def loginAsAdmin(_name, email, password)
+  visit(login_path)
+  fill_in('email', with: email)
+  fill_in('password', with: password)
+  click_on('Log In')
 end

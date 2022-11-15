@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_221_109_202_339) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+ActiveRecord::Schema.define(version: 2022_11_09_202339) do
 
-  create_table 'admins', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
-    t.string 'password_digest'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "attendances", force: :cascade do |t|
@@ -34,17 +33,17 @@ ActiveRecord::Schema.define(version: 20_221_109_202_339) do
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
-  create_table 'events', force: :cascade do |t|
-    t.string 'title'
-    t.date 'date'
-    t.string 'logincode'
-    t.string 'location'
-    t.integer 'eventpoints'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.datetime 'starttime'
-    t.datetime 'endtime'
-    t.integer 'max_attendance'
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.string "logincode"
+    t.string "location"
+    t.integer "eventpoints"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.integer "max_attendance"
   end
 
   create_table "links", force: :cascade do |t|
@@ -65,18 +64,19 @@ ActiveRecord::Schema.define(version: 20_221_109_202_339) do
     t.index ["user_id"], name: "index_rsvps_on_user_id"
   end
 
-  create_table 'sections', force: :cascade do |t|
-    t.string 'label'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "sections", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'firstname'
-    t.string 'lastname'
-    t.integer 'userpoints'
-    t.integer 'usertotal'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "users", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.integer "userpoints"
+    t.integer "usertotal"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
+
 end

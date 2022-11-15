@@ -18,7 +18,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/1 or /rsvps/1.json
   def show
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
     else
@@ -29,7 +29,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/new
   def new
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     @rsvp = Rsvp.new
   end
 
