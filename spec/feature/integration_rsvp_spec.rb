@@ -3,24 +3,24 @@
 require 'rails_helper'
 
 # rsvp integration tests
-RSpec.describe 'RSVP Integration Tests: ', type: :feature do
-  scenario 'RSVP with valid rsvp' do
-    create_admin()
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+RSpec.describe('RSVP Integration Tests: ', type: :feature) do
+  it 'RSVP with valid rsvp' do
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
     click_on 'RSVP'
-    expect(page).to have_content('test')
+    expect(page).to(have_content('test'))
     visit rsvps_path
   end
 
-  scenario 'Attempt RSVP with event currently going' do
-    create_admin()
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2020-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+  it 'Attempt RSVP with event currently going' do
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2020-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
@@ -30,7 +30,6 @@ RSpec.describe 'RSVP Integration Tests: ', type: :feature do
     expect(page).to(have_content('John'))
   end
 
-RSpec.describe('creating an Rsvp: ', type: :feature) do
   it 'valid inputs' do
     visit new_event_path
     fill_in 'Title', with: 'test'
@@ -54,10 +53,8 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
     visit rsvps_path
     expect(page).to(have_content('Smith'))
   end
-end
 
-RSpec.describe('creating an Rsvp: ', type: :feature) do
-  it 'valid inputs' do
+  it 'valid inputs with attnd' do
     visit new_event_path
     fill_in 'Title', with: 'test'
     fill_in 'Date', with: '2022-12-30'
@@ -74,42 +71,43 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
     fill_in 'Usertotal', with: 0
     click_on 'Create User'
     visit new_rsvp_path
-  scenario 'Update RSVP' do
-    create_admin()
+  end
+
+  it 'Update RSVP' do
+    create_admin
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+    Rsvp.create!(event_id: ev.id, userid: user.id)
 
     visit edit_rsvp_path(id: rsvp)
     select 'test', from: 'rsvp_event_id'
     select 'John Smith', from: 'rsvp_userid'
     click_on 'RSVP'
     visit rsvps_path
-    expect(page).to have_content('test')
-    
+    expect(page).to(have_content('test'))
+
     visit rsvps_path
   end
 
-  scenario 'Destroy RSVP' do
-    create_admin()
+  it 'Destroy RSVP' do
+    create_admin
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+    Rsvp.create!(event_id: ev.id, userid: user.id)
 
     visit rsvps_path
     click_on 'Destroy'
-    
+
     visit rsvps_path
     expect(page).not_to(have_content('John'))
-    
   end
 end
 
 # Helper functions below, do not touch
-def create_admin()
-    visit new_registration_path
-    fill_in 'Name', with: 'Ankith'
-    fill_in 'Email', with: 'test@gmail.com'
-    fill_in 'Password', with: '1234'
-    click_on 'Create Admin'
+def create_admin
+  visit(new_registration_path)
+  fill_in('Name', with: 'Ankith')
+  fill_in('Email', with: 'test@gmail.com')
+  fill_in('Password', with: '1234')
+  click_on('Create Admin')
 end
