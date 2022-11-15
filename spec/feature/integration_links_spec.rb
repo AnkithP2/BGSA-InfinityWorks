@@ -1,8 +1,8 @@
 # location: spec/feature/integration_links_spec.rb
 require 'rails_helper'
 
-RSpec.describe 'Creating a title for links: ', type: :feature do
-  scenario 'valid inputs' do
+RSpec.describe('Creating a title for links: ', type: :feature) do
+  it 'valid inputs' do
     visit new_registration_path
     fill_in 'Name', with: 'Brandon'
     fill_in 'Email', with: 'test@gmail.com'
@@ -16,7 +16,7 @@ RSpec.describe 'Creating a title for links: ', type: :feature do
     fill_in 'Link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
     click_on 'Create Link'
     visit links_path
-    expect(page).to have_content('stackoverflow')
+    expect(page).to(have_content('stackoverflow'))
   end
 
   scenario 'Creating a link' do
@@ -33,13 +33,12 @@ RSpec.describe 'Creating a title for links: ', type: :feature do
     fill_in 'Link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
     click_on 'Create Link'
     visit links_path
-    expect(page).to have_content('https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
+    expect(page).to(have_content('https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'))
   end
 
   scenario 'Creating a section in links: ' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
     loginAsAdmin(admin.name, admin.email, admin.password)
-
     visit new_section_path
     fill_in 'Label', with: 'newsection'
     click_on 'Create Section'
@@ -48,9 +47,9 @@ RSpec.describe 'Creating a title for links: ', type: :feature do
     fill_in 'Link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
     click_on 'Create Link'
     visit links_path
-    expect(page).to have_content('newsection')
+    expect(page).to(have_content('newsection'))
   end
-
+  
   scenario 'Attempt to create a link without admin: ' do
     visit new_link_path
     expect(page).to have_content('You need')

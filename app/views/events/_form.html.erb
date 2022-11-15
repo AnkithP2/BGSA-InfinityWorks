@@ -12,20 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-    <%= form.label :date %>
-    <%= form.date_field :date %>
-    <%= form.label :starttime %>
-    <%= form.datetime_local_field :starttime %>
-    <%= form.label :endtime %>
-    <%= form.datetime_local_field :endtime %>
-    <%= form.label :logincode %>
-    <%= form.text_field :logincode %>
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-    <%= form.label :eventpoints %>
-    <%= form.number_field :eventpoints, in: 1..100, step: 1.0 %>
+    <%= form.label "Title: " %>
+    <%= form.text_field :title %> <br><br>
+    <%= form.label "Date: " %>
+    <%= form.date_field :date %> <br><br>
+    <%= form.label "Start Time: " %>
+    <%= form.datetime_local_field :starttime %> <br><br>
+    <%= form.label "End Time: " %>
+    <%= form.datetime_local_field :endtime %> <br><br>
+    <%= form.label "Login Code: " %>
+    <%= form.text_field :logincode %> <br><br>
+    <%= form.label "Location: " %>
+    <%= form.text_field :location %> <br><br>
+    <%= form.label "Event Points: " %>
+    <%= form.number_field :eventpoints, in: 1..100, step: 1.0 %> <br><br>
   </div>
 
   <div class="actions">

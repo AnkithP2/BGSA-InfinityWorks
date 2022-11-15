@@ -1,31 +1,40 @@
+
+<%= stylesheet_link_tag "users" %>
+
+<style type="text/css">
+    body { background: black; }
+</style>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Rsvps</h1>
+<style type="text/css">
+  body { background: black; } 
+</style>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="25">Event</th>
-      <th colspan ="15">First Name</th>
-      <th colspan ="10">Last Name</th>
-      <th colspan="10"></th>
-    </tr>
-  </thead>
+<div class='card w-75 mx-auto'>
+  <div class='card-body'  >
+    <div class="text-center">
+      <h1>RSVPS</h1>
+    </div>
+    <table class='table ' style="margin-left:auto;margin-right:auto;width:75%;">
+      <thead>
+        <tr>
+          <th colspan="25">Event</th>
+          <th colspan ="15">First Name</th>
+          <th colspan ="10">Last Name</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @rsvps.each do |rsvp| %>
-      <tr>
-        <td colspan="25"><%= Event.find(rsvp.event_id).title%></td>
-        <td colspan ="15"><%= User.find(rsvp.userid).firstname %></td>
-        <td colspan ="10"><%= User.find(rsvp.userid).lastname %></td>
-        <td><%= link_to 'Show', rsvp_path(rsvp) %></td>
-        <td><%= link_to 'Edit', edit_rsvp_path(rsvp) %></td>
-        <td><%= link_to 'Destroy', rsvp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'New RSVP', new_rsvp_path %>
-<br>
-<%= link_to 'Home', events_path %>
+      <tbody>
+        <% @rsvps.each do |rsvp| %>
+          <tr>
+            <td colspan="25"><%= Event.find(rsvp.event_id).title%></td>
+            <td colspan ="15"><%= User.find(rsvp.userid).firstname %></td>
+            <td colspan ="10"><%= User.find(rsvp.userid).lastname %></td>
+            <td><%= link_to 'Destroy', rsvp, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>      </tr>
+        <% end %>
+      </tbody>
+    </table> 
+  </div>
+</div>

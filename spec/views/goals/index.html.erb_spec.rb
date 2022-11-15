@@ -2,20 +2,21 @@
 
 require 'rails_helper'
 
-RSpec.describe 'goals/index', type: :view do
-  before(:each) do
+RSpec.describe('goals/index', type: :view) do
+  before do
     assign(:goals, [
-             Goal.create!(
-               belongs_to: '',
-               goal: 'Goal',
-               status: 'Status'
-             ),
-             Goal.create!(
-               belongs_to: '',
-               goal: 'Goal',
-               status: 'Status'
-             )
-           ])
+      Goal.create!(
+        belongs_to: '',
+        goal: 'Goal',
+        status: 'Status'
+      ),
+      Goal.create!(
+        belongs_to: '',
+        goal: 'Goal',
+        status: 'Status'
+      )
+    ]
+    )
   end
 
   it 'renders a list of goals' do
