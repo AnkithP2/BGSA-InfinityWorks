@@ -12,8 +12,8 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
     fill_in 'Label', with: 'newsection'
     click_on 'Create Section'
     visit new_link_path
-    fill_in 'Title', with: 'stackoverflow'
-    fill_in 'Link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
+    fill_in 'link_title', with: 'stackoverflow'
+    fill_in 'link_link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
     click_on 'Create Link'
     visit links_path
     expect(page).to(have_content('stackoverflow'))
@@ -29,8 +29,8 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
     fill_in 'Label', with: 'newsection'
     click_on 'Create Section'
     visit new_link_path
-    fill_in 'Title', with: 'stackoverflow'
-    fill_in 'Link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
+    fill_in 'link_title', with: 'stackoverflow'
+    fill_in 'link_link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
     click_on 'Create Link'
     visit links_path
     expect(page).to(have_content('https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'))
@@ -43,8 +43,8 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
     fill_in 'Label', with: 'newsection'
     click_on 'Create Section'
     visit new_link_path
-    fill_in 'Title', with: 'stackoverflow'
-    fill_in 'Link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
+    fill_in 'link_title', with: 'stackoverflow'
+    fill_in 'link_link', with: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches'
     click_on 'Create Link'
     visit links_path
     expect(page).to(have_content('newsection'))
@@ -62,7 +62,7 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
     section = Section.create!(label: 'newsection')
     link = Link.create!(section: section, title: 'stackoverflow', link: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
     visit edit_link_path(id: link)
-    fill_in 'Title', with: 'othertitle'
+    fill_in 'link_title', with: 'othertitle'
     click_on 'Update Link'
     visit links_path
     expect(page).to have_content('othertitle')
