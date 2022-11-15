@@ -11,10 +11,11 @@ RSpec.describe 'RSVP Integration Tests: ', type: :feature do
 
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
-    select 'John Smith', from: 'rsvp_userid'
+    select 'John Smith', from: 'rsvp_user_id'
     click_on 'Submit'
-    expect(page).to have_content('test')
     visit rsvps_path
+    expect(page).to have_content('test')
+    
   end
 
 end
@@ -39,7 +40,7 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
     click_on 'Create User'
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
-    select 'John Smith', from: 'rsvp_userid'
+    select 'John Smith', from: 'rsvp_user_id'
     click_on 'Submit'
     visit rsvps_path
     expect(page).to(have_content('Smith'))
@@ -70,11 +71,11 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
     createAdmin()
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+    rsvp = Rsvp.create!(event_id: ev.id, user_id: user.id)
 
     visit edit_rsvp_path(id: rsvp)
     select 'test', from: 'rsvp_event_id'
-    select 'John Smith', from: 'rsvp_userid'
+    select 'John Smith', from: 'rsvp_user_id'
     click_on 'RSVP'
     visit rsvps_path
     expect(page).to have_content('test')
@@ -86,7 +87,7 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
     createAdmin()
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    rsvp = Rsvp.create!(event_id: ev.id, userid: user.id)
+    rsvp = Rsvp.create!(event_id: ev.id, user_id: user.id)
 
     visit rsvps_path
     click_on 'Destroy'

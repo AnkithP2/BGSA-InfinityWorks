@@ -26,13 +26,13 @@ class EventsController < ApplicationController
     # finds the users that rsvp to an event
     @users_rsvp = []
     @rsvp.each do |rsvp|
-      @users_rsvp.push(rsvp.userid)
+      @users_rsvp.push(rsvp.user_id)
     end
 
     # finds users that attended an event
     @users_attend = []
     @attendance.each do |rsvp|
-      @users_attend.push(rsvp.userid)
+      @users_attend.push(rsvp.user_id)
     end
     # show rsvps for this specific event
   end

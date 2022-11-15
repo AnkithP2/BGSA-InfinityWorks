@@ -106,6 +106,6 @@ class RsvpsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def rsvp_params
-    params.require(:rsvp).permit(:event_id, :userid, :rsvped)
+    params.require(:rsvp).permit(:event_id, :user_id, :rsvped)
   end
 end
