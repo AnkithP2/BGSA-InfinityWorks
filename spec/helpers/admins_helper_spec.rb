@@ -1,16 +1,12 @@
 # frozen_string_literal: true
 
+# location: spec/feature/integration_spec.rb
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the AdminsHelper. For example:
-#
-# describe AdminsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe(AdminsHelper, type: :helper) do
+# admin integration tests
+RSpec.describe('Admin integration test: ', type: :feature) do
+  it 'valid inputs' do
+    visit new_event_path
+    expect(page).to(have_content('Login'))
+  end
 end

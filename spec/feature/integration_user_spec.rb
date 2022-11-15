@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
+# location: spec/feature/integration_spec.rb
 require 'rails_helper'
 
-RSpec.describe('creating an user: ', type: :feature) do
+# admin integration tests
+RSpec.describe('Admin integration test: ', type: :feature) do
   it 'valid inputs' do
-    visit attendances_path
+    visit new_event_path
+    expect(page).to(have_content('Login'))
   end
 end
-
-def loginAsAdmin(_name, _email, _password); end
