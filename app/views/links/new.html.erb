@@ -8,5 +8,8 @@
   </div>
 </div>
 
-<%= link_to 'Back', links_path %>
+<br>
+<div class='d-flex justify-content-center'>
+  <%= link_to 'Back', links_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+</div>
 
