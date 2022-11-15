@@ -3,8 +3,8 @@
 # This controller controls admin sessions references
 class SessionsController < ApplicationController
   def create
-    @admin = Admin.find_by(email: params[:email])
-    if !@admin.nil? && @admin.authenticate(params[:password])
+    @admin = Admin.find_by_email(params[:email])
+    if !!@admin && @admin.authenticate(params[:password])
       session[:admin_email] = @admin.email
       redirect_to(events_path)
     else

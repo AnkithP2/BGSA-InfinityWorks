@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # location: spec/feature/integration_links_spec.rb
 require 'rails_helper'
 

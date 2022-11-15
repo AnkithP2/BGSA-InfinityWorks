@@ -6,7 +6,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps or /rsvps.json
   def index
-    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
 
     if session[:admin_email]
       @rsvps = Rsvp.all
@@ -86,7 +86,7 @@ class RsvpsController < ApplicationController
   def destroy
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
-      @rsvp.destroy!
+      @rsvp.destroy
       flash[:notice] = "rsvp '#{@rsvp.id}' deleted successfully."
       redirect_to(rsvps_path)
     else

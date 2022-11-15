@@ -61,6 +61,6 @@ class Attendance < ApplicationRecord
     user = User.find(userid)
     user.userpoints = user.userpoints + event.eventpoints
     user.usertotal = user.usertotal + event.eventpoints
-    user.save!
+    user.save
   end
 end

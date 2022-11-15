@@ -54,7 +54,7 @@ class GoalsController < ApplicationController
 
   # DELETE /goals/1 or /goals/1.json
   def destroy
-    @goal.destroy!
+    @goal.destroy
 
     respond_to do |format|
       format.html { redirect_to(goals_url, notice: 'Goal was successfully destroyed.') }
