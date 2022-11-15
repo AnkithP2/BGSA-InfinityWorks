@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 # Attendance integration tests
-RSpec.describe 'creating an Attendance: ', type: :feature do
-  scenario 'valid inputs' do
+RSpec.describe('creating an Attendance: ', type: :feature) do
+  it 'valid inputs' do
     visit new_event_path
     fill_in 'Title', with: 'test'
     fill_in 'Date', with: '2022-12-30'
@@ -26,12 +26,12 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     fill_in 'attendance_password', with: 'abcd'
     click_on 'Check In'
     visit attendances_path
-    expect(page).to have_content('John')
+    expect(page).to(have_content('John'))
   end
 end
 
-RSpec.describe 'creating an Attendance: ', type: :feature do
-  scenario 'valid inputs' do
+RSpec.describe('creating an Attendance: ', type: :feature) do
+  it 'valid inputs' do
     visit new_event_path
     fill_in 'Title', with: 'test'
     fill_in 'Date', with: '2022-12-30'
@@ -53,12 +53,12 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     fill_in 'attendance_password', with: 'abcd'
     click_on 'Check In'
     visit attendances_path
-    expect(page).to have_content('Smith')
+    expect(page).to(have_content('Smith'))
   end
 end
 
-RSpec.describe 'creating an Attendance: ', type: :feature do
-  scenario 'valid inputs' do
+RSpec.describe('creating an Attendance: ', type: :feature) do
+  it 'valid inputs' do
     visit new_event_path
     fill_in 'Title', with: 'test'
     fill_in 'Date', with: '2022-12-30'
@@ -80,6 +80,6 @@ RSpec.describe 'creating an Attendance: ', type: :feature do
     fill_in 'attendance_password', with: 'abcd'
     click_on 'Check In'
     visit attendances_path
-    expect(page).to have_content('test')
+    expect(page).to(have_content('test'))
   end
 end

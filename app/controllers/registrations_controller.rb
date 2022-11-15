@@ -10,9 +10,9 @@ class RegistrationsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin.save
       session[:admin_email] = @admin.email
-      redirect_to events_path, notice: 'Successfully created admin registration'
+      redirect_to(events_path, notice: 'Successfully created admin registration')
     else
-      render :new
+      render(:new)
     end
   end
 

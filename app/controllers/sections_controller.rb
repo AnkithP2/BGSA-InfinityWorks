@@ -17,7 +17,7 @@ class SectionsController < ApplicationController
       @section = Section.new
     else
       message = 'You need admin permissions new'
-      redirect_to login_path, notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -27,16 +27,16 @@ class SectionsController < ApplicationController
 
       respond_to do |format|
         if @section.save
-          format.html { redirect_to section_url(@section), notice: 'Section was successfully created.' }
-          format.json { render :show, status: :created, location: @section }
+          format.html { redirect_to(section_url(@section), notice: 'Section was successfully created.') }
+          format.json { render(:show, status: :created, location: @section) }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @section.errors, status: :unprocessable_entity }
+          format.html { render(:new, status: :unprocessable_entity) }
+          format.json { render(json: @section.errors, status: :unprocessable_entity) }
         end
       end
     else
       message = 'You need admin permissions create'
-      redirect_to login_path, notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -45,7 +45,7 @@ class SectionsController < ApplicationController
       @section = Section.find(params[:id])
     else
       message = 'You need admin permissions edit'
-      redirect_to login_path, notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -53,11 +53,11 @@ class SectionsController < ApplicationController
     respond_to do |format|
       @section = Section.find(params[:id])
       if @section.update(section_params)
-        format.html { redirect_to section_url(@section), notice: 'Section was successfully updated.' }
-        format.json { render :show, status: :ok, location: @section }
+        format.html { redirect_to(section_url(@section), notice: 'Section was successfully updated.') }
+        format.json { render(:show, status: :ok, location: @section) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @section.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @section.errors, status: :unprocessable_entity) }
       end
     end
   end
@@ -67,7 +67,7 @@ class SectionsController < ApplicationController
       @section = Section.find(params[:id])
     else
       message = 'You need admin permissions delete'
-      redirect_to login_path, notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 
@@ -79,7 +79,7 @@ class SectionsController < ApplicationController
       redirect_to(sections_path)
     else
       message = 'You need admin permissions destroy'
-      redirect_to login_path, notice: message
+      redirect_to(login_path, notice: message)
     end
   end
 

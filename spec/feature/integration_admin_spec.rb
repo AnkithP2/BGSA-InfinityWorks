@@ -10,7 +10,7 @@ RSpec.describe 'Admin integration test: ', type: :feature do
     fill_in 'Password', with: '1234'
     click_on 'Create Admin'
     visit events_path
-
+  
     expect(page).to have_content('Ankith')
   end
 

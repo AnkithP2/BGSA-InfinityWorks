@@ -8,7 +8,6 @@ require 'rails_helper'
 RSpec.describe 'event integration tests: ', type: :feature do
   scenario 'valid inputs' do
     createAdmin()
-
     visit new_event_path
     fill_in 'Title', with: 'test'
     fill_in 'Date', with: '11/04/2022'

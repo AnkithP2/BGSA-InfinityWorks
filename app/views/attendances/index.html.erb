@@ -1,19 +1,29 @@
+<%= stylesheet_link_tag "users" %>
+
+<style type="text/css">
+    body { background: black; }
+</style>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Attendances</h1>
-<h2>Shows all attendance</h2>
+<div class='card w-75 mx-auto' id=“point-card”>
+  <div class='card-body'>
+    <div class="mx-auto" style="width: 400px;">
+      <h1 class='card-title text-center'>Attendances</h1>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="25">Event</th>
-      <th colspan ="15">First Name</th>
-      <th colspan ="10">Last Name</th>
-      <th colspan="10"></th>
-    </tr>
-  </thead>
+    <table class='table'>
+      <thead>
+        <tr>
+          <th colspan="25">Event</th>
+          <th colspan ="15">First Name</th>
+          <th colspan ="10">Last Name</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
 
-  <tbody>
+      
+      <tbody>
     <% @attendances.each do |attendance| %>
       <tr>
         <td colspan="25"><%= Event.find(attendance.event_id).title%></td>
@@ -26,6 +36,8 @@
     <% end %>
   </tbody>
 </table>
+  </div>
+</div>
 
 <br>
 
@@ -36,3 +48,25 @@
 <br> 
 
 <%= link_to 'Point Tracker', users_path %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
