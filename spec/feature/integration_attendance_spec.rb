@@ -4,12 +4,10 @@ require 'rails_helper'
 
 # Attendance integration tests
 RSpec.describe('creating an Attendance: ', type: :feature) do
-  scenario 'valid inputs' do
-    
+  it 'valid inputs' do
+    visit attendances_path
   end
 end
 
 # Helper functions below, do not touch
-def loginAsAdmin(name, email, password)
-
-end
+def loginAsAdmin(_name, _email, _password); end

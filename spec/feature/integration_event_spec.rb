@@ -7,12 +7,9 @@ require 'rails_helper'
 # create an event with no special attributes
 RSpec.describe('event integration tests: ', type: :feature) do
   it 'valid inputs' do
-
+    visit attendances_path
   end
-
 end
 
-#Helper Functions
-def loginAsAdmin(name, email, password)
-  
-end
+# Helper Functions
+def loginAsAdmin(_name, _email, _password); end
