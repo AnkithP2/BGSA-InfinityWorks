@@ -4,11 +4,11 @@
 class SectionsController < ApplicationController
   def index
     @sections = Section.all
-    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
   end
 
   def show
-    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
     @section = Section.find(params[:id])
   end
 
@@ -74,7 +74,7 @@ class SectionsController < ApplicationController
   def destroy
     if session[:admin_email]
       @section = Section.find(params[:id])
-      @section.destroy!
+      @section.destroy
       flash[:notice] = "Section '#{@section.label}' deleted successfully."
       redirect_to(sections_path)
     else

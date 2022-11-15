@@ -7,6 +7,6 @@ module ApplicationHelper
   end
 
   def current_admin
-    @current_admin ||= admin.find_by(email: session[:admin_email]) if !!session[:admin_email]
+    @current_admin ||= admin.find_by_email(session[:admin_email]) if !!session[:admin_email]
   end
 end
