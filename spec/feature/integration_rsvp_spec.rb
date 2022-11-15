@@ -18,29 +18,29 @@ RSpec.describe('RSVP Integration Tests: ', type: :feature) do
   end
 end
 
-it 'valid inputs' do
-  createAdmin
-  visit new_event_path
-  fill_in 'event_title', with: 'test'
-  fill_in 'event_date', with: '2022-12-30'
-  fill_in 'event_starttime', with: '2022-12-30 18:45'
-  fill_in 'event_endtime', with: '2022-12-30 19:45'
-  fill_in 'event_logincode', with: 'abcd'
-  fill_in 'event_location', with: 'At my house'
-  fill_in 'event_eventpoints', with: '2'
-  click_on 'Create Event'
-  visit new_user_path
-  fill_in 'user_firstname', with: 'John'
-  fill_in 'user_lastname', with: 'Smith'
-  fill_in 'user_userpoints', with: 0
-  fill_in 'user_usertotal', with: 0
-  click_on 'Create User'
-  visit new_rsvp_path
-  select 'test', from: 'rsvp_event_id'
-  select 'John Smith', from: 'rsvp_user_id'
-  click_on 'Submit'
-  visit rsvps_path
-  expect(page).to(have_content('Smith'))
+# it 'valid inputs' do
+#   createAdmin
+#   visit new_event_path
+#   fill_in 'event_title', with: 'test'
+#   fill_in 'event_date', with: '2022-12-30'
+#   fill_in 'event_starttime', with: '2022-12-30 18:45'
+#   fill_in 'event_endtime', with: '2022-12-30 19:45'
+#   fill_in 'event_logincode', with: 'abcd'
+#   fill_in 'event_location', with: 'At my house'
+#   fill_in 'event_eventpoints', with: '2'
+#   click_on 'Create Event'
+#   visit new_user_path
+#   fill_in 'user_firstname', with: 'John'
+#   fill_in 'user_lastname', with: 'Smith'
+#   fill_in 'user_userpoints', with: 0
+#   fill_in 'user_usertotal', with: 0
+#   click_on 'Create User'
+#   visit new_rsvp_path
+#   select 'test', from: 'rsvp_event_id'
+#   select 'John Smith', from: 'rsvp_user_id'
+#   click_on 'Submit'
+#   visit rsvps_path
+#   expect(page).to(have_content('Smith'))
 end
 
 RSpec.describe('creating an Rsvp: ', type: :feature) do
