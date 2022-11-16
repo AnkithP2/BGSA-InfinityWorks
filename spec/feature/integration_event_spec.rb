@@ -96,7 +96,7 @@ RSpec.describe('event integration tests: ', type: :feature) do
   it 'delete existing event without admin permissions 2' do
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2022-09-12 18:45', endtime: '2042-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     visit event_path(id: ev.id)
-    click_on 'Delete'
+    expect(page).not_to(have_content('Delete'))
   end
 end
 

@@ -52,7 +52,7 @@ class RsvpsController < ApplicationController
         end
       end
     else
-      flash[:notice] = errors.join(' |  ').sanitize
+      flash[:notice] = errors.join(' |  ')
       redirect_to(new_rsvp_path)
     end
   end

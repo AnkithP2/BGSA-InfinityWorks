@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Migration for admins
-class create_admins < ActiveRecord::Migration[6.1]
+class CreateAdmins < ActiveRecord::Migration[6.1]
   def change
     create_table :admins do |t|
       t.string :name
