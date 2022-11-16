@@ -5,9 +5,9 @@ require 'rails_helper'
 # rsvp integration tests
 RSpec.describe('RSVP Integration Tests: ', type: :feature) do
   it 'RSVP with valid rsvp' do
-    createAdmin
-    ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
-    user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
+    create_admin
+    Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
+    User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
 
     visit new_rsvp_path
     select 'test', from: 'rsvp_event_id'
@@ -16,11 +16,9 @@ RSpec.describe('RSVP Integration Tests: ', type: :feature) do
     visit rsvps_path
     expect(page).to(have_content('test'))
   end
-end
 
-RSpec.describe('creating an Rsvp: ', type: :feature) do
-  it 'valid inputs' do
-    createAdmin
+  it 'valid inputs 1' do
+    create_admin
     visit new_event_path
     fill_in 'event_title', with: 'test'
     fill_in 'event_date', with: '2022-12-30'
@@ -43,11 +41,9 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
     visit rsvps_path
     expect(page).to(have_content('Smith'))
   end
-end
 
-RSpec.describe('creating an Rsvp: ', type: :feature) do
-  it 'valid inputs' do
-    createAdmin
+  it 'valid inputs 2' do
+    create_admin
     visit new_event_path
     fill_in 'event_title', with: 'test'
     fill_in 'event_date', with: '2022-12-30'
@@ -67,7 +63,7 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
   end
 
   it 'Update RSVP' do
-    createAdmin
+    create_admin
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
     rsvp = Rsvp.create!(event_id: ev.id, user_id: user.id)
@@ -83,10 +79,10 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
   end
 
   it 'Destroy RSVP' do
-    createAdmin
+    create_admin
     ev = Event.create!(title: 'test', date: '2022-09-12', starttime: '2040-09-12 18:45', endtime: '2045-09-12 19:45', logincode: 'abcd', location: 'at my house', eventpoints: '2')
     user = User.create!(firstname: 'John', lastname: 'Smith', userpoints: 14, usertotal: 20)
-    rsvp = Rsvp.create!(event_id: ev.id, user_id: user.id)
+    Rsvp.create!(event_id: ev.id, user_id: user.id)
 
     visit rsvps_path
     click_on 'Destroy'
@@ -97,7 +93,7 @@ RSpec.describe('creating an Rsvp: ', type: :feature) do
 end
 
 # Helper functions below, do not touch
-def createAdmin
+def create_admin
   visit(new_registration_path)
   fill_in('admin_name', with: 'Ankith')
   fill_in('admin_email', with: 'test@gmail.com')

@@ -18,13 +18,13 @@ RSpec.describe('Admin integration test: ', type: :feature) do
 
   it 'admin with invalid characters' do
     visit new_registration_path
-    fill_in 'admin_name', with: 'Ankith'
+    fill_in 'admin_name', with: ')(*&^%$#@'
     fill_in 'admin_email', with: 'test@gmail.com'
     fill_in 'admin_password', with: '1234'
     click_on 'Create Admin'
     visit events_path
 
-    expect(page).to(have_content('Ankith'))
+    expect(page).not_to(have_content('Ankith'))
   end
 
   it 'logout as admin' do
@@ -35,9 +35,8 @@ RSpec.describe('Admin integration test: ', type: :feature) do
     click_on 'Create Admin'
     visit events_path
     expect(page).to(have_content('Ankith'))
+    click_on 'Logout'
 
-    visit loginout_path
-    visit events_path
     expect(page).not_to(have_content('Ankith'))
   end
 

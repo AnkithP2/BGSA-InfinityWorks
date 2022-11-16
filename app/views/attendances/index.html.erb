@@ -32,7 +32,7 @@
             <td colspan="25"><%= Event.find(attendance.event_id).title%></td>
             <td colspan ="15"><%= User.find(attendance.user_id).firstname %></td>
             <td colspan ="10"><%= User.find(attendance.user_id).lastname %></td>
-            <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>      </tr>
+            <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if admin? %></td>      </tr>
         <% end %>
       </tbody>
     </table> 

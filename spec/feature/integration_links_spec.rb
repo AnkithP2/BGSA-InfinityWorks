@@ -40,7 +40,7 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
 
   it 'Creating a section in links: ' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin(admin.name, admin.email, admin.password)
+    login_as_admin(admin.name, admin.email, admin.password)
     visit new_section_path
     fill_in 'Label', with: 'newsection'
     click_on 'Create Section'
@@ -59,7 +59,7 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
 
   it 'edit a link with admin: ' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin(admin.name, admin.email, admin.password)
+    login_as_admin(admin.name, admin.email, admin.password)
 
     section = Section.create!(label: 'newsection')
     link = Link.create!(section: section, title: 'stackoverflow', link: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
@@ -72,7 +72,7 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
 
   it 'edit a link without admin: ' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin(admin.name, admin.email, admin.password)
+    login_as_admin(admin.name, admin.email, admin.password)
 
     section = Section.create!(label: 'newsection')
     link = Link.create!(section: section, title: 'stackoverflow', link: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
@@ -85,10 +85,10 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
 
   it 'delete a link with admin: ' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin(admin.name, admin.email, admin.password)
+    login_as_admin(admin.name, admin.email, admin.password)
 
     section = Section.create!(label: 'newsection')
-    link = Link.create!(section: section, title: 'stackoverflow', link: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
+    Link.create!(section: section, title: 'stackoverflow', link: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
     visit links_path
     click_on 'Destroy'
     visit links_path
@@ -98,10 +98,10 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
 
   it 'delete a link without admin: ' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin(admin.name, admin.email, admin.password)
+    login_as_admin(admin.name, admin.email, admin.password)
 
     section = Section.create!(label: 'newsection')
-    link = Link.create!(section: section, title: 'stackoverflow', link: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
+    Link.create!(section: section, title: 'stackoverflow', link: 'https://stackoverflow.com/questions/3757380/ruby-on-rails-no-route-matches')
 
     visit loginout_path
     visit links_path
@@ -109,7 +109,7 @@ RSpec.describe('Creating a title for links: ', type: :feature) do
   end
 end
 
-def loginAsAdmin(_name, email, password)
+def login_as_admin(_name, email, password)
   visit(login_path)
   fill_in('email', with: email)
   fill_in('password', with: password)

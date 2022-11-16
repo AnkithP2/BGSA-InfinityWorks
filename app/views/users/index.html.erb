@@ -30,8 +30,8 @@
             <td><%= user.userpoints %></td>
             <td><%= user.usertotal %></td>
 
-            <td><%= link_to 'Show', user_path(user) if is_admin %></td>
-            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } if is_admin%></td>
+            <td><%= link_to 'Show', user_path(user) if admin? %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } if admin?%></td>
           </tr>
         <% end %>
       </tbody>

@@ -12,13 +12,13 @@ class Rsvp < ApplicationRecord
     errors.append('No Event Entered') unless check_user_input(rsvp)
     errors.append('No User Entered') unless check_event_input(rsvp)
     if errors.empty?
-      error_checks_2(rsvp)
+      error_checks_two(rsvp)
     else
       errors
     end
   end
 
-  def self.error_checks_2(rsvp)
+  def self.error_checks_two(rsvp)
     errors = []
     errors.append('Registration Closed') unless check_rsvp_time(rsvp)
     errors.append('User Already Registered') unless check_user_exists(rsvp)

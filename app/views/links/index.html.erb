@@ -18,8 +18,8 @@
             <% sec.links.each do |link| %>
               <div class='text-black fs-2'><%= link.title %></div>
               <div class='text-black fs-5'><%= link_to link.link, link.link %></div>
-              <td><%= link_to 'Edit', edit_link_path(link), class: "btn btn-light btn-rounded" if is_admin %></td>
-              <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>
+              <td><%= link_to 'Edit', edit_link_path(link), class: "btn btn-light btn-rounded" if admin? %></td>
+              <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if admin? %></td>
               <br>
             <% end %>
           </ul>
@@ -32,8 +32,8 @@
 
 <br>
 <div class='d-flex justify-content-center'>
-  <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
-  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
-  <%= link_to 'Edit Sections', sections_path, class: "btn btn-light btn-rounded me-3" if is_admin %>
+  <%= link_to 'New Link', new_link_path, class: "btn btn-light btn-rounded me-3" if admin? %>
+  <%= link_to 'New Section', new_section_path, class: "btn btn-light btn-rounded me-3" if admin? %>
+  <%= link_to 'Edit Sections', sections_path, class: "btn btn-light btn-rounded me-3" if admin? %>
 </div>
 

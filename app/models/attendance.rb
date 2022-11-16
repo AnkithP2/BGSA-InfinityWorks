@@ -13,13 +13,13 @@ class Attendance < ApplicationRecord
     errors.append('No Event Entered') unless check_user_input(attendance)
     errors.append('No User Entered') unless check_event_input(attendance)
     if errors.empty?
-      error_checks_2(attendance)
+      error_checks_two(attendance)
     else
       errors
     end
   end
 
-  def self.error_checks_2(attendance)
+  def self.error_checks_two(attendance)
     errors = []
     errors.append('Registration Closed') unless check_attendance_time(attendance)
     errors.append('User Already Registered') unless check_user_exists(attendance)

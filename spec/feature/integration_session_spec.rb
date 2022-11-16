@@ -13,8 +13,8 @@ RSpec.describe('Log in testing ', type: :feature) do
   end
 
   it 'Correct Login' do
-    admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    loginAsAdmin('Sean', 'test@gmail.com', '1234')
+    Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
+    login_as_admin('Sean', 'test@gmail.com', '1234')
     click_on 'Logout'
     visit login_path
     fill_in 'email', with: 'test@gmail.com'
@@ -24,7 +24,7 @@ RSpec.describe('Log in testing ', type: :feature) do
   end
 end
 
-def loginAsAdmin(_name, email, password)
+def login_as_admin(_name, email, password)
   visit(login_path)
   fill_in('email', with: email)
   fill_in('password', with: password)

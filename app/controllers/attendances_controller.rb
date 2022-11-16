@@ -50,7 +50,7 @@ class AttendancesController < ApplicationController
         end
       end
     else
-      flash[:notice] = errors.join(' |  ').html_safe
+      flash[:notice] = errors.join(' |  ').sanitize
       redirect_to(new_attendance_path)
     end
   end
