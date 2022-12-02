@@ -2,7 +2,7 @@
 
 # Model for attendance
 class Attendance < ApplicationRecord
-  validates :event_id, :userid, :password, presence: true
+  validates :event_id, :user_id, :password, presence: true
   # provides a one-to-many relationship with event
   belongs_to :event
   has_many :users
@@ -13,13 +13,13 @@ class Attendance < ApplicationRecord
     errors.append('No Event Entered') unless check_user_input(attendance)
     errors.append('No User Entered') unless check_event_input(attendance)
     if errors.empty?
-      error_checks_2(attendance)
+      error_checks_two(attendance)
     else
       errors
     end
   end
 
-  def self.error_checks_2(attendance)
+  def self.error_checks_two(attendance)
     errors = []
     errors.append('Registration Closed') unless check_attendance_time(attendance)
     errors.append('User Already Registered') unless check_user_exists(attendance)
@@ -28,7 +28,7 @@ class Attendance < ApplicationRecord
   end
 
   def self.check_event_input(attendance)
-    !attendance.userid.nil?
+    !attendance.user_id.nil?
   end
 
   def self.check_user_input(attendance)
@@ -42,7 +42,7 @@ class Attendance < ApplicationRecord
 
   # Check if user has already registered
   def self.check_user_exists(attendance)
-    Attendance.where(userid: attendance.userid, event_id: attendance.event_id).empty?
+    Attendance.where(user_id: attendance.user_id, event_id: attendance.event_id).empty?
   end
 
   # Check if registration is open
@@ -56,11 +56,11 @@ class Attendance < ApplicationRecord
     ((current_time > start_time) && (current_time < end_time))
   end
 
-  def self.add_points(eventid, userid)
+  def self.add_points(eventid, user_id)
     event = Event.find(eventid)
-    user = User.find(userid)
+    user = User.find(user_id)
     user.userpoints = user.userpoints + event.eventpoints
     user.usertotal = user.usertotal + event.eventpoints
-    user.save
+    user.save!
   end
 end

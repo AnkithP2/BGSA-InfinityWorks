@@ -7,17 +7,17 @@ class EventsController < ApplicationController
 
     # finds all the meetings based on events to display in the simple_calendar
     @meetings = Event.where(
-      starttime: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+      starttime: Time.zone.now.beginning_of_month.beginning_of_week..Time.zone.now.end_of_month.end_of_week
     )
     # sets up the admin cookie
 
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
 
     @color = true
   end
 
   def show
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
 
     @event = Event.find(params[:id])
     @rsvp = Rsvp.where(event_id: @event.id)
@@ -26,13 +26,13 @@ class EventsController < ApplicationController
     # finds the users that rsvp to an event
     @users_rsvp = []
     @rsvp.each do |rsvp|
-      @users_rsvp.push(rsvp.userid)
+      @users_rsvp.push(rsvp.user_id)
     end
 
     # finds users that attended an event
     @users_attend = []
     @attendance.each do |rsvp|
-      @users_attend.push(rsvp.userid)
+      @users_attend.push(rsvp.user_id)
     end
     # show rsvps for this specific event
   end
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
   # to fill in
   # create the form
   def new
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @event = Event.new
     else
@@ -105,7 +105,7 @@ class EventsController < ApplicationController
   def destroy
     if session[:admin_email]
       @event = Event.find(params[:id])
-      @event.destroy
+      @event.destroy!
       flash[:notice] = "Event '#{@event.title}' deleted successfully."
       redirect_to(events_path)
     else

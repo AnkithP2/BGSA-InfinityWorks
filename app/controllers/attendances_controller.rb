@@ -3,7 +3,7 @@
 # This controller controls attendance CRUD and references
 class AttendancesController < ApplicationController
   def index
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @attendances = Attendance.all
     else
@@ -25,7 +25,7 @@ class AttendancesController < ApplicationController
   # to fill in
   # create the form
   def new
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     @attendance = Attendance.new
   end
 
@@ -42,7 +42,7 @@ class AttendancesController < ApplicationController
 
           # user will always be found since the check for this already exists within the model
           # there was an ensure here that I removed to get the app working -sullivan
-          Attendance.add_points(@attendance.event_id, @attendance.userid)
+          Attendance.add_points(@attendance.event_id, @attendance.user_id)
 
         else
           format.html { render(:new, status: :unprocessable_entity) }
@@ -50,7 +50,7 @@ class AttendancesController < ApplicationController
         end
       end
     else
-      flash[:notice] = errors.join(' |  ').html_safe
+      flash[:notice] = errors.join(' |  ')
       redirect_to(new_attendance_path)
     end
   end
@@ -94,7 +94,7 @@ class AttendancesController < ApplicationController
   def destroy
     if session[:admin_email]
       @attendance = Attendance.find(params[:id])
-      @attendance.destroy
+      @attendance.destroy!
       flash[:notice] = "attendance '#{@attendance.id}' deleted successfully."
       redirect_to(attendances_path)
     else
@@ -107,6 +107,6 @@ class AttendancesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def attendance_params
-    params.require(:attendance).permit(:event_id, :userid, :password)
+    params.require(:attendance).permit(:event_id, :user_id, :password)
   end
 end

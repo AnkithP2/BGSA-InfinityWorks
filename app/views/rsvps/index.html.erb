@@ -32,9 +32,9 @@
         <% @rsvps.each do |rsvp| %>
           <tr>
             <td colspan="25"><%= Event.find(rsvp.event_id).title%></td>
-            <td colspan ="15"><%= User.find(rsvp.userid).firstname %></td>
-            <td colspan ="10"><%= User.find(rsvp.userid).lastname %></td>
-            <td><%= link_to 'Destroy', rsvp, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if is_admin %></td>      </tr>
+            <td colspan ="15"><%= User.find(rsvp.user_id).firstname %></td>
+            <td colspan ="10"><%= User.find(rsvp.user_id).lastname %></td>
+            <td><%= link_to 'Destroy', rsvp, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light btn-rounded" if admin? %></td>      </tr>
         <% end %>
       </tbody>
     </table> 

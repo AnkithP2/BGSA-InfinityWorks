@@ -6,7 +6,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps or /rsvps.json
   def index
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
 
     if session[:admin_email]
       @rsvps = Rsvp.all
@@ -18,7 +18,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/1 or /rsvps/1.json
   def show
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
     else
@@ -29,7 +29,7 @@ class RsvpsController < ApplicationController
 
   # GET /rsvps/new
   def new
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     @rsvp = Rsvp.new
   end
 
@@ -52,7 +52,7 @@ class RsvpsController < ApplicationController
         end
       end
     else
-      flash[:notice] = errors.join(' |  ').html_safe
+      flash[:notice] = errors.join(' |  ')
       redirect_to(new_rsvp_path)
     end
   end
@@ -88,7 +88,7 @@ class RsvpsController < ApplicationController
   def destroy
     if session[:admin_email]
       @rsvp = Rsvp.find(params[:id])
-      @rsvp.destroy
+      @rsvp.destroy!
       flash[:notice] = "rsvp '#{@rsvp.id}' deleted successfully."
       redirect_to(rsvps_path)
     else
@@ -106,6 +106,6 @@ class RsvpsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def rsvp_params
-    params.require(:rsvp).permit(:event_id, :userid, :rsvped)
+    params.require(:rsvp).permit(:event_id, :user_id, :rsvped)
   end
 end

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # location: spec/feature/integration_spec.rb
 require 'rails_helper'
 
-#admin integration tests
-RSpec.describe 'Admin integration test: ', type: :feature do
-  scenario 'valid inputs' do
+# admin integration tests
+RSpec.describe('Admin integration test: ', type: :feature) do
+  it 'valid inputs' do
     visit new_registration_path
     fill_in 'admin_name', with: 'Ankith'
     fill_in 'admin_email', with: 'test@gmail.com'
@@ -11,35 +13,34 @@ RSpec.describe 'Admin integration test: ', type: :feature do
     click_on 'Create Admin'
     visit events_path
 
-    expect(page).to have_content('Ankith')
+    expect(page).to(have_content('Ankith'))
   end
 
-  scenario 'admin with invalid characters' do
+  it 'admin with invalid characters' do
+    visit new_registration_path
+    fill_in 'admin_name', with: ')(*&^%$#@'
+    fill_in 'admin_email', with: 'test@gmail.com'
+    fill_in 'admin_password', with: '1234'
+    click_on 'Create Admin'
+    visit events_path
+
+    expect(page).not_to(have_content('Ankith'))
+  end
+
+  it 'logout as admin' do
     visit new_registration_path
     fill_in 'admin_name', with: 'Ankith'
     fill_in 'admin_email', with: 'test@gmail.com'
     fill_in 'admin_password', with: '1234'
     click_on 'Create Admin'
     visit events_path
+    expect(page).to(have_content('Ankith'))
+    click_on 'Logout'
 
-    expect(page).to have_content('Ankith')
+    expect(page).not_to(have_content('Ankith'))
   end
 
-  scenario 'logout as admin' do
-    visit new_registration_path
-    fill_in 'admin_name', with: 'Ankith'
-    fill_in 'admin_email', with: 'test@gmail.com'
-    fill_in 'admin_password', with: '1234'
-    click_on 'Create Admin'
-    visit events_path
-    expect(page).to have_content('Ankith')
-
-    visit loginout_path
-    visit events_path
-    expect(page).not_to have_content('Ankith')
-  end
-
-  scenario 'update an existing admin' do
+  it 'update an existing admin' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
 
     visit edit_admin_path(id: admin)
@@ -47,11 +48,11 @@ RSpec.describe 'Admin integration test: ', type: :feature do
     click_on 'Update Admin'
 
     visit admin_path(id: admin)
-    expect(page).to have_content('Sean')
+    expect(page).to(have_content('Sean'))
   end
 
-  scenario 'delete existing admin' do
+  it 'delete existing admin' do
     admin = Admin.create!(name: 'Sean', email: 'test@gmail.com', password: '1234')
-    admin.destroy
+    admin.destroy!
   end
 end

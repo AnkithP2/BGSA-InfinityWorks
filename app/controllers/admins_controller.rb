@@ -45,16 +45,15 @@ class AdminsController < ApplicationController
   end
 
   # DELETE /admins/1 or /admins/1.
-  '
+
   def destroy
-    @admin.destroy
+    @admin.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: "Admin was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to(admins_url, notice: 'Admin was successfully destroyed.') }
+      format.json { head(:no_content) }
     end
   end
-  '
 
   private
 

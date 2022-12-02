@@ -4,19 +4,19 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
   end
 
   def show
     @user = User.find(params[:id])
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
   end
 
   # To cover if value on the database have defaults for forms
   # to fill in
   # create the form
   def new
-    @admin = (Admin.find_by_email(session[:admin_email]) if session[:admin_email])
+    @admin = (Admin.find_by(email: session[:admin_email]) if session[:admin_email])
     if session[:admin_email]
       @user = User.new
     else
@@ -79,8 +79,8 @@ class UsersController < ApplicationController
   def destroy
     if session[:admin_email]
       @user = User.find(params[:id])
-      @user.destroy
-      flash[:notice] = "user '#{@user.id}' deleted successfully."
+      @user.destroy!
+      flash[:notice] = "user '#{@user_id}' deleted successfully."
       redirect_to(users_path)
     else
       message = 'You need admin permissions to destroy'

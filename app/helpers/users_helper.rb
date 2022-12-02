@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 # ENABLE ONCE WE DETERMINE WHAT TO DO WITH MENTORS AND MENTEES
 
 # Helper for users
 module UsersHelper
-  def is_admin
+  def admin?
     return true if session[:admin_email]
   end
   '

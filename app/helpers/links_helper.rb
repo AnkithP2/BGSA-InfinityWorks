@@ -2,7 +2,7 @@
 
 # Helper for links
 module LinksHelper
-  def is_admin
+  def admin?
     return true if session[:admin_email]
   end
 end
