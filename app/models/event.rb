@@ -7,7 +7,7 @@ class Event < ApplicationRecord
   has_many :rsvps, dependent: :destroy
 
   # only allows alphabetic characters and removes newline options
-  validates :name, format: { with:  /\A[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*\z/ }
+  validates :title, format: { with: /\A[A-Za-z0-9]+\z/ }
 
   # only allows start time to be before or at end time
   # validates :endtime, comparison: { greater_than: :starttime }
